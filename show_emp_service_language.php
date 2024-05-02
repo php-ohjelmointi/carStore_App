@@ -1,15 +1,5 @@
 <?php 
-   $host = 'localhost:3307';  
-   $user = 'root';  
-   $pass = 'test123'; 
-   $db = "car_store"; 
-   $conn = mysqli_connect($host, $user, $pass,$db);  
-   if(! $conn )  
-   {  
-     die('Could not connect: ' . mysqli_error());  
-   }  
-   echo 'Connected successfully';  
-   echo '<br />-------------------------------------------<br />'; 
+     require 'db.php';
 
 
    //SQL query
@@ -159,7 +149,7 @@
         <option value="ARA">arabic</option>
         <option value="THI">thai</option>
         <option value="TUR">turkish</option>
-        <option value="TAJIK">tajiki</option>
+        <option value="TJ">tajiki</option>
         <option value="CHI">chineese</option>
         <option value="PER">persian</option>
         <option value="POR">portogues</option>
@@ -172,8 +162,6 @@
     </select>
       
     <br />
-
-
     <button type="submit" name="addnewlanguage" class="btn btn-success form-control" >Submit</button>
     <br/><br/>
     <a href="index.php"><button type="button" class="btn btn-default form-control">GO BACK</button></a>

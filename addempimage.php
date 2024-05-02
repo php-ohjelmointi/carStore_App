@@ -1,25 +1,14 @@
 <?php 
      require 'db.php';
 
-   $GetCarsImage= "SELECT VIN, group_concat(i.Image_Name) AS CarImages
-   FROM images AS i
-    GROUP BY i.VIN";
-
     //Getting all cars
-    $GetAllCars = "SELECT 
-        c.VIN,
-        c.Number_Plate,
-        b.Name AS BrandName,
-        c.Model
-    FROM cars AS c
-        INNER JOIN  brands AS b 
-        ON c.Brand_ID = b.Brand_ID
-        ORDER BY c.Date_OF_Add DESC";
-    $GetAllCars_Result = mysqli_query($conn,$GetAllCars);
+    $GetAllEmployees = "SELECT * FROM employees";
+    $GetAllEmployees_Result = mysqli_query($conn,$GetAllEmployees);
 
 
     if(isset($_FILES["image"])){
-        $VIN = mysqli_real_escape_string($conn,$_POST['VIN']);
+        $SSN = mysqli_real_escape_string($conn,$_POST['SSN']);
+        
         $message = "";
         $allowedTypes = ["png","jpg","jpeg"];
         $fileType = strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));
@@ -33,13 +22,11 @@
         }
         //Upload Image
         else{
-          $Random = rand(10,99999);
-          $fileName = $VIN."_".$Random.".".$fileType;
+          $fileName = $SSN.".".$fileType;
           //Move image into 'uploads' Folder
-          if(move_uploaded_file($_FILES["image"]["tmp_name"],"images/cars/".$fileName)){
+          if(move_uploaded_file($_FILES["image"]["tmp_name"],"images/employees/".$fileName)){
             //Save image name in database
-            //$sql ="insert into tbl_images(image) values ('{$fileName}')";
-            $sql = "INSERT INTO images (`VIN`,`Image_Name`) VALUES ('$VIN','$fileName')";
+            $sql = "INSERT INTO images (`SSN`,`Image_Name`,`Img_Type`) VALUES ('$SSN','$fileName','EMP')";
             if($conn->query($sql)){
               $message = "<div class='alert alert-success'>Image Upload Successfully.</div>";
             }else{
@@ -47,10 +34,10 @@
             }
           }else{
             $message = "<div class='alert alert-danger'>Image Upload Failed.Try Again.</div>";
-          }
+          } 
         }
       }
-   
+    
   
   
 ?>
@@ -91,8 +78,7 @@
 <body>
 <br />
 <a href="index.php"><button type="button" class="btn btn-default btn-xs">MAIN PAGE</button></a>
-<a href="addshow_features.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW feature</button></a>
-<a href="addnewcar.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW CAR</button></a>
+<a href="addnewemployee.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW employee</button></a>
 <br /> <br />
 
 
@@ -100,45 +86,52 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>VIN</th>
+        <th>Emp_ID</th>
         <th>Image</th>
+        <th>Image Name</th>
       </tr>
     </thead>
     <tbody>
-      <?php 
-            $sql ="select * from images ORDER BY Date_OF_Add desc";
+      
+    <?php 
+            $sql ="SELECT e.SSN,e.F_Name,e.L_Name,I.Image_Name 
+            FROM images as I
+              INNER JOIN employees as e ON I.SSN = e.SSN
+              WHERE  I.Img_Type = 'EMP'
+              ORDER BY I.Date_OF_Add DESC";
             $res = $conn->query($sql);
             $i=0;
             while($row = $res->fetch_assoc()){
                 
-              $VIN = $row["VIN"];
+              $SSN = $row["SSN"];
               $Image_Name = $row["Image_Name"];
+              $EMP_Name =  $row["F_Name"]." ".$row["L_Name"];
               echo "
                 <tr>
-                  <td>{$VIN}</td>
-                  <td><img src='images/cars/{$row["Image_Name"]}' style='height:80px;' ></td>
-                  <td>{$Image_Name}</td>
+                  <td>{$SSN}</td>
+                  <td><img src='images/employees/{$row["Image_Name"]}' style='height:100px;width:150px;' ></td>
+                  <td>{$EMP_Name}</td>
                 </tr>
               ";
             }
         ?>
     </tbody>
   </table>
-    <form method='post' action='addCarImages.php' enctype='multipart/form-data' >
-        <select name="VIN" id="email" class="form-control">
+    <form method='post' action='addempimage.php' enctype='multipart/form-data' >
+        <select name="SSN" id="email" class="form-control">
           <option Value=" ">Choose car</option>
         
           <?php 
               // use a while loop to fetch data 
               // from the $all_categories variable 
               // and individually display as an option
-              while ($AllCars = mysqli_fetch_array($GetAllCars_Result,MYSQLI_ASSOC)):; 
+              while ($AllEmp = mysqli_fetch_array($GetAllEmployees_Result,MYSQLI_ASSOC)):; 
                       
           ?>
-              <option value="<?php echo $AllCars["VIN"];
+              <option value="<?php echo $AllEmp["SSN"];
                   // The value we usually set is the primary key
               ?>">
-                  <?php echo $AllCars["Number_Plate"]." - ".$AllCars["BrandName"]." ".$AllCars["Model"];
+                  <?php echo $AllEmp["Emp_ID"]." - ".$AllEmp["SSN"]." - ".$AllEmp["F_Name"]." ".$AllEmp["L_Name"];
                       // To show the category name to the user
                   ?>
               </option>

@@ -3,10 +3,18 @@
 
 
   //SQL query get Customer credentials
-  $GettingCustomerCredentials = "SELECT * FROM customer_credentials ORDER BY Date_OF_Add DESC";
+  $GettingCustomerCredentials = "SELECT concat(CD.F_Name,' ',CD.L_Name) AS Fullname,count(CL.Row_ID) AS NOL,CD.Username,MAX(CL.Date) AS lastlogin
+    FROM customer_credentials AS CD
+        INNER JOIN credentials_logs AS CL ON CD.Credentials_ID = CL.Credentials_ID
+        GROUP BY CL.Credentials_ID
+    ORDER BY CL.Date DESC";
   
   //SQL query get Employee credentials
-  $GettingEmployeeCredentials = "SELECT * FROM employee_credentials ORDER BY Date_OF_Add DESC";
+  $GettingEmployeeCredentials = "SELECT concat(EC.F_Name,' ',EC.L_Name) AS Fullname,count(CL.Row_ID) AS NOL,EC.Username,MAX(CL.Date) AS lastlogin
+  FROM employee_credentials AS EC
+      INNER JOIN credentials_logs AS CL ON EC.Credentials_ID = CL.Credentials_ID
+      GROUP BY CL.Credentials_ID
+  ORDER BY CL.Date DESC";
 
 ?>
 
@@ -53,10 +61,11 @@ a button {
 <a href="index.php"><button type="button" class="btn btn-default btn-xs">MAIN PAGE</button></a>
 <a href="addcustomercredentials.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW Customer credentials</button></a>
 <a href="addnewemployecredentials.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW Employee CREDENTIALS</button></a>
+<a href="addnewcredLOG.php"><button type="button" class="btn btn-primary btn-xs">ADD CREDENTIALS LOG</button></a>
 <br /><br />
 <div class="headingtext">
-  <h2>Customer<h2>
-  <h2 style="margin-left:38.5em;">Employees<h2>
+  <h2>Customer logs<h2>
+  <h2 style="margin-left:26em;">Employees logs<h2>
 </div>
 
 <!-- Customer-->
@@ -65,11 +74,10 @@ a button {
       <thead>
       
         <tr>
-          <th>Credentials_ID</th>
-          <th>Name</th>
+          <th>Fullname</th>
+          <th>Number OF attemps</th>
           <th>Username</th>
-          <th>Password</th>
-          <th>Date OF ADD</th>
+          <th>Last Login</th>
         </tr>
       </thead>
       <tbody>
@@ -78,22 +86,17 @@ a button {
           if ($GettingCustomerCredentialsResult->num_rows > 0) {
               // output data of each row
               while($row = $GettingCustomerCredentialsResult->fetch_assoc()) {
-                  $Credentials_ID = $row["Credentials_ID"];
-                  $F_Name  = $row["F_Name"];
-                  $L_Name  = $row["L_Name"];
-                  $Username  = $row["Username"];
-                  $Password  = $row["Password"];
-                  $Date_OF_Add  = $row["Date_OF_Add"];
-                  
-
-                  echo "<tr>";
-                  echo "<td>$Credentials_ID</td>";
-                  echo "<td>$F_Name $L_Name</td>";
-                  echo "<td> $Username</td>";
-                  echo "<td> $Password</td>";
-                  echo "<td> $Date_OF_Add</td>";
-                  echo "</tr>";
-                  
+                $Fullname = $row["Fullname"];
+                $Username  = $row["Username"];
+                $Date_OF_LOGIN  = $row["lastlogin"];
+                $Number_OF_LOGIN  = $row["NOL"];
+                
+                echo "<tr>";
+                echo "<td>$Fullname</td>";
+                echo "<td>($Number_OF_LOGIN)</td>";
+                echo "<td> $Username</td>";
+                echo "<td> $Date_OF_LOGIN</td>";
+                echo "</tr>";
               }
           } else {
         
@@ -107,11 +110,10 @@ a button {
       <thead>
         <tr>
         <tr>
-          <th>Credentials_ID</th>
-          <th>Name</th>
+          <th>Fullname</th>
+          <th>Number OF attemps</th>
           <th>Username</th>
-          <th>Password</th>
-          <th>Date OF ADD</th>
+          <th>Last Login</th>
         </tr>
         </tr>
       </thead>
@@ -121,20 +123,16 @@ a button {
           if ($GettingEmployeeCredentialsResult->num_rows > 0) {
               // output data of each row
               while($row = $GettingEmployeeCredentialsResult->fetch_assoc()) {
-                $Credentials_ID = $row["Credentials_ID"];
-                $F_Name  = $row["F_Name"];
-                $L_Name  = $row["L_Name"];
+                $Fullname = $row["Fullname"];
                 $Username  = $row["Username"];
-                $Password  = $row["Password"];
-                $Date_OF_Add  = $row["Date_OF_Add"];
+                $Date_OF_LOGIN  = $row["lastlogin"];
+                $Number_OF_LOGIN  = $row["NOL"];
                 
-
                 echo "<tr>";
-                echo "<td>$Credentials_ID</td>";
-                echo "<td>$F_Name $L_Name</td>";
+                echo "<td>$Fullname</td>";
+                echo "<td>($Number_OF_LOGIN)</td>";
                 echo "<td> $Username</td>";
-                echo "<td> $Password</td>";
-                echo "<td> $Date_OF_Add</td>";
+                echo "<td> $Date_OF_LOGIN</td>";
                 echo "</tr>";
                   
               }

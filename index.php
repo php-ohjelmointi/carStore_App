@@ -1,17 +1,6 @@
 <?php 
-   $host = 'localhost:3307';  
-   $user = 'root';  
-   $pass = 'test123'; 
-   $db = "car_store"; 
-   $conn = mysqli_connect($host, $user, $pass,$db);  
-   if(! $conn )  
-   {  
-     die('Could not connect: ' . mysqli_error());  
-   }  
-   echo 'Connected successfully';  
-   echo '<br />-------------------------------------------<br />'; 
-
-
+  require 'db.php';
+  
    //Counting cours
    $sql_countCars = "SELECT count(Row_ID) AS numberOFCars FROM cars";
    $countCars = mysqli_query($conn,$sql_countCars);
@@ -101,8 +90,12 @@
 <style>
     .card{
         display: inline-grid;
-        grid-template-columns: auto auto auto auto auto;
-        margin-left:5em;
+        grid-template-columns: auto auto auto auto;
+        margin-left:2em;
+    }
+    .imagegrid{
+        display: inline-grid;
+        grid-template-columns: auto auto;
     }
     .well{
         width:30em !important;
@@ -117,15 +110,15 @@
     }
 
     span{
-        font-size:30px;
+        font-size:20px;
         font-weight:bold;
         float:right;
         margin-right:15px;
     }
 
     button{
-        width:255px;
-        margin-left:50px;
+        width:170px;
+        margin-left:15px;
     }
 
 </style>
@@ -135,39 +128,47 @@
     <div class="well">
         <h1 style="border-bottom:1px solid gray;">Cars</h1>
         <br />
-        <p>Cars (TOTAL): <span><?php echo $CarsNumber; ?></span></p><br /><br />
-        <a href="addnewcar.php"><button type="button" class="btn btn-success ">Add new car</button></a>
-        <br /><br />
+        <p>Cars (TOTAL): <span><?php echo $CarsNumber; ?></span></p><br />
+    <div class="imagegrid">
+        <a href="addnewcar.php"><button type="button" class="btn btn-success ">+ new car</button></a>
         <a href="All_cars.php"><button type="button" class="btn btn-primary">All cars</button></a>
+    </div>
         <br /><br />
-        <a href="addshow_features.php"><button type="button" class="btn btn-warning ">Add/ Show Features</button></a>
+
+    <div class="imagegrid">
+        <a href="addshow_features.php"><button type="button" class="btn btn-warning ">A/S Features</button></a>
+        <a href="addnewfeatureFOR_CAR.php"><button type="button" class="btn btn-warning">A/S car feat.</button></a>
+    </div>
         <br /><br />
-        <a href="addnewfeatureFOR_CAR.php"><button type="button" class="btn btn-warning">ADD/Show feature for car</button></a>
+
+    <div class="imagegrid">
+        <a href="All_CarsByFeatures.php"><button type="button" class="btn btn-primary">Cars By Feature</button></a>
+        <a href="addCarImages.php"><button type="button" class="btn btn-success">+ car images</button></a>
+    </div> 
         <br /><br />
-        <a href="All_CarsByFeatures.php"><button type="button" class="btn btn-primary">All cars by Feature</button></a>
-        <br /><br />
-        <a href="addCarImages.php"><button type="button" class="btn btn-success">ADD car images</button></a>
-        <br /><br />
+
+    <div class="imagegrid">
         <a href="All_CarsByStores.php"><button type="button" class="btn btn-primary">cars by stores</button></a>
-        <br /><br />
         <a href="All_CarsByBranches.php"><button type="button" class="btn btn-primary">cars by Branch</button></a>
-        
+    </div>   
+
     </div>
 
     <div class="well">
         <h1 style="border-bottom:1px solid gray;">Stores</h1>
         <br />
         <p>Stores (TOTAL): <span><?php echo $StoresNumber; ?></span></p>
+        <br />
+    <div class="imagegrid">
+        <a href="addnewbranch.php"> <button type="button" class="btn btn-success ">+ branch</button></a>
+        <a href="addnewstore.php"> <button type="button" class="btn btn-success ">+ store</button></a>
+    </div> 
         <br /><br />
-        <a href="addnewbranch.php"> <button type="button" class="btn btn-success ">Add new branch</button></a>
-        <br /><br />
-        <a href="addnewstore.php"> <button type="button" class="btn btn-success ">Add new store</button></a>
-        <br /><br />
+        <a href="addStoreImage.php"> <button type="button" class="btn btn-success ">+ store image</button></a>
         <a href="All_stores.php"><button type="button" class="btn btn-primary">All stores</button></a>
         <br /><br />
         <a href="All_branches.php"><button type="button" class="btn btn-primary">All branches</button></a>
-        <br /><br />
-        <a href="All_StoresByBranches.php"><button type="button" class="btn btn-primary">Number store by Branch</button></a>
+        <a href="All_StoresByBranches.php"><button type="button" class="btn btn-primary">store by branch</button></a>
        
     </div>
 
@@ -175,43 +176,53 @@
         <h1 style="border-bottom:1px solid gray;">Customers</h1>
         <br />
         <p>Customers (TOTAL): <span><?php echo $CustomerNumber; ?></span></p>
-        <br /><br />
-        <a href="addnewcustomer.php"> <button type="button" class="btn btn-success ">Add new customer</button></a>
-        <br /><br />
+        <br />
+    <div class="imagegrid">
+        <a href="addnewcustomer.php"> <button type="button" class="btn btn-success ">+ customer</button></a>
         <a href="All_customer.php"><button type="button" class="btn btn-primary">All customers</button></a>
+    </div>
     </div>
 
     <div class="well">
         <h1 style="border-bottom:1px solid gray;">Employees</h1>
         <br />
         <p>Employees (TOTAL): <span><?php echo $EmployeeNumber; ?></span></p>
-        <br /><br />
+        <br />
 
-            <a href="addnewemployee.php"> <button type="button" class="btn btn-success ">Add new employee</button></a>
+        <div class="imagegrid">
+            <a href="addnewemployee.php"> <button type="button" class="btn btn-success ">+ employee</button></a>
+            <a href="addworkingplace.php"> <button type="button" class="btn btn-success ">+ working place</button></a>
+        </div>
             <br /><br />
-            <a href="addworkingplace.php"> <button type="button" class="btn btn-success ">Add working place</button></a>
+
+        <div class="imagegrid">
+            <a href="addworkingtitle.php"> <button type="button" class="btn btn-success ">+ working title</button></a>
+            <a href="addsalary.php"> <button type="button" class="btn btn-success ">+ salary</button></a>
+        </div> 
             <br /><br />
-            <a href="addworkingtitle.php"> <button type="button" class="btn btn-success ">Add working title</button></a>
-            <br /><br />
-            <a href="addsalary.php"> <button type="button" class="btn btn-success ">Add salary</button></a>
-            <br /><br />
+        <div class="imagegrid">
+            <a href="addempimage.php"> <button type="button" class="btn btn-success ">+ Image</button></a>
             <a href="All_employees.php"><button type="button" class="btn btn-primary">All employees</button></a>
+        </div> 
             <br /><br />
-            <a href="All_Tiitles_Salaries.php"><button type="button" class="btn btn-primary">Al Titles and salaries</button></a>
-            <br /><br />
-            <a href="show_emp_service_language.php"><button type="button" class="btn btn-warning">ADD/show service Lang.</button></a>
+
+        <div class="imagegrid">
+            <a href="All_Tiitles_Salaries.php"><button type="button" class="btn btn-primary">Title and salary</button></a>
+            <a href="show_emp_service_language.php"><button type="button" class="btn btn-warning">A/S serv. Lang.</button></a>
+        </div> 
     </div>
 
     <div class="well">
         <h1 style="border-bottom:1px solid gray;">Credentials</h1>
         <p>Credentials (TOTAL): <span><?php echo $CredentialsNumber; ?></span></p><br />
+        <a href="All_credentials.php"><button type="button" class="btn btn-primary">All Credentials</button></a>
+        <a href="credentialslogs.php"><button type="button" class="btn btn-primary">Credentials logs</button></a>
         <br /><br />
-        <a href="All_credentials.php"><button type="button" class="btn btn-primary">Show All credentials</button></a>
-        <br /><br />
-        <a href="addnewemployecredentials.php"> <button type="button" class="btn btn-success ">Add Employee credentials</button></a>
-        <br /><br />
-        <a href="addcustomercredentials.php"> <button type="button" class="btn btn-success ">Add Customer credentials</button></a>
 
+        <div class="imagegrid">
+            <a href="addnewemployecredentials.php"> <button type="button" class="btn btn-success ">+ Employee cred.</button></a>
+            <a href="addcustomercredentials.php"> <button type="button" class="btn btn-success">+ Customer cred.</button></a>
+        </div> 
     </div>
 
     

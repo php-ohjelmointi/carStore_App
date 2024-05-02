@@ -1,23 +1,9 @@
 <?php 
-    $host = 'localhost:3307';  
-    $user = 'root';  
-    $pass = 'test123'; 
-    $db = "car_store"; 
-    $conn = mysqli_connect($host, $user, $pass,$db);  
-    if(! $conn )  
-    {  
-    die('Could not connect: ' . mysqli_error());  
-    }  
-    echo 'Connected successfully'; 
-    
-    
+      require 'db.php';
 
   //SQL query postalcodes
   $sql_postalcodes = "SELECT * FROM postalcodes";
   $all_sql_postalcodes = mysqli_query($conn,$sql_postalcodes);
-
- 
-
 
   if(isset($_POST['addemployee'])){
     $SSN = mysqli_real_escape_string($conn,$_POST['SSN']);
@@ -29,16 +15,9 @@
     $Address = mysqli_real_escape_string($conn,$_POST['Address']);
     $PostalCode= mysqli_real_escape_string($conn,$_POST['PostalCode']);
  
- 
     $AddNewEmployee ="INSERT INTO employees (`SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`, `Email`, `Address`, `PostalCode`) 
                     VALUES ('$SSN','$F_Name','$L_Name','$Gender','$Phone','$Email','$Address','$PostalCode')";
     $AddNewEmployeeKysely = mysqli_query($conn, $AddNewEmployee) or die (mysqli_error($conn));
-
-    $AddNewEmployee ="INSERT INTO employees (`SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`, `Email`, `Address`, `PostalCode`) 
-                    VALUES ('$SSN','$F_Name','$L_Name','$Gender','$Phone','$Email','$Address','$PostalCode')";
-    $AddNewEmployeeKysely = mysqli_query($conn, $AddNewEmployee) or die (mysqli_error($conn));
-
-
 
     $FOREIGN_KEY_CHECKS ="SET FOREIGN_KEY_CHECKS = OFF";
 
@@ -49,9 +28,7 @@
                         {
                             header('Location:All_employees.php');
                         }
-            }
-
-                 
+            }  
     }
 ?>
 
