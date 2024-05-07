@@ -177,10 +177,18 @@
         <br />
         <p>Customers (TOTAL): <span><?php echo $CustomerNumber; ?></span></p>
         <br />
-    <div class="imagegrid">
-        <a href="addnewcustomer.php"> <button type="button" class="btn btn-success ">+ customer</button></a>
-        <a href="All_customer.php"><button type="button" class="btn btn-primary">All customers</button></a>
-    </div>
+        
+        <div class="imagegrid">
+            <a href="addnewcustomer.php"> <button type="button" class="btn btn-success ">+ customer</button></a>
+            <a href="All_customer.php"><button type="button" class="btn btn-primary">All customers</button></a>
+        </div>
+        
+        <br/><br/>
+        
+        <div class="imagegrid">
+            <a href="addnewcustomer_car.php"> <button type="button" class="btn btn-success ">+ Customer cars</button></a>
+            <a href="All_own_cust_cars.php"><button type="button" class="btn btn-primary">All own cars</button></a>
+        </div>
     </div>
 
     <div class="well">
@@ -222,6 +230,12 @@
         <div class="imagegrid">
             <a href="addnewemployecredentials.php"> <button type="button" class="btn btn-success ">+ Employee cred.</button></a>
             <a href="addcustomercredentials.php"> <button type="button" class="btn btn-success">+ Customer cred.</button></a>
+        </div>
+        <br /><br />
+
+        <div class="imagegrid">
+            <a href="addnewemployecredentialsLOG.php"> <button type="button" class="btn btn-success ">+ EMP cred LOG</button></a>
+            <a href="addcustomercredentialsLOG.php"> <button type="button" class="btn btn-success">+ Cust cred LOG</button></a>
         </div> 
     </div>
 

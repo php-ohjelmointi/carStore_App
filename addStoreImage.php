@@ -3,12 +3,13 @@
 
    
     //Getting all cars
-    $GetAllStores = "SELECT * FROM stores;";
+    $GetAllStores = "SELECT * FROM stores WHERE Image_Name IS NULL";
     $GetAllStores_Result = mysqli_query($conn,$GetAllStores);
 
 
     if(isset($_FILES["image"])){
         $Store_ID = mysqli_real_escape_string($conn,$_POST['Store_ID']);
+
         $message = "";
         $allowedTypes = ["png","jpg","jpeg"];
         $fileType = strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));
@@ -17,7 +18,7 @@
           $message = "<div class='alert alert-danger'>Image Upload Failed.Invalid Image Format.</div>";
         }
         //Check Image Size greater than 300KB
-        elseif($_FILES["image"]["size"]>307200){
+        elseif($_FILES["image"]["size"]>3074545454200){
           $message = "<div class='alert alert-danger'>Image Upload Failed.Image Size greater than 300KB.</div>";
         }
         //Upload Image
@@ -27,9 +28,10 @@
           if(move_uploaded_file($_FILES["image"]["tmp_name"],"images/stores/".$fileName)){
             //Save image name in database
             //$sql ="insert into tbl_images(image) values ('{$fileName}')";
-            $sql = "INSERT INTO images (`Store_ID`,`Image_Name`,`Img_Type`) VALUES ('$Store_ID','$fileName','STORE')";
+            $sql = "UPDATE stores SET `Image_Name`=('$fileName') WHERE Store_ID = '$Store_ID' ";
             if($conn->query($sql)){
               $message = "<div class='alert alert-success'>Image Upload Successfully.</div>";
+              echo "<script>location.replace(location.addStoreImage.php);</script>";
             }else{
               $message = "<div class='alert alert-danger'>Image Upload Failed.Try Again.</div>";
             }
@@ -88,29 +90,22 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>Store_ID</th>
+        <th>Store_Name</th>
         <th>Image</th>
-        <th>Image Name</th>
       </tr>
     </thead>
     <tbody>
       <?php 
-            $sql ="SELECT s.Store_ID,s.Store_Name,I.Image_Name 
-                FROM images as I
-            INNER JOIN stores as s ON I.Store_ID = s.Store_ID 
-            ORDER BY I.Date_OF_Add DESC";
+            $sql ="SELECT Store_Name,Image_Name FROM stores WHERE Image_Name IS NOT NULL";
 
             $res = $conn->query($sql);
             while($row = $res->fetch_assoc()){
                 
-              $Store_ID  = $row["Store_ID"];
-              $Image_Name = $row["Image_Name"];
               $Store_Name = $row["Store_Name"];
               echo "
                 <tr>
-                  <td>{$Store_ID }</td>
-                  <td><img src='images/stores/{$row["Image_Name"]}' style='height:80px;width:200px;' ></td>
                   <td>{$Store_Name}</td>
+                  <td><img src='images/stores/{$row["Image_Name"]}' style='height:170px;width:300px;' ></td>
                 </tr>
               ";
             }

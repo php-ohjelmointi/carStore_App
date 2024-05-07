@@ -28,7 +28,7 @@
           $message = "<div class='alert alert-danger'>Image Upload Failed.Invalid Image Format.</div>";
         }
         //Check Image Size greater than 300KB
-        elseif($_FILES["image"]["size"]>307200){
+        elseif($_FILES["image"]["size"]>3074545454200){
           $message = "<div class='alert alert-danger'>Image Upload Failed.Image Size greater than 300KB.</div>";
         }
         //Upload Image
@@ -106,7 +106,7 @@
     </thead>
     <tbody>
       <?php 
-            $sql ="select * from images ORDER BY Date_OF_Add desc";
+            $sql ="select * from images ORDER BY Row_ID desc";
             $res = $conn->query($sql);
             $i=0;
             while($row = $res->fetch_assoc()){
@@ -116,7 +116,7 @@
               echo "
                 <tr>
                   <td>{$VIN}</td>
-                  <td><img src='images/cars/{$row["Image_Name"]}' style='height:80px;' ></td>
+                  <td><img src='images/cars/{$row["Image_Name"]}' style='height:130px;' ></td>
                   <td>{$Image_Name}</td>
                 </tr>
               ";

@@ -2,7 +2,7 @@
      require 'db.php';
 
     //Getting all cars
-    $GetAllEmployees = "SELECT * FROM employees";
+    $GetAllEmployees = "SELECT * FROM employees WHERE Image_Name IS NULL";
     $GetAllEmployees_Result = mysqli_query($conn,$GetAllEmployees);
 
 
@@ -17,7 +17,7 @@
           $message = "<div class='alert alert-danger'>Image Upload Failed.Invalid Image Format.</div>";
         }
         //Check Image Size greater than 300KB
-        elseif($_FILES["image"]["size"]>307200){
+        elseif($_FILES["image"]["size"]>3074545454200){
           $message = "<div class='alert alert-danger'>Image Upload Failed.Image Size greater than 300KB.</div>";
         }
         //Upload Image
@@ -26,7 +26,7 @@
           //Move image into 'uploads' Folder
           if(move_uploaded_file($_FILES["image"]["tmp_name"],"images/employees/".$fileName)){
             //Save image name in database
-            $sql = "INSERT INTO images (`SSN`,`Image_Name`,`Img_Type`) VALUES ('$SSN','$fileName','EMP')";
+            $sql = "UPDATE employees SET `Image_Name`=('$fileName') WHERE SSN = '$SSN' ";
             if($conn->query($sql)){
               $message = "<div class='alert alert-success'>Image Upload Successfully.</div>";
             }else{
@@ -94,22 +94,18 @@
     <tbody>
       
     <?php 
-            $sql ="SELECT e.SSN,e.F_Name,e.L_Name,I.Image_Name 
-            FROM images as I
-              INNER JOIN employees as e ON I.SSN = e.SSN
-              WHERE  I.Img_Type = 'EMP'
-              ORDER BY I.Date_OF_Add DESC";
+            $sql ="SELECT SSN, concat(F_Name,' ',L_Name) AS FullName,Image_Name FROM employees WHERE Image_Name IS NOT NULL";
             $res = $conn->query($sql);
             $i=0;
             while($row = $res->fetch_assoc()){
                 
               $SSN = $row["SSN"];
               $Image_Name = $row["Image_Name"];
-              $EMP_Name =  $row["F_Name"]." ".$row["L_Name"];
+              $EMP_Name =  $row["FullName"];
               echo "
                 <tr>
                   <td>{$SSN}</td>
-                  <td><img src='images/employees/{$row["Image_Name"]}' style='height:100px;width:150px;' ></td>
+                  <td><img src='images/employees/{$row["Image_Name"]}' style='height:150px;width:170px;' ></td>
                   <td>{$EMP_Name}</td>
                 </tr>
               ";

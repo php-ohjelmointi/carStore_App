@@ -61,7 +61,8 @@ a button {
 <a href="index.php"><button type="button" class="btn btn-default btn-xs">MAIN PAGE</button></a>
 <a href="addcustomercredentials.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW Customer credentials</button></a>
 <a href="addnewemployecredentials.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW Employee CREDENTIALS</button></a>
-<a href="addnewcredLOG.php"><button type="button" class="btn btn-primary btn-xs">ADD CREDENTIALS LOG</button></a>
+<a href="addcustomercredentialsLOG.php"><button type="button" class="btn btn-primary btn-xs">ADD Customer CREDENTIALS LOG</button></a>
+<a href="addemployeecredentialsLOG.php"><button type="button" class="btn btn-primary btn-xs">ADD Employee CREDENTIALS LOG</button></a>
 <br /><br />
 <div class="headingtext">
   <h2>Customer logs<h2>
