@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Apr 29, 2024 at 11:56 AM
+-- Generation Time: May 07, 2024 at 02:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `car_store`
 --
-CREATE DATABASE IF NOT EXISTS `car_store` DEFAULT CHARACTER SET utf8 COLLATE utf8_swedish_ci;
-USE `car_store`;
 
 -- --------------------------------------------------------
 
@@ -202,7 +200,35 @@ INSERT INTO `carfeatures` (`Row_ID`, `VIN`, `Feature_ID`) VALUES
 (93, '1FTDR15X4TPA96892', 24),
 (94, '1FTDR15X4TPA96892', 57),
 (95, '1FTDR15X4TPA96892', 40),
-(96, '1FTDR15X4TPA96892', 66);
+(96, '1FTDR15X4TPA96892', 66),
+(97, '3GYFNHEY4BS0002EX', 41),
+(98, '3GYFNHEY4BS0002EX', 5),
+(99, '3GYFNHEY4BS0002EX', 16),
+(100, '3GYFNHEY4BS0002EX', 13),
+(101, '3GYFNHEY4BS0002EX', 110),
+(102, '3GYFNHEY4BS0002EX', 30),
+(103, '3GYFNHEY4BS0002EX', 13),
+(104, '3GYFNHEY4BS0002EX', 9),
+(105, '3GYFNHEY4BS0002EX', 6),
+(106, '3GYFNHEY4BS0002EX', 11),
+(107, '3GYFNHEY4BS0002EX', 107),
+(108, '3GYFNHEY4BS0002EX', 106),
+(109, '3GYFNHEY4BS0002EX', 28),
+(110, '3GYFNHEY4BS0002EX', 31),
+(111, '3GYFNHEY4BS0002EX', 32),
+(112, '3GYFNHEY4BS0002EX', 33),
+(113, '3GYFNHEY4BS0002EX', 19),
+(114, 'ZFFMN34A0L0085788', 9),
+(115, 'ZFFMN34A0L0085788', 114),
+(116, 'ZFFMN34A0L0085788', 101),
+(117, 'ZFFMN34A0L0085788', 13),
+(118, 'ZFFMN34A0L0085788', 16),
+(119, 'ZFFMN34A0L0085788', 113),
+(120, 'ZFFMN34A0L0085788', 107),
+(121, 'ZFFMN34A0L0085788', 12),
+(122, 'ZFFMN34A0L0085788', 11),
+(123, 'ZFFMN34A0L0085788', 106),
+(124, 'ZFFMN34A0L0085788', 19);
 
 -- --------------------------------------------------------
 
@@ -264,7 +290,7 @@ INSERT INTO `cars` (`Row_ID`, `VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model
 (21, '1M2AA18C0WW092489', 'KUA-347', 7, 'Octavia', 'Ambition Launch Edition DSG', 18650, 2020, 'Automatic', 'Diesel', 136000, 'Person', 'Sedan', 'FWD', 'Blue', 5, 4, '115', '1461', '227', '2.1', 93, '2024-03-18', NULL),
 (22, '3N1AB61E59L645953', 'JKC-161', 38, 'Qashqai', 'DIG-T 115 Acenta 2WD 6M/T Safety Pack', 12400, 2017, 'Manual', 'Petrol', 98000, 'Person', 'SUV', 'FWD', 'Blue', 5, 5, '86', NULL, NULL, '1.2', 19, '2024-03-21', '2024-03-21 11:33:23'),
 (24, '5YJSA1DP2DFP07403', 'VAR-657', 11, 'Model 3', 'Long-Range Dual Motor AWD', 32800, 2016, 'Automatic', 'Electric', 88000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '65', NULL, NULL, NULL, 12, '2024-03-21', '2024-04-23 14:55:27'),
-(25, '3VWJ17AT8EM646195', 'NKF-190', 9, 'Passat', 'Variant Alltrack 2,0 TDI 140 kW 4MOTION DSG', 16900, NULL, 'Automatic', 'Diesel', 220000, 'Person', 'Sedan', '4WD', 'Silver', 5, 5, NULL, NULL, NULL, NULL, 26, '2024-03-21', '2024-04-23 14:57:58'),
+(25, '3VWJ17AT8EM646195', 'NKF-190', 9, 'Passat', 'Variant Alltrack 2,0 TDI 140 kW 4MOTION DSG', 16900, NULL, 'Automatic', 'Diesel', 220000, 'Person', 'Sedan', '4WD', 'Red', 5, 5, NULL, NULL, NULL, NULL, 26, '2024-03-21', '2024-04-30 13:17:01'),
 (26, '5XYKWDA20BG098863', 'OYU-292', 32, 'Venga', '1,4 ISG EX 5D EcoDynamics', 4400, NULL, 'Automatic', 'Petrol', 184000, 'Person', 'SUV', 'FWD', 'Blue', 5, 4, NULL, NULL, NULL, 'NULL', 1, '2024-03-21', '2024-04-23 14:57:58'),
 (27, 'KNDMB5C13H6230590', 'VAR-461', 32, 'Sorento', '1,6 T-GDI Plug-in Hybrid AWD Business Premium AT 7', 40500, NULL, 'Automatic', 'Plug-In Hybrid', 11000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '0', NULL, NULL, 'NULL', 135, '2024-03-21', '2024-04-24 15:26:59'),
 (28, '4JGBB72E98A297923', 'VXN-476', 4, 'EQC', '400 4MATIC Business', 50900, NULL, 'Automatic', 'Electric', 56000, 'Person', 'SUV', '4WD', 'White', 5, 4, '0', NULL, NULL, 'NULL', 1, '2024-03-21', '2024-04-23 14:55:34'),
@@ -283,7 +309,9 @@ INSERT INTO `cars` (`Row_ID`, `VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model
 (50, 'JH4KA8260PC000495', 'GGY-123', 43, 'Formentor', 'VZ 1.4 PHEV 180 kW e-HYBRID DSG', 29890, 2023, 'Automatic', 'Plug-In Hybrid', 53000, 'Person', 'SUV', 'FWD', 'Silver', 5, 5, '110', '2120', '210', '1.4', 132, '2024-04-09', '2024-04-23 14:59:27'),
 (51, 'WBAVB13256PS66453', 'GGY-098', 2, 'X5', 'G05 xDrive45e \"X5 M\" * ACC', 74690, 2023, 'Automatic', 'Plug-In Hybrid', 82000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '290', '2150', '310', '3.0', 133, '2024-04-09', '2024-04-23 14:59:27'),
 (52, 'WP0AA2964PS820410', 'KLP-337', 16, 'Taycan', '4S Cross Turismo * Nelipyöräohjaus', 88990, 2023, 'Automatic', 'Electric', 53000, 'Person', 'Wagon', '4WD', 'Black', 5, 4, '420', '2885', '240', '0.0', 132, '2024-04-09', '2024-04-23 14:59:27'),
-(53, '1FTDR15X4TPA96892', 'UVG-483', 32, 'SPORTAGE', '1,6 ISG Urban Active EcoDynamics ', 12, 2014, 'Automatic', 'Petrol', 107, 'Person', 'SUV', 'FWD', 'Silver', 5, 4, '99', '1200', '178', '1,6', 134, '2024-04-10', '2024-04-23 14:59:27');
+(53, '1FTDR15X4TPA96892', 'UVG-483', 32, 'Sportage', '1,6 ISG Urban Active EcoDynamics ', 12, 2014, 'Automatic', 'Petrol', 107, 'Person', 'SUV', 'FWD', 'Silver', 5, 4, '99', '1200', '178', '1,6', 134, '2024-04-10', '2024-05-06 15:19:30'),
+(54, '3GYFNHEY4BS0002EX', 'SOU-807', 15, 'Escalade', 'Sport Platinum 3.0l Duramax', 184, 2023, '', 'Diesel', 150, 'Person', 'SUV', '4WD', 'White', 7, 5, ' 204', '3 500', '290', '3.0', 8, '2024-05-06', NULL),
+(55, 'ZFFMN34A0L0085788', 'WQY-449', 12, 'SF90', 'STRADALE 3.9 V8 DCT', 599, 2021, '', 'Plug-In Hybrid', 2300, 'Person', 'Coupe', '4WD', 'Black', 2, 2, '735', 'NULL', '359', '3.9', 152, '2024-05-06', '2024-05-06 14:42:22');
 
 -- --------------------------------------------------------
 
@@ -298,7 +326,7 @@ CREATE TABLE `carsold` (
   `Sold_To` int(15) NOT NULL,
   `Original_Price` int(15) NOT NULL,
   `Sold_Price` int(15) NOT NULL,
-  `Sold_Date` date NOT NULL
+  `Sold_Date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
@@ -306,9 +334,10 @@ CREATE TABLE `carsold` (
 --
 
 INSERT INTO `carsold` (`Row_ID`, `VIN`, `Sold_By`, `Sold_To`, `Original_Price`, `Sold_Price`, `Sold_Date`) VALUES
-(2, '1D7HA18N38J191236', 6, 1, 116000, 114000, '2024-03-01'),
-(3, 'YV1SW61R021197119', 6, 2, 65000, 64500, '2024-03-01'),
-(4, 'ZA9DU01B21L903178', 6, 4, 98000, 97900, '2024-03-07');
+(6, 'WDBLK70G61T061039', 22, 1, 120000, 115000, '2024-05-07'),
+(7, '1NXAE82G1HZ435690', 21, 6, 42800, 40000, '2024-05-07'),
+(8, '5XYKWDA20BG098863', 21, 7, 4400, 4000, '2023-05-07'),
+(11, 'WVWAAA3C2CE516820', 21, 9, 34400, 32000, '2024-05-07');
 
 -- --------------------------------------------------------
 
@@ -322,6 +351,41 @@ CREATE TABLE `cars_by_stores` (
 ,`Brand` varchar(15)
 ,`Model` varchar(15)
 ,`Model_Spec` varchar(50)
+,`Store_Name` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `cars_image`
+-- (See below for the actual view)
+--
+CREATE TABLE `cars_image` (
+`VIN` char(50)
+,`Number_Plate` char(15)
+,`Name` varchar(15)
+,`Model` varchar(15)
+,`NumberOFCarImages` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `car_deals`
+-- (See below for the actual view)
+--
+CREATE TABLE `car_deals` (
+`VIN` char(50)
+,`Number_Plate` char(15)
+,`BrandName` varchar(15)
+,`Model` varchar(15)
+,`Emp_SSN` char(15)
+,`Sold_BY` varchar(101)
+,`Customer_SSN` char(15)
+,`Sold_TO` varchar(101)
+,`Original_Price` int(15)
+,`Sold_Price` int(15)
+,`Deal_Date` date
 ,`Store_Name` varchar(50)
 );
 
@@ -626,7 +690,8 @@ INSERT INTO `credentials` (`Credentials_ID`, `Emp_ID`, `Customer_ID`, `Username`
 (37, 12, NULL, 'KimNilsen@teleworm.us', 'M7DSf2ENf2', '2024-04-02', NULL),
 (38, 14, NULL, 'AzharMasudahNaifeh@rhyta.com', 'g6694IXxA2', '2024-04-02', NULL),
 (39, 15, NULL, 'RuwaydahNafisahShammas@jourrapide.com', '83k7Noj3Lo', '2024-04-02', NULL),
-(40, 16, NULL, 'GersomGrinwis@jourrapide.com', '3yZ5O5aVX9', '2024-04-02', NULL);
+(40, 16, NULL, 'GersomGrinwis@jourrapide.com', '3yZ5O5aVX9', '2024-04-02', NULL),
+(41, 21, NULL, 'RistoHossi@armyspy.com', 'r6N0XAJK1/b9', '2024-05-02', NULL);
 
 -- --------------------------------------------------------
 
@@ -646,7 +711,41 @@ CREATE TABLE `credentials_logs` (
 
 INSERT INTO `credentials_logs` (`Row_ID`, `Credentials_ID`, `Date`) VALUES
 (1, 1, '2024-03-03'),
-(2, 1, '2024-03-03');
+(2, 1, '2024-03-03'),
+(3, 38, '2024-05-15'),
+(4, 19, '2024-05-16'),
+(5, 33, '2024-05-02'),
+(6, 19, '2024-05-02'),
+(7, 20, '2024-05-22'),
+(8, 20, '2024-05-05'),
+(9, 20, '2024-05-14'),
+(10, 19, '2024-05-31'),
+(11, 41, '2024-04-01'),
+(12, 41, '2024-05-02'),
+(13, 4, '2024-03-01'),
+(14, 4, '2024-05-01'),
+(17, 4, '2024-05-07'),
+(18, 4, '2024-06-01'),
+(23, 4, '2024-05-12'),
+(28, 2, '2024-05-06'),
+(29, 2, '2024-05-06'),
+(30, 2, '2024-05-04'),
+(31, 33, '2024-05-02'),
+(32, 33, '2024-05-06'),
+(33, 2, '2024-05-01'),
+(34, 2, '2024-05-01'),
+(35, 20, '2024-05-04'),
+(36, 20, '2024-05-05'),
+(37, 2, '2024-04-03'),
+(38, 26, '2024-05-05'),
+(42, 27, '2024-05-15'),
+(43, 20, '2025-01-07'),
+(44, 41, '2024-05-06'),
+(45, 41, '2024-05-06'),
+(46, 35, '2024-05-09'),
+(47, 3, '2024-05-12'),
+(48, 3, '2024-05-08'),
+(49, 3, '2024-05-07');
 
 -- --------------------------------------------------------
 
@@ -743,45 +842,64 @@ CREATE TABLE `employees` (
   `Gender` enum('Male','Female') NOT NULL,
   `Phone` varchar(15) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Image` varchar(100) NOT NULL,
   `Address` varchar(50) NOT NULL,
   `PostalCode` char(5) NOT NULL,
   `Date_OF_Add` date NOT NULL DEFAULT current_timestamp(),
   `Date_OF_Update` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Reports_To` int(15) DEFAULT NULL
+  `Reports_To` int(15) DEFAULT NULL,
+  `Image_Name` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`Emp_ID`, `SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`, `Email`, `Image`, `Address`, `PostalCode`, `Date_OF_Add`, `Date_OF_Update`, `Reports_To`) VALUES
-(6, '241003A159E', 'Joona ', 'Hautaniemi', 'Male', '041 213 8542', 'JoonaHautaniemi@dayrep.com', 'u4u46u4uu64uu', 'Keskustie 59', '00100', '2021-03-03', '2024-03-06 13:39:19', NULL),
-(7, '270772-3221', 'Katja', 'Berglund', 'Female', '044 780 2773', 'KatjaBerglund@jourrapide.com', 'uogfigygoigogougougu', 'Kangasmoisionkatu 49', '00390', '2024-03-06', '2024-03-06 13:40:58', 6),
-(8, '151187-291C', 'Ismo', 'Ahokainen', 'Male', '044 124 2790', 'IsmoAhokainen@armyspy.com', 'jtrjykurkurkryejutjyrhjukteejyhtegrwtshyjdmhngbfds', 'Norra Larsmovägen 67', '70200', '2024-03-18', '2024-03-18 15:58:36', NULL),
-(9, '260666-673B', 'Petteri', 'Viljanen', 'Male', '041 434 6692', 'PetteriViljanen@jourrapide.com', 'rtyuiuyjthgrefdwsqwdferthyjuki', 'Kunnankuja 55', '90420', '2024-03-18', '2024-03-18 15:59:12', NULL),
-(10, '290566-460L', 'Cynthia', 'A. Lindsey', 'Female', '041 854 0282\n', 'CynthiaALindsey@teleworm.us', '', 'Hätilänkatu 49', '15610', '0000-00-00', '2024-04-02 14:54:09', 8),
-(11, '220364-0989', 'Aliisa ', 'Autio', 'Female', '050 775 9997\n', 'AliisaAutio@dayrep.com', '', 'Lönnrotinkatu 84', '40320', '2024-03-12', '2024-04-02 14:58:43', NULL),
-(12, '121182-5650', 'Kim ', 'Nilsen', 'Male', '040 665 1181\n', 'KimNilsen@teleworm.us', '', 'Mämminiementie 63', '20320', '2024-03-26', '2024-04-02 14:54:38', NULL),
-(13, '210254-299R', 'Silas', 'Josefsen', 'Male', '040 005 1181\n', 'SilasJosefsen@jourrapide.com', '', 'Viinikantie 77', '13130', '2024-03-26', '2024-04-02 14:54:53', NULL),
-(14, '301250-0684', 'Azhar Mas\'udah', 'Naifeh', 'Male', '042 446 7706\n', 'AzharMasudahNaifeh@rhyta.com', '', 'Kerkkolankatu 63', '87400', '2024-03-26', '2024-04-02 14:55:07', NULL),
-(15, '310398-690Y', 'Ruwaydah Nafisah', 'Shammas', 'Female', '040 203 4405\n', 'RuwaydahNafisahShammas@jourrapide.com', '', 'Kluuvikatu 24', '01720', '2024-03-26', '2024-04-02 14:55:17', NULL),
-(16, '170267-397N', 'Gersom', 'Grinwis', 'Male', '044 441 8498', 'GersomGrinwis@jourrapide.com', '', 'Kluuvikatu 20', '01510', '2024-03-26', '2024-03-26 16:00:30', NULL),
-(17, '020986-374T', 'Caroline', 'D. Rivera', 'Female', '046 568 2014', 'CarolineDRivera@jourrapide.com', '', 'Kaarrostie 82', '01510', '2024-04-02', '2024-04-02 14:55:56', 16),
-(18, '090569-621V', 'William', 'W. Mack', 'Male', '050 243 3129', 'WilliamWMack@teleworm.us', '', 'Mämminiementie 68', '20320', '2024-04-02', '2024-04-02 14:57:08', 12),
-(19, '181268-140B', 'Elsa', 'Väyrynen', 'Female', '044 835 4723', 'ElsaVayrynen@jourrapide.com', '', 'Kangasmoisionkatu 79', '40320', '2024-04-02', '2024-04-02 11:16:53', NULL);
+INSERT INTO `employees` (`Emp_ID`, `SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`, `Email`, `Address`, `PostalCode`, `Date_OF_Add`, `Date_OF_Update`, `Reports_To`, `Image_Name`) VALUES
+(6, '241003A159E', 'Joona ', 'Hautaniemi', 'Male', '041 213 8542', 'JoonaHautaniemi@dayrep.com', 'Keskustie 59', '00100', '2021-03-03', '2024-05-06 11:30:58', NULL, '241003A159E.jpg'),
+(7, '270772-3221', 'Katja', 'Berglund', 'Female', '044 780 2773', 'KatjaBerglund@jourrapide.com', 'Kangasmoisionkatu 49', '00390', '2024-03-06', '2024-05-06 11:31:30', 6, '270772-3221.jpg'),
+(8, '151187-291C', 'Ismo', 'Ahokainen', 'Male', '044 124 2790', 'IsmoAhokainen@armyspy.com', 'Norra Larsmovägen 67', '70200', '2024-03-18', '2024-05-06 11:32:11', NULL, '151187-291C.jpg'),
+(9, '260666-673B', 'Petteri', 'Viljanen', 'Male', '041 434 6692', 'PetteriViljanen@jourrapide.com', 'Kunnankuja 55', '90420', '2024-03-18', '2024-05-06 11:32:29', NULL, '260666-673B.jpg'),
+(10, '290566-460L', 'Cynthia', 'A. Lindsey', 'Female', '041 854 0282\n', 'CynthiaALindsey@teleworm.us', 'Hätilänkatu 49', '15610', '0000-00-00', '2024-05-06 11:50:44', 8, '290566-460L.jpg'),
+(11, '220364-0989', 'Aliisa ', 'Autio', 'Female', '050 775 9997\n', 'AliisaAutio@dayrep.com', 'Lönnrotinkatu 84', '40320', '2024-03-12', '2024-05-06 11:33:09', NULL, '220364-0989.jpg'),
+(12, '121182-5650', 'Kim ', 'Nilsen', 'Male', '040 665 1181\n', 'KimNilsen@teleworm.us', 'Mämminiementie 63', '20320', '2024-03-26', '2024-05-06 11:48:09', NULL, '121182-5650.jpg'),
+(13, '210254-299R', 'Silas', 'Josefsen', 'Male', '040 005 1181\n', 'SilasJosefsen@jourrapide.com', 'Viinikantie 77', '13130', '2024-03-26', '2024-05-06 11:39:16', NULL, '210254-299R.jpg'),
+(14, '301250-0684', 'Azhar Mas\'udah', 'Naifeh', 'Male', '042 446 7706\n', 'AzharMasudahNaifeh@rhyta.com', 'Kerkkolankatu 63', '87400', '2024-03-26', '2024-05-06 11:39:54', NULL, '301250-0684.jpg'),
+(15, '310398-690Y', 'Ruwaydah Nafisah', 'Shammas', 'Female', '040 203 4405\n', 'RuwaydahNafisahShammas@jourrapide.com', 'Kluuvikatu 24', '01720', '2024-03-26', '2024-05-06 11:38:19', NULL, '310398-690Y.jpg'),
+(16, '170267-397N', 'Gersom', 'Grinwis', 'Male', '044 441 8498', 'GersomGrinwis@jourrapide.com', 'Kluuvikatu 20', '01510', '2024-03-26', '2024-05-06 11:43:27', NULL, '170267-397N.jpg'),
+(17, '020986-374T', 'Caroline', 'D. Rivera', 'Female', '046 568 2014', 'CarolineDRivera@jourrapide.com', 'Kaarrostie 82', '01510', '2024-04-02', '2024-05-06 11:49:37', 16, '020986-374T.jpg'),
+(18, '090569-621V', 'William', 'W. Mack', 'Male', '050 243 3129', 'WilliamWMack@teleworm.us', 'Mämminiementie 68', '20320', '2024-04-02', '2024-05-06 11:44:47', 12, '090569-621V.jpg'),
+(19, '181268-140B', 'Elsa', 'Väyrynen', 'Female', '044 835 4723', 'ElsaVayrynen@jourrapide.com', 'Kangasmoisionkatu 79', '40320', '2024-04-02', '2024-05-06 11:38:48', NULL, '181268-140B.jpg'),
+(21, '271294-825Y', 'Risto', 'Hossi', 'Male', '042 479 5096', 'RistoHossi@armyspy.com', 'Rörgrunsvägen 50', '65300', '2024-04-30', '2024-05-06 11:47:09', NULL, '271294-825Y.jpg'),
+(22, '161299-3937', 'Samuel', 'F. Cruz', 'Male', '041 363 3776', 'SamuelFCruz@armyspy.com', 'Gesterbyntie 58', '13130', '2024-05-06', '2024-05-06 11:53:35', NULL, '161299-3937.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `employee_by_store`
+-- Stand-in structure for view `employee_by_store_active_contract`
 -- (See below for the actual view)
 --
-CREATE TABLE `employee_by_store` (
-`SSN` char(15)
+CREATE TABLE `employee_by_store_active_contract` (
+`Emp_ID` int(15)
+,`SSN` char(15)
 ,`F_Name` varchar(50)
 ,`L_Name` varchar(50)
 ,`Store_Name` varchar(50)
+,`Title_Name` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `employee_by_store_not_active_contract`
+-- (See below for the actual view)
+--
+CREATE TABLE `employee_by_store_not_active_contract` (
+`Emp_ID` int(15)
+,`SSN` char(15)
+,`F_Name` varchar(50)
+,`L_Name` varchar(50)
+,`Store_Name` varchar(50)
+,`Status` enum('Contract ended','Got fired','Active')
 );
 
 -- --------------------------------------------------------
@@ -900,7 +1018,10 @@ INSERT INTO `employee_titles` (`Row_ID`, `Emp_ID`, `Title_ID`, `From_Date`, `To_
 (10, 6, 1, '2024-04-08', '2025-04-08', 1),
 (11, 6, 1, '2023-05-04', '2010-06-16', 0),
 (12, 7, 2, '2021-06-01', '2023-07-01', 0),
-(13, 7, 2, '2023-08-01', '2024-12-31', 1);
+(13, 7, 2, '2023-08-01', '2024-12-31', 1),
+(14, 16, 1, '2024-01-01', '2025-03-01', 1),
+(15, 16, 3, '2024-01-01', '2025-03-01', 1),
+(16, 21, 1, '2024-05-07', '2025-05-07', 1);
 
 -- --------------------------------------------------------
 
@@ -927,7 +1048,8 @@ INSERT INTO `emp_salaries` (`Row_ID`, `Emp_ID`, `Salary`, `Deal_Comission`, `Fro
 (4, 7, 11000, 0, '2023-08-01', '2024-12-31', '2024-04-04'),
 (5, 6, 3400, 5, '2023-08-01', '2024-04-04', '2024-04-04'),
 (6, 6, 4500, 0, '2023-05-04', '2010-06-16', '2024-04-04'),
-(7, 6, 8600, 20, '2023-04-08', '2025-04-08', '2024-04-04');
+(7, 6, 8600, 20, '2023-04-08', '2025-04-08', '2024-04-04'),
+(8, 21, 4500, 10, '2024-05-07', '2025-05-07', '2024-05-07');
 
 -- --------------------------------------------------------
 
@@ -1041,7 +1163,11 @@ INSERT INTO `feature_list` (`Feature_ID`, `Name`) VALUES
 (107, 'Rattivaihteet'),
 (108, 'Suksiluukku'),
 (109, 'Rengaspainevahti'),
-(110, 'Panorama kattoluukku');
+(110, 'Panorama kattoluukku'),
+(111, 'Lukkiutumattomat jarrut (ABS)'),
+(112, 'Ohjaustehostin'),
+(113, 'Head-Up-näyttö'),
+(114, 'Turbo');
 
 -- --------------------------------------------------------
 
@@ -1051,7 +1177,7 @@ INSERT INTO `feature_list` (`Feature_ID`, `Name`) VALUES
 
 CREATE TABLE `images` (
   `Row_ID` int(15) NOT NULL,
-  `VIN` char(50) NOT NULL,
+  `VIN` char(50) DEFAULT NULL,
   `Image_Name` varchar(150) NOT NULL,
   `Date_OF_Add` date NOT NULL DEFAULT current_timestamp(),
   `Date_OF_Updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
@@ -1062,18 +1188,61 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`Row_ID`, `VIN`, `Image_Name`, `Date_OF_Add`, `Date_OF_Updated`) VALUES
-(37, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_65107.jpg', '2024-04-29', NULL),
-(38, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_11710.jpg', '2024-04-29', NULL),
-(39, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_901.jpg', '2024-04-29', NULL),
-(40, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_15734.jpg', '2024-04-29', NULL),
-(41, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_1121.jpg', '2024-04-29', NULL),
-(42, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_22229.jpg', '2024-04-29', NULL),
-(43, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_41153.jpg', '2024-04-29', NULL),
-(44, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_73970.jpg', '2024-04-29', NULL),
-(45, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_30468.jpg', '2024-04-29', NULL),
-(46, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_73728.jpg', '2024-04-29', NULL),
-(47, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_31251.jpg', '2024-04-29', NULL),
-(48, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_62731.jpg', '2024-04-29', NULL);
+(37, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_65107.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(38, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_11710.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(39, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_901.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(40, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_15734.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(41, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_1121.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(42, '1FTDR15X4TPA96892', '1FTDR15X4TPA96892_22229.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(43, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_41153.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(44, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_73970.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(45, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_30468.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(46, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_73728.jpg', '2024-04-29', '2024-04-30 14:16:37'),
+(47, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_31251.jpg', '2024-04-29', '2024-04-30 14:15:59'),
+(48, 'WDBEA30E1NB582331', 'WDBEA30E1NB582331_62731.jpg', '2024-04-29', '2024-04-30 14:15:59'),
+(49, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_72910.jpg', '2024-04-30', '2024-04-30 14:15:59'),
+(50, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_94689.jpg', '2024-04-30', '2024-04-30 14:15:59'),
+(51, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_98946.jpg', '2024-04-30', '2024-04-30 14:15:59'),
+(52, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_57623.jpg', '2024-04-30', '2024-04-30 14:15:29'),
+(53, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_46851.jpg', '2024-04-30', '2024-04-30 14:11:34'),
+(54, '3VWJ17AT8EM646195', '3VWJ17AT8EM646195_84759.jpg', '2024-04-30', '2024-04-30 14:11:30'),
+(78, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_33528.jpg', '2024-05-06', NULL),
+(79, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_86570.jpg', '2024-05-06', NULL),
+(80, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_89531.jpg', '2024-05-06', NULL),
+(81, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_5117.jpg', '2024-05-06', NULL),
+(82, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_37595.jpg', '2024-05-06', NULL),
+(83, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_68032.jpg', '2024-05-06', NULL),
+(84, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_27901.jpg', '2024-05-06', NULL),
+(85, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_98622.jpg', '2024-05-06', NULL),
+(86, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_4028.jpg', '2024-05-06', NULL),
+(87, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_36044.jpg', '2024-05-06', NULL),
+(88, 'WBAYF8C52EDS00432', 'WBAYF8C52EDS00432_89893.jpg', '2024-05-06', NULL),
+(94, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_84987.jpg', '2024-05-06', NULL),
+(95, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_71307.jpg', '2024-05-06', NULL),
+(96, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_30131.jpg', '2024-05-06', NULL),
+(97, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_42299.jpg', '2024-05-06', NULL),
+(98, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_40916.jpg', '2024-05-06', NULL),
+(99, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_59118.jpg', '2024-05-06', NULL),
+(100, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_59252.jpg', '2024-05-06', NULL),
+(101, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_15300.jpg', '2024-05-06', NULL),
+(102, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_64816.jpg', '2024-05-06', NULL),
+(103, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_11979.jpg', '2024-05-06', NULL),
+(104, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_32066.jpg', '2024-05-06', NULL),
+(105, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_6987.jpg', '2024-05-06', NULL),
+(106, '3GYFNHEY4BS0002EX', '3GYFNHEY4BS0002EX_21542.jpg', '2024-05-06', NULL),
+(109, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_88608.jpg', '2024-05-06', NULL),
+(110, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_60887.jpg', '2024-05-06', NULL),
+(111, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_2007.jpg', '2024-05-06', NULL),
+(112, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_94451.jpg', '2024-05-06', NULL),
+(113, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_69083.jpg', '2024-05-06', NULL),
+(114, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_74550.jpg', '2024-05-06', NULL),
+(115, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_88738.jpg', '2024-05-06', NULL),
+(116, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_28819.jpg', '2024-05-06', NULL),
+(117, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_86927.jpg', '2024-05-06', NULL),
+(118, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_81561.jpg', '2024-05-06', NULL),
+(119, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_57819.jpg', '2024-05-06', NULL),
+(120, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_13702.jpg', '2024-05-06', NULL),
+(121, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_48669.jpg', '2024-05-06', NULL);
 
 -- --------------------------------------------------------
 
@@ -1246,27 +1415,27 @@ CREATE TABLE `stores` (
   `PostalCode` char(5) NOT NULL,
   `Date_OF_Add` date NOT NULL DEFAULT current_timestamp(),
   `Date_OF_Update` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Image` varchar(150) DEFAULT NULL
+  `Image_Name` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `stores`
 --
 
-INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `Email`, `Phone`, `PostalCode`, `Date_OF_Add`, `Date_OF_Update`, `Image`) VALUES
-(1, 1, 'SAKA Finland Oy, Herttoniemi', 'Mekaanikonkatu 17', NULL, '', '00880', '2024-03-06', '2024-03-06 12:24:50', NULL),
+INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `Email`, `Phone`, `PostalCode`, `Date_OF_Add`, `Date_OF_Update`, `Image_Name`) VALUES
+(1, 1, 'SAKA Finland Oy, Herttoniemi', 'Mekaanikonkatu 17', NULL, '', '00880', '2024-03-06', '2024-05-06 12:14:11', '1.jpg'),
 (2, 2, 'Kamux Konala', 'Päiväläisentie 1-6', NULL, '', '00390', '2024-03-06', '2024-03-14 14:43:24', NULL),
-(3, 1, 'SAKA Finland Oy, Koskelo', 'Koskelontie 15', NULL, '', '02920', '2024-03-03', '2024-03-06 13:15:11', NULL),
-(4, 1, 'SAKA Finland Oy, Konala', 'Päiväläisentie 1-6', NULL, '', '00390', '2024-03-06', '2024-03-06 13:17:37', NULL),
-(5, 1, 'SAKA Finland Oy, Hyvinkää', 'Helletorpankatu 31', NULL, '', '15840', '2024-03-06', '2024-03-06 13:17:37', NULL),
-(6, 1, 'SAKA Finland Oy, Hämeenlinna', 'Eino Leinon katu 40', NULL, '', '13130', '2024-03-06', '2024-03-06 13:20:38', NULL),
+(3, 1, 'SAKA Finland Oy, Koskelo', 'Koskelontie 15', NULL, '', '02920', '2024-03-03', '2024-05-06 12:24:55', '3.jpeg'),
+(4, 1, 'SAKA Finland Oy, Konala', 'Päiväläisentie 1-6', NULL, '', '00390', '2024-03-06', '2024-05-06 12:25:42', '4.jpeg'),
+(5, 1, 'SAKA Finland Oy, Hyvinkää', 'Helletorpankatu 31', NULL, '', '15840', '2024-03-06', '2024-05-06 12:27:32', '5.jpeg'),
+(6, 1, 'SAKA Finland Oy, Hämeenlinna', 'Eino Leinon katu 40', NULL, '', '13130', '2024-03-06', '2024-05-06 12:30:02', '6.jpeg'),
 (7, 1, 'SAKA Finland Oy, Joensuu', 'Raatekankaantie 4', NULL, '', '80100', '2024-03-06', '2024-03-06 13:20:38', NULL),
 (8, 1, 'SAKA Finland Oy, Jyväskylä', 'Ahjokatu 1', NULL, '', '40320', '2024-03-06', '2024-03-06 13:20:38', NULL),
 (9, 1, 'SAKA Finland Oy, Järvenpää', 'Diggarinkatu 10', NULL, '', '04420', '2024-03-06', '2024-03-06 13:20:38', NULL),
-(10, 1, 'SAKA Finland Oy, Kirkkonummi', 'Purotie 1', NULL, '', '02400', '2024-03-06', '2024-03-06 13:20:38', NULL),
+(10, 1, 'SAKA Finland Oy, Kirkkonummi', 'Purotie 1', NULL, '', '02400', '2024-03-06', '2024-05-06 12:30:16', '10.jpeg'),
 (11, 2, 'Kamux Koskelo', 'Koskelontie 19', NULL, '', '02920', '2024-03-05', '2024-03-14 14:43:24', NULL),
 (12, 2, 'Kamux Niittykumpu', 'Riihitontuntie 10-12', NULL, '', '02200', '2024-03-05', '2024-03-14 14:43:24', NULL),
-(13, 2, 'Kamux Hyvinkää', 'Avainkierto 17', NULL, '', '15840', '2024-03-05', '2024-03-06 13:25:31', NULL),
+(13, 2, 'Kamux Hyvinkää', 'Avainkierto 17', NULL, '', '15840', '2024-03-05', '2024-05-06 12:18:09', '13.jpg'),
 (14, 2, 'Kamux Hämeenlinna', 'Parolantie 66 A', NULL, '', '13130', '2024-03-05', '2024-03-06 13:25:31', NULL),
 (15, 2, 'Kamux Joensuu', 'Kuurnankatu 14', NULL, '', '80100', '2024-03-05', '2024-03-06 13:25:31', NULL),
 (18, 1, 'SAKA Finland Oy, Kouvola', 'Tommolankatu 7', NULL, '', '45130', '2024-03-14', '2024-03-14 13:39:41', NULL),
@@ -1281,7 +1450,7 @@ INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `E
 (27, 1, 'SAKA Finland Oy, Raisio', 'Vahdontie 30', NULL, '', '20320', '2024-03-14', '2024-03-14 14:28:18', NULL),
 (28, 1, 'SAKA Finland Oy, Seinäjoki', 'Lieskatie 2', NULL, '', '60510', '2024-03-14', '2024-03-14 14:28:18', NULL),
 (29, 1, 'SAKA Finland Oy, Tampere', 'Sellukatu 8', NULL, '', '33400', '2024-03-14', '2024-03-14 14:28:18', NULL),
-(30, 1, 'SAKA Finland Oy, Tuusula', 'Hiekkamäentie 5', NULL, '', '04300', '2024-03-14', '2024-03-14 14:28:18', NULL),
+(30, 1, 'SAKA Finland Oy, Tuusula', 'Hiekkamäentie 5', NULL, '', '04300', '2024-03-14', '2024-05-06 12:30:36', '30.jpeg'),
 (31, 1, 'SAKA Finland Oy, Vantaa', 'Kivihaantie 9', NULL, '', '65300', '2024-03-14', '2024-03-14 14:28:18', NULL),
 (32, 1, 'SAKA Finland Oy, Koivuhaka', 'Kuriiritie 17', NULL, '', '01510', '2024-03-14', '2024-03-14 14:28:18', NULL),
 (33, 1, 'SAKA Finland Oy, Varisto', 'Martinkyläntie 59', NULL, '', '01720', '2024-03-14', '2024-03-14 14:28:18', NULL),
@@ -1311,10 +1480,10 @@ INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `E
 (68, 2, 'Kamux Vaasa', 'Silmukkatie 11', 'vaasa@kamux.fi', '010 778 5555', '65300', '2024-03-18', '2024-03-18 13:16:30', NULL),
 (69, 2, 'Kamux Vantaa Airport', 'Virkatie 7', 'airtport@kamux.fi', '010 778 5577', '01510', '2024-03-18', '2024-03-18 13:16:30', NULL),
 (70, 2, 'Kamux Vantaa Varisto', 'Martinkyläntie 47', 'varisto@kamux.fi', '010 420 8830', '01720', '2024-03-18', '2024-03-18 13:16:30', NULL),
-(71, 3, 'Veho Airport', 'Ohtolankatu 10', NULL, '010 569 15', '01510', '2024-03-18', '2024-03-18 11:59:05', NULL),
-(72, 3, 'Veho Herttoniemi', 'Mekaanikonkatu 14', NULL, '010 569 14', '00880', '2024-03-18', '2024-03-18 11:58:52', NULL),
+(71, 3, 'Veho Airport', 'Ohtolankatu 10', NULL, '010 569 15', '01510', '2024-03-18', '2024-05-06 12:33:31', '71.jpg'),
+(72, 3, 'Veho Herttoniemi', 'Mekaanikonkatu 14', NULL, '010 569 14', '00880', '2024-03-18', '2024-05-06 12:34:09', '72.jpg'),
 (73, 3, 'Veho Olari', 'Piispankallio 2', NULL, '010 569 17', '02200', '2024-03-18', '2024-03-18 11:58:11', NULL),
-(74, 3, 'Veho Tampere', 'Taninkatu 11', NULL, '010 569 3011', '33400', '2024-03-18', '2024-03-18 11:59:20', NULL),
+(74, 3, 'Veho Tampere', 'Taninkatu 11', NULL, '010 569 3011', '33400', '2024-03-18', '2024-05-06 12:33:47', '74.jpg'),
 (75, 6, 'Vaihtoautomaa Vantaa', 'Tiilipojanlenkki 4 A', 'vantaa@vaihtoautomaa.com', '0207 890 682', '01720', '2024-03-18', '2024-03-18 12:10:03', NULL),
 (76, 6, 'Vaihtoautomaa Lahti', 'Laatukatu 22', 'lahti@vaihtoautomaa.com', '0207 890 684', '15610', '2024-03-18', '2024-03-18 12:09:50', NULL),
 (77, 6, 'Vaihtoautomaa Lempäälä', 'Ruokosmetsänkatu 7 C', 'lempaala@vaihtoautomaa.com', '0207 890 687', '37570', '2024-03-18', '2024-03-18 12:09:50', NULL),
@@ -1389,7 +1558,9 @@ INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `E
 (148, 11, 'Hedin Automotive Pori', 'Puinnintie 18-20', 'pori@hdin.fi', 'NULL', '28360', '2024-04-10', '2024-04-10 12:18:48', NULL),
 (149, 11, 'Hedin Automotive Porvoo', 'Ruiskumestarinkatu 4', 'porvoo@hedin.fi', 'NULL', '06100', '2024-04-10', '2024-04-10 12:18:43', NULL),
 (150, 11, 'Hedin Automotive Tampere', 'Lokomonkatu 25 B', 'tampere@hedin.fi', 'NULL', '33400', '2024-04-10', '2024-04-10 12:18:28', NULL),
-(151, 11, 'Hedin Automotive Turku', 'Rieskalähteentie 71', 'turku@hedin.fi', 'NULL', '20320', '2024-04-10', '2024-04-10 12:17:13', NULL);
+(151, 11, 'Hedin Automotive Turku', 'Rieskalähteentie 71', 'turku@hedin.fi', 'NULL', '20320', '2024-04-10', '2024-04-10 12:17:13', NULL),
+(152, 12, 'SHOWROOM RealPark', 'Areenakatu 4', 'Realpark@luxurycollection.fi', '040 581 449', '37570', '2024-05-06', '2024-05-06 15:02:50', '152.jpg'),
+(153, 12, 'SHOWROOM Espoo Keilaniemi', 'Keilaniementori 4', 'Keilaniemi@luxurycollection.fi', '041 003 449', '02600', '2024-05-06', '2024-05-06 14:37:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -1428,7 +1599,9 @@ INSERT INTO `stores_employee` (`Row_ID`, `Store_ID`, `Emp_ID`, `From_Date`, `To_
 (36, 32, 16, '2024-01-01', '2025-03-01', 'Active'),
 (37, 109, 11, '2024-04-01', '2025-11-28', 'Active'),
 (38, 118, 7, '2021-08-01', '2023-07-01', 'Contract ended'),
-(39, 119, 7, '2023-08-01', '2024-12-31', 'Active');
+(39, 119, 7, '2023-08-01', '2024-12-31', 'Active'),
+(40, 6, 22, '2024-04-01', '2025-04-01', 'Active'),
+(41, 1, 21, '2024-05-07', '2025-05-07', 'Active');
 
 -- --------------------------------------------------------
 
@@ -1456,7 +1629,8 @@ INSERT INTO `store_branches` (`Branch_Store_ID`, `Name`) VALUES
 (8, 'SPORTS CAR CENTER'),
 (9, 'PARROTZ'),
 (10, 'LÄNSIAUTO'),
-(11, 'HEDIN AUTOMOTIVE');
+(11, 'HEDIN AUTOMOTIVE'),
+(12, 'LUXURY COLLECTION AUTOMOBILES');
 
 -- --------------------------------------------------------
 
@@ -1516,6 +1690,24 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `cars_image`
+--
+DROP TABLE IF EXISTS `cars_image`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cars_image`  AS SELECT `i`.`VIN` AS `VIN`, `c`.`Number_Plate` AS `Number_Plate`, `b`.`Name` AS `Name`, `c`.`Model` AS `Model`, count(`i`.`Row_ID`) AS `NumberOFCarImages` FROM ((`images` `i` join `cars` `c` on(`i`.`VIN` = `c`.`VIN`)) join `brands` `b` on(`b`.`Brand_ID` = `c`.`Brand_ID`)) GROUP BY `i`.`VIN` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `car_deals`
+--
+DROP TABLE IF EXISTS `car_deals`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `car_deals`  AS SELECT `cs`.`VIN` AS `VIN`, `ca`.`Number_Plate` AS `Number_Plate`, `b`.`Name` AS `BrandName`, `ca`.`Model` AS `Model`, `e`.`SSN` AS `Emp_SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `Sold_BY`, `cu`.`SSN` AS `Customer_SSN`, concat(`cu`.`F_Name`,' ',`cu`.`L_Name`) AS `Sold_TO`, `cs`.`Original_Price` AS `Original_Price`, `cs`.`Sold_Price` AS `Sold_Price`, `cs`.`Sold_Date` AS `Deal_Date`, `s`.`Store_Name` AS `Store_Name` FROM (((((`carsold` `cs` join `employees` `e` on(`e`.`Emp_ID` = `cs`.`Sold_By`)) join `customers` `cu` on(`cu`.`Customer_ID` = `cs`.`Sold_To`)) join `cars` `ca` on(`ca`.`VIN` = `cs`.`VIN`)) join `brands` `b` on(`b`.`Brand_ID` = `ca`.`Brand_ID`)) join `stores` `s` on(`s`.`Store_ID` = `ca`.`Store_ID`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `customer_credentials`
 --
 DROP TABLE IF EXISTS `customer_credentials`;
@@ -1543,11 +1735,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `employee_by_store`
+-- Structure for view `employee_by_store_active_contract`
 --
-DROP TABLE IF EXISTS `employee_by_store`;
+DROP TABLE IF EXISTS `employee_by_store_active_contract`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store`  AS SELECT `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store_active_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name`, `titles`.`Name` AS `Title_Name` FROM ((((`employees` join `employee_titles` on(`employees`.`Emp_ID` = `employee_titles`.`Emp_ID`)) join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) join `titles` on(`titles`.`Title_ID` = `employee_titles`.`Title_ID`)) WHERE `stores_employee`.`Service_Status` = 'Active' GROUP BY `employees`.`SSN` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `employee_by_store_not_active_contract`
+--
+DROP TABLE IF EXISTS `employee_by_store_not_active_contract`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store_not_active_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name`, `stores_employee`.`Service_Status` AS `Status` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) WHERE `stores_employee`.`Service_Status` <> 'Active' ;
 
 -- --------------------------------------------------------
 
@@ -1726,7 +1927,8 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`Emp_ID`),
   ADD KEY `idx_Emp_ID` (`Emp_ID`),
   ADD KEY `FK_Employee_Employee` (`Reports_To`),
-  ADD KEY `PostalCodre` (`PostalCode`);
+  ADD KEY `PostalCodre` (`PostalCode`),
+  ADD KEY `SSN` (`SSN`);
 
 --
 -- Indexes for table `employee_service_langauge`
@@ -1763,7 +1965,7 @@ ALTER TABLE `feature_list`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`Row_ID`),
-  ADD KEY `Number_Plate` (`VIN`);
+  ADD KEY `VIN` (`VIN`);
 
 --
 -- Indexes for table `postalcodes`
@@ -1824,31 +2026,31 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carfeatures`
 --
 ALTER TABLE `carfeatures`
-  MODIFY `Row_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `Row_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `carsold`
 --
 ALTER TABLE `carsold`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `credentials`
 --
 ALTER TABLE `credentials`
-  MODIFY `Credentials_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `Credentials_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `credentials_logs`
 --
 ALTER TABLE `credentials_logs`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -1860,7 +2062,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `Emp_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Emp_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `employee_service_langauge`
@@ -1872,43 +2074,43 @@ ALTER TABLE `employee_service_langauge`
 -- AUTO_INCREMENT for table `employee_titles`
 --
 ALTER TABLE `employee_titles`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `emp_salaries`
 --
 ALTER TABLE `emp_salaries`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `feature_list`
 --
 ALTER TABLE `feature_list`
-  MODIFY `Feature_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `Feature_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `stores`
 --
 ALTER TABLE `stores`
-  MODIFY `Store_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `Store_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT for table `stores_employee`
 --
 ALTER TABLE `stores_employee`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `store_branches`
 --
 ALTER TABLE `store_branches`
-  MODIFY `Branch_Store_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Branch_Store_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_images`
@@ -2014,507 +2216,6 @@ ALTER TABLE `stores`
 ALTER TABLE `stores_employee`
   ADD CONSTRAINT `Fk_StoreEmployee_Employee` FOREIGN KEY (`Emp_ID`) REFERENCES `employees` (`Emp_ID`),
   ADD CONSTRAINT `Fk_StoreEmployee_Store` FOREIGN KEY (`Store_ID`) REFERENCES `stores` (`Store_ID`);
---
--- Database: `phpmyadmin`
---
-CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `phpmyadmin`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__bookmark`
---
-
-CREATE TABLE `pma__bookmark` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `dbase` varchar(255) NOT NULL DEFAULT '',
-  `user` varchar(255) NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `query` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__central_columns`
---
-
-CREATE TABLE `pma__central_columns` (
-  `db_name` varchar(64) NOT NULL,
-  `col_name` varchar(64) NOT NULL,
-  `col_type` varchar(64) NOT NULL,
-  `col_length` text DEFAULT NULL,
-  `col_collation` varchar(64) NOT NULL,
-  `col_isNull` tinyint(1) NOT NULL,
-  `col_extra` varchar(255) DEFAULT '',
-  `col_default` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__column_info`
---
-
-CREATE TABLE `pma__column_info` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `db_name` varchar(64) NOT NULL DEFAULT '',
-  `table_name` varchar(64) NOT NULL DEFAULT '',
-  `column_name` varchar(64) NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `transformation` varchar(255) NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) NOT NULL DEFAULT '',
-  `input_transformation` varchar(255) NOT NULL DEFAULT '',
-  `input_transformation_options` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__designer_settings`
---
-
-CREATE TABLE `pma__designer_settings` (
-  `username` varchar(64) NOT NULL,
-  `settings_data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__export_templates`
---
-
-CREATE TABLE `pma__export_templates` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `username` varchar(64) NOT NULL,
-  `export_type` varchar(10) NOT NULL,
-  `template_name` varchar(64) NOT NULL,
-  `template_data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__favorite`
---
-
-CREATE TABLE `pma__favorite` (
-  `username` varchar(64) NOT NULL,
-  `tables` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__history`
---
-
-CREATE TABLE `pma__history` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(64) NOT NULL DEFAULT '',
-  `db` varchar(64) NOT NULL DEFAULT '',
-  `table` varchar(64) NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
-  `sqlquery` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__navigationhiding`
---
-
-CREATE TABLE `pma__navigationhiding` (
-  `username` varchar(64) NOT NULL,
-  `item_name` varchar(64) NOT NULL,
-  `item_type` varchar(64) NOT NULL,
-  `db_name` varchar(64) NOT NULL,
-  `table_name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__pdf_pages`
---
-
-CREATE TABLE `pma__pdf_pages` (
-  `db_name` varchar(64) NOT NULL DEFAULT '',
-  `page_nr` int(10) UNSIGNED NOT NULL,
-  `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__recent`
---
-
-CREATE TABLE `pma__recent` (
-  `username` varchar(64) NOT NULL,
-  `tables` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
---
--- Dumping data for table `pma__recent`
---
-
-INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"car_store\",\"table\":\"employee_service_langauge\"},{\"db\":\"car_store\",\"table\":\"images\"},{\"db\":\"car_store\",\"table\":\"tbl_images\"},{\"db\":\"car_store\",\"table\":\"percentage_of_cars_by_gearbox\"},{\"db\":\"car_store\",\"table\":\"number_of_cars_by_stores\"},{\"db\":\"car_store\",\"table\":\"number_of_cars_by_branches\"},{\"db\":\"car_store\",\"table\":\"cars\"},{\"db\":\"car_store\",\"table\":\"percentage_of_cars_by_color\"},{\"db\":\"car_store\",\"table\":\"employeecanspeaklanguage\"},{\"db\":\"car_store\",\"table\":\"employees\"}]');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__relation`
---
-
-CREATE TABLE `pma__relation` (
-  `master_db` varchar(64) NOT NULL DEFAULT '',
-  `master_table` varchar(64) NOT NULL DEFAULT '',
-  `master_field` varchar(64) NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__savedsearches`
---
-
-CREATE TABLE `pma__savedsearches` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `username` varchar(64) NOT NULL DEFAULT '',
-  `db_name` varchar(64) NOT NULL DEFAULT '',
-  `search_name` varchar(64) NOT NULL DEFAULT '',
-  `search_data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__table_coords`
---
-
-CREATE TABLE `pma__table_coords` (
-  `db_name` varchar(64) NOT NULL DEFAULT '',
-  `table_name` varchar(64) NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
-  `x` float UNSIGNED NOT NULL DEFAULT 0,
-  `y` float UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__table_info`
---
-
-CREATE TABLE `pma__table_info` (
-  `db_name` varchar(64) NOT NULL DEFAULT '',
-  `table_name` varchar(64) NOT NULL DEFAULT '',
-  `display_field` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
---
--- Dumping data for table `pma__table_info`
---
-
-INSERT INTO `pma__table_info` (`db_name`, `table_name`, `display_field`) VALUES
-('car_store', 'cars', 'Number_Plate'),
-('car_store', 'country', 'Name'),
-('car_store', 'credentials', 'Username'),
-('car_store', 'customers', 'F_Name'),
-('car_store', 'employee_service_langauge', 'Language'),
-('car_store', 'employees', 'F_Name'),
-('car_store', 'postalcodes', 'Region');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__table_uiprefs`
---
-
-CREATE TABLE `pma__table_uiprefs` (
-  `username` varchar(64) NOT NULL,
-  `db_name` varchar(64) NOT NULL,
-  `table_name` varchar(64) NOT NULL,
-  `prefs` text NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__tracking`
---
-
-CREATE TABLE `pma__tracking` (
-  `db_name` varchar(64) NOT NULL,
-  `table_name` varchar(64) NOT NULL,
-  `version` int(10) UNSIGNED NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text NOT NULL,
-  `schema_sql` text DEFAULT NULL,
-  `data_sql` longtext DEFAULT NULL,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') DEFAULT NULL,
-  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__userconfig`
---
-
-CREATE TABLE `pma__userconfig` (
-  `username` varchar(64) NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `config_data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
---
--- Dumping data for table `pma__userconfig`
---
-
-INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2024-04-29 09:56:32', '{\"Console\\/Mode\":\"collapse\",\"NavigationWidth\":332}');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__usergroups`
---
-
-CREATE TABLE `pma__usergroups` (
-  `usergroup` varchar(64) NOT NULL,
-  `tab` varchar(64) NOT NULL,
-  `allowed` enum('Y','N') NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pma__users`
---
-
-CREATE TABLE `pma__users` (
-  `username` varchar(64) NOT NULL,
-  `usergroup` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `pma__bookmark`
---
-ALTER TABLE `pma__bookmark`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pma__central_columns`
---
-ALTER TABLE `pma__central_columns`
-  ADD PRIMARY KEY (`db_name`,`col_name`);
-
---
--- Indexes for table `pma__column_info`
---
-ALTER TABLE `pma__column_info`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
-
---
--- Indexes for table `pma__designer_settings`
---
-ALTER TABLE `pma__designer_settings`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `pma__export_templates`
---
-ALTER TABLE `pma__export_templates`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
-
---
--- Indexes for table `pma__favorite`
---
-ALTER TABLE `pma__favorite`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `pma__history`
---
-ALTER TABLE `pma__history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
-
---
--- Indexes for table `pma__navigationhiding`
---
-ALTER TABLE `pma__navigationhiding`
-  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
-
---
--- Indexes for table `pma__pdf_pages`
---
-ALTER TABLE `pma__pdf_pages`
-  ADD PRIMARY KEY (`page_nr`),
-  ADD KEY `db_name` (`db_name`);
-
---
--- Indexes for table `pma__recent`
---
-ALTER TABLE `pma__recent`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `pma__relation`
---
-ALTER TABLE `pma__relation`
-  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
-
---
--- Indexes for table `pma__savedsearches`
---
-ALTER TABLE `pma__savedsearches`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
-
---
--- Indexes for table `pma__table_coords`
---
-ALTER TABLE `pma__table_coords`
-  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
-
---
--- Indexes for table `pma__table_info`
---
-ALTER TABLE `pma__table_info`
-  ADD PRIMARY KEY (`db_name`,`table_name`);
-
---
--- Indexes for table `pma__table_uiprefs`
---
-ALTER TABLE `pma__table_uiprefs`
-  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
-
---
--- Indexes for table `pma__tracking`
---
-ALTER TABLE `pma__tracking`
-  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
-
---
--- Indexes for table `pma__userconfig`
---
-ALTER TABLE `pma__userconfig`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `pma__usergroups`
---
-ALTER TABLE `pma__usergroups`
-  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
-
---
--- Indexes for table `pma__users`
---
-ALTER TABLE `pma__users`
-  ADD PRIMARY KEY (`username`,`usergroup`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `pma__bookmark`
---
-ALTER TABLE `pma__bookmark`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pma__column_info`
---
-ALTER TABLE `pma__column_info`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pma__export_templates`
---
-ALTER TABLE `pma__export_templates`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pma__history`
---
-ALTER TABLE `pma__history`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pma__pdf_pages`
---
-ALTER TABLE `pma__pdf_pages`
-  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pma__savedsearches`
---
-ALTER TABLE `pma__savedsearches`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- Database: `test`
---
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `test`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `test`
---
-
-CREATE TABLE `test` (
-  `Row_ID` int(11) NOT NULL,
-  `Name` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `test`
---
-
-INSERT INTO `test` (`Row_ID`, `Name`) VALUES
-(1, 'qfqefegqg'),
-(2, 'gqrgqrgrh');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `test`
---
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`Row_ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `test`
---
-ALTER TABLE `test`
-  MODIFY `Row_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
