@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 07, 2024 at 02:22 PM
+-- Generation Time: May 14, 2024 at 10:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `car_store`
 --
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `active_employee_by_store`
--- (See below for the actual view)
---
-CREATE TABLE `active_employee_by_store` (
-`SSN` char(15)
-,`F_Name` varchar(50)
-,`L_Name` varchar(50)
-,`Store_Name` varchar(50)
-);
 
 -- --------------------------------------------------------
 
@@ -310,8 +297,8 @@ INSERT INTO `cars` (`Row_ID`, `VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model
 (51, 'WBAVB13256PS66453', 'GGY-098', 2, 'X5', 'G05 xDrive45e \"X5 M\" * ACC', 74690, 2023, 'Automatic', 'Plug-In Hybrid', 82000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '290', '2150', '310', '3.0', 133, '2024-04-09', '2024-04-23 14:59:27'),
 (52, 'WP0AA2964PS820410', 'KLP-337', 16, 'Taycan', '4S Cross Turismo * Nelipyöräohjaus', 88990, 2023, 'Automatic', 'Electric', 53000, 'Person', 'Wagon', '4WD', 'Black', 5, 4, '420', '2885', '240', '0.0', 132, '2024-04-09', '2024-04-23 14:59:27'),
 (53, '1FTDR15X4TPA96892', 'UVG-483', 32, 'Sportage', '1,6 ISG Urban Active EcoDynamics ', 12, 2014, 'Automatic', 'Petrol', 107, 'Person', 'SUV', 'FWD', 'Silver', 5, 4, '99', '1200', '178', '1,6', 134, '2024-04-10', '2024-05-06 15:19:30'),
-(54, '3GYFNHEY4BS0002EX', 'SOU-807', 15, 'Escalade', 'Sport Platinum 3.0l Duramax', 184, 2023, '', 'Diesel', 150, 'Person', 'SUV', '4WD', 'White', 7, 5, ' 204', '3 500', '290', '3.0', 8, '2024-05-06', NULL),
-(55, 'ZFFMN34A0L0085788', 'WQY-449', 12, 'SF90', 'STRADALE 3.9 V8 DCT', 599, 2021, '', 'Plug-In Hybrid', 2300, 'Person', 'Coupe', '4WD', 'Black', 2, 2, '735', 'NULL', '359', '3.9', 152, '2024-05-06', '2024-05-06 14:42:22');
+(54, '3GYFNHEY4BS0002EX', 'SOU-807', 15, 'Escalade', 'Sport Platinum 3.0l Duramax', 184, 2023, 'Automatic', 'Diesel', 150, 'Person', 'SUV', '4WD', 'White', 7, 5, ' 204', '3 500', '290', '3.0', 8, '2024-05-06', '2024-05-14 10:35:36'),
+(55, 'ZFFMN34A0L0085788', 'WQY-449', 12, 'SF90', 'STRADALE 3.9 V8 DCT', 599, 2021, 'Automatic', 'Plug-In Hybrid', 2300, 'Person', 'Coupe', '4WD', 'Black', 2, 2, '735', 'NULL', '359', '3.9', 152, '2024-05-06', '2024-05-14 10:35:40');
 
 -- --------------------------------------------------------
 
@@ -691,7 +678,19 @@ INSERT INTO `credentials` (`Credentials_ID`, `Emp_ID`, `Customer_ID`, `Username`
 (38, 14, NULL, 'AzharMasudahNaifeh@rhyta.com', 'g6694IXxA2', '2024-04-02', NULL),
 (39, 15, NULL, 'RuwaydahNafisahShammas@jourrapide.com', '83k7Noj3Lo', '2024-04-02', NULL),
 (40, 16, NULL, 'GersomGrinwis@jourrapide.com', '3yZ5O5aVX9', '2024-04-02', NULL),
-(41, 21, NULL, 'RistoHossi@armyspy.com', 'r6N0XAJK1/b9', '2024-05-02', NULL);
+(41, 21, NULL, 'RistoHossi@armyspy.com', 'r6N0XAJK1/b9', '2024-05-02', NULL),
+(42, NULL, 22, 'MarisaSantosSouza@dayrep.com', 'ahpha4Reiqu', '2024-05-10', NULL),
+(43, NULL, 13, 'KinfeBrhane@armyspy.com', 'Kah8xebi', '2024-05-10', NULL),
+(44, NULL, 14, 'FioriSimon@rhyta.com', '362gF1bqK0', '2024-05-10', NULL),
+(45, NULL, 15, 'NatasjaOChristoffersen@armyspy.com', 'fL95Be22xw', '2024-05-10', NULL),
+(46, NULL, 16, 'HansKristensen@teleworm.us', 'KGiFE380T2', '2024-05-10', NULL),
+(47, NULL, 17, 'TuomoHyytia@rhyta.com', 'eJc5L1V8Uv', '2024-05-10', NULL),
+(48, NULL, 18, 'MaaritKoskela@jourrapide.com', 'vPcQzc5i50', '2024-05-10', NULL),
+(49, NULL, 19, 'UrhoAlatalo@dayrep.com', 'vPcQzc5i50', '2024-05-10', NULL),
+(50, NULL, 20, 'JennaMuukkonen@rhyta.com', 'awYbhO85z3', '2024-05-10', NULL),
+(51, NULL, 21, 'AnewshTeqwa@dayrep.com', 'H15jU52pbl', '2024-05-10', NULL),
+(52, NULL, 23, 'AzadKhamenhaa@rhyta.com', 'oHX5us732U', '2024-05-10', NULL),
+(53, 22, NULL, 'SamuelFCruz@armyspy.com', 'lY0U38W7v7', '2024-05-10', NULL);
 
 -- --------------------------------------------------------
 
@@ -745,7 +744,17 @@ INSERT INTO `credentials_logs` (`Row_ID`, `Credentials_ID`, `Date`) VALUES
 (46, 35, '2024-05-09'),
 (47, 3, '2024-05-12'),
 (48, 3, '2024-05-08'),
-(49, 3, '2024-05-07');
+(49, 3, '2024-05-07'),
+(50, 51, '2024-05-15'),
+(51, 51, '2024-05-10'),
+(52, 46, '2024-05-07'),
+(53, 48, '2024-05-04'),
+(54, 48, '2024-05-10'),
+(55, 26, '2024-05-10'),
+(56, 27, '2024-05-10'),
+(57, 46, '2024-05-01'),
+(58, 53, '2024-05-15'),
+(59, 32, '2024-05-15');
 
 -- --------------------------------------------------------
 
@@ -783,7 +792,18 @@ INSERT INTO `customers` (`Customer_ID`, `SSN`, `F_Name`, `L_Name`, `Gender`, `Na
 (7, '150582-557U', 'Godfried', 'Van Dieten', 'Male', 'NER', 'Mr.', '050 325 7971\n', 'GodfriedvanDieten@dayrep.com', 'Liisankatu 66', '15840', '2024-03-22', '2024-04-24 12:06:52'),
 (8, '221140-662R', 'Shanaya', 'Hingstman', 'Female', 'NOR', 'Ms.', '050 305 0982\n', 'ShanayaHingstman@rhyta.com', 'Hätilänkatu 23', '15610', '2024-03-22', '2024-04-24 12:07:03'),
 (9, '220672-251P', 'Mahdi', 'Delgado', 'Male', 'IRN', 'Mr.', '041 411 2915\n', 'MahdiDelgado@teleworm.us', 'Puutarhakatu 19', '01510', '2024-03-22', '2024-04-24 12:06:28'),
-(10, '241138-109N', 'Georgino', 'Suijkerbuijk', 'Male', 'ITA', 'Mr.', '042 567 8687\n', 'GeorginoSuijkerbuijk@armyspy.com', 'Ysitie 33', '33400', '2024-03-22', '2024-04-24 12:06:15');
+(10, '241138-109N', 'Georgino', 'Suijkerbuijk', 'Male', 'ITA', 'Mr.', '042 567 8687\n', 'GeorginoSuijkerbuijk@armyspy.com', 'Ysitie 33', '33400', '2024-03-22', '2024-04-24 12:06:15'),
+(13, '130849-383U', 'Kinfe', 'Brhane', 'Male', 'ERI', 'Mr.', 'KinfeBrhane@arm', 'KinfeBrhane@armyspy.com', 'Siikasaarentie 91', '48600', '2024-05-10', NULL),
+(14, '230581-2882', 'Fiori', 'Simon', 'Female', 'ERI', 'Ms.', 'FioriSimon@rhyt', 'FioriSimon@rhyta.com', 'Jalonkatu 96', '90420', '2024-05-10', NULL),
+(15, '240504A750R', 'Natasja', 'O. Christoffersen', 'Female', 'DNK', 'Ms.', 'NatasjaOChristo', 'NatasjaOChristoffersen@armyspy.com', 'Mämminiementie 95', '20320', '2024-05-10', NULL),
+(16, '270588-4312', 'Hans', 'Kristensen', 'Male', 'GRL', 'Mr.', 'HansKristensen@', 'HansKristensen@teleworm.us', 'Hermiankatu 90', '74120', '2024-05-10', NULL),
+(17, '280355-149F', 'Tuomo', 'Hyytiä', 'Male', 'FIN', 'Mr.', 'TuomoHyytia@rhy', 'TuomoHyytia@rhyta.com', 'Skinnarilankatu 3', '53500', '2024-05-10', NULL),
+(18, '240962-4209', 'Maarit', 'Koskela', 'Female', 'FIN', 'Mrs.', 'MaaritKoskela@j', 'MaaritKoskela@jourrapide.com', 'Linnoitustie 86', '33400', '2024-05-10', NULL),
+(19, '040659-627V', 'Urho', 'Alatalo', 'Male', 'FIN', 'Mr.', 'UrhoAlatalo@day', 'UrhoAlatalo@dayrep.com', 'Ilmalankuja 80', '28360', '2024-05-10', NULL),
+(20, '101298-380N', 'Jenna', 'Muukkonen', 'Female', 'FIN', 'Ms.', 'JennaMuukkonen@', 'JennaMuukkonen@rhyta.com', 'Unioninkatu 10', '00700', '2024-05-10', NULL),
+(21, '031185-3877', 'Anewsh', 'Teqwa', 'Male', 'IRN', 'Mr.', 'AnewshTeqwa@day', 'AnewshTeqwa@dayrep.com', 'Piilostentie 77', '20780', '2024-05-10', '2024-05-10 11:57:33'),
+(22, '030384-542H', 'Marisa', 'Santos Souza', 'Female', 'BRA', 'Ms.', 'MarisaSantosSou', 'MarisaSantosSouza@dayrep.com', 'Vanhamaantie 53', '48600', '2024-05-10', NULL),
+(23, '130863-721B', 'Azad', 'Khamenhaa', 'Male', 'AFG', 'Mr.', 'AzadKhamenhaa@r', 'AzadKhamenhaa@rhyta.com', 'Kiannonkatu 87', '00390', '2024-05-10', NULL);
 
 -- --------------------------------------------------------
 
@@ -799,20 +819,6 @@ CREATE TABLE `customer_credentials` (
 ,`Username` varchar(50)
 ,`Password` varchar(50)
 ,`Date_OF_Add` date
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `deactive_employee_by_store`
--- (See below for the actual view)
---
-CREATE TABLE `deactive_employee_by_store` (
-`SSN` char(15)
-,`F_Name` varchar(50)
-,`L_Name` varchar(50)
-,`Store_Name` varchar(50)
-,`Service_Status` enum('Contract ended','Got fired','Active')
 );
 
 -- --------------------------------------------------------
@@ -855,13 +861,13 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`Emp_ID`, `SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`, `Email`, `Address`, `PostalCode`, `Date_OF_Add`, `Date_OF_Update`, `Reports_To`, `Image_Name`) VALUES
-(6, '241003A159E', 'Joona ', 'Hautaniemi', 'Male', '041 213 8542', 'JoonaHautaniemi@dayrep.com', 'Keskustie 59', '00100', '2021-03-03', '2024-05-06 11:30:58', NULL, '241003A159E.jpg'),
+(6, '241003A159E', 'Joona', 'Hautaniemi', 'Male', '041 213 8542', 'JoonaHautaniemi@dayrep.com', 'Keskustie 59', '00100', '2021-03-03', '2024-05-10 13:18:30', NULL, '241003A159E.jpg'),
 (7, '270772-3221', 'Katja', 'Berglund', 'Female', '044 780 2773', 'KatjaBerglund@jourrapide.com', 'Kangasmoisionkatu 49', '00390', '2024-03-06', '2024-05-06 11:31:30', 6, '270772-3221.jpg'),
 (8, '151187-291C', 'Ismo', 'Ahokainen', 'Male', '044 124 2790', 'IsmoAhokainen@armyspy.com', 'Norra Larsmovägen 67', '70200', '2024-03-18', '2024-05-06 11:32:11', NULL, '151187-291C.jpg'),
 (9, '260666-673B', 'Petteri', 'Viljanen', 'Male', '041 434 6692', 'PetteriViljanen@jourrapide.com', 'Kunnankuja 55', '90420', '2024-03-18', '2024-05-06 11:32:29', NULL, '260666-673B.jpg'),
 (10, '290566-460L', 'Cynthia', 'A. Lindsey', 'Female', '041 854 0282\n', 'CynthiaALindsey@teleworm.us', 'Hätilänkatu 49', '15610', '0000-00-00', '2024-05-06 11:50:44', 8, '290566-460L.jpg'),
-(11, '220364-0989', 'Aliisa ', 'Autio', 'Female', '050 775 9997\n', 'AliisaAutio@dayrep.com', 'Lönnrotinkatu 84', '40320', '2024-03-12', '2024-05-06 11:33:09', NULL, '220364-0989.jpg'),
-(12, '121182-5650', 'Kim ', 'Nilsen', 'Male', '040 665 1181\n', 'KimNilsen@teleworm.us', 'Mämminiementie 63', '20320', '2024-03-26', '2024-05-06 11:48:09', NULL, '121182-5650.jpg'),
+(11, '220364-0989', 'Aliisa', 'Autio', 'Female', '050 775 9997\n', 'AliisaAutio@dayrep.com', 'Lönnrotinkatu 84', '40320', '2024-03-12', '2024-05-10 13:18:46', NULL, '220364-0989.jpg'),
+(12, '121182-5650', 'Kim', 'Nilsen', 'Male', '040 665 1181\n', 'KimNilsen@teleworm.us', 'Mämminiementie 63', '20320', '2024-03-26', '2024-05-10 13:19:04', NULL, '121182-5650.jpg'),
 (13, '210254-299R', 'Silas', 'Josefsen', 'Male', '040 005 1181\n', 'SilasJosefsen@jourrapide.com', 'Viinikantie 77', '13130', '2024-03-26', '2024-05-06 11:39:16', NULL, '210254-299R.jpg'),
 (14, '301250-0684', 'Azhar Mas\'udah', 'Naifeh', 'Male', '042 446 7706\n', 'AzharMasudahNaifeh@rhyta.com', 'Kerkkolankatu 63', '87400', '2024-03-26', '2024-05-06 11:39:54', NULL, '301250-0684.jpg'),
 (15, '310398-690Y', 'Ruwaydah Nafisah', 'Shammas', 'Female', '040 203 4405\n', 'RuwaydahNafisahShammas@jourrapide.com', 'Kluuvikatu 24', '01720', '2024-03-26', '2024-05-06 11:38:19', NULL, '310398-690Y.jpg'),
@@ -871,50 +877,6 @@ INSERT INTO `employees` (`Emp_ID`, `SSN`, `F_Name`, `L_Name`, `Gender`, `Phone`,
 (19, '181268-140B', 'Elsa', 'Väyrynen', 'Female', '044 835 4723', 'ElsaVayrynen@jourrapide.com', 'Kangasmoisionkatu 79', '40320', '2024-04-02', '2024-05-06 11:38:48', NULL, '181268-140B.jpg'),
 (21, '271294-825Y', 'Risto', 'Hossi', 'Male', '042 479 5096', 'RistoHossi@armyspy.com', 'Rörgrunsvägen 50', '65300', '2024-04-30', '2024-05-06 11:47:09', NULL, '271294-825Y.jpg'),
 (22, '161299-3937', 'Samuel', 'F. Cruz', 'Male', '041 363 3776', 'SamuelFCruz@armyspy.com', 'Gesterbyntie 58', '13130', '2024-05-06', '2024-05-06 11:53:35', NULL, '161299-3937.jpg');
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `employee_by_store_active_contract`
--- (See below for the actual view)
---
-CREATE TABLE `employee_by_store_active_contract` (
-`Emp_ID` int(15)
-,`SSN` char(15)
-,`F_Name` varchar(50)
-,`L_Name` varchar(50)
-,`Store_Name` varchar(50)
-,`Title_Name` varchar(50)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `employee_by_store_not_active_contract`
--- (See below for the actual view)
---
-CREATE TABLE `employee_by_store_not_active_contract` (
-`Emp_ID` int(15)
-,`SSN` char(15)
-,`F_Name` varchar(50)
-,`L_Name` varchar(50)
-,`Store_Name` varchar(50)
-,`Status` enum('Contract ended','Got fired','Active')
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `employee_by_store_still_working`
--- (See below for the actual view)
---
-CREATE TABLE `employee_by_store_still_working` (
-`Emp_ID` int(15)
-,`SSN` char(15)
-,`F_Name` varchar(50)
-,`L_Name` varchar(50)
-,`Store Name` varchar(50)
-);
 
 -- --------------------------------------------------------
 
@@ -1017,11 +979,63 @@ INSERT INTO `employee_titles` (`Row_ID`, `Emp_ID`, `Title_ID`, `From_Date`, `To_
 (7, 6, 1, '2023-08-01', '2024-04-04', 0),
 (10, 6, 1, '2024-04-08', '2025-04-08', 1),
 (11, 6, 1, '2023-05-04', '2010-06-16', 0),
-(12, 7, 2, '2021-06-01', '2023-07-01', 0),
-(13, 7, 2, '2023-08-01', '2024-12-31', 1),
+(12, 7, 1, '2021-06-01', '2023-07-01', 0),
+(13, 7, 1, '2023-08-01', '2024-12-31', 1),
 (14, 16, 1, '2024-01-01', '2025-03-01', 1),
 (15, 16, 3, '2024-01-01', '2025-03-01', 1),
 (16, 21, 1, '2024-05-07', '2025-05-07', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `employee_without_contract`
+-- (See below for the actual view)
+--
+CREATE TABLE `employee_without_contract` (
+`Emp_ID` int(15)
+,`SSN` char(15)
+,`F_Name` varchar(50)
+,`L_Name` varchar(50)
+,`Gender` enum('Male','Female')
+,`Phone` varchar(15)
+,`Email` varchar(50)
+,`Address` varchar(50)
+,`PostalCode` char(5)
+,`Date_OF_Add` date
+,`Date_OF_Update` datetime
+,`Reports_To` int(15)
+,`Image_Name` varchar(150)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `employee_with_active_contract`
+-- (See below for the actual view)
+--
+CREATE TABLE `employee_with_active_contract` (
+`SSN` char(15)
+,`EmployeeName` varchar(101)
+,`Store_Name` varchar(50)
+,`From_Date` date
+,`To_Date` date
+,`Service_Status` enum('Active','DeActive')
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `employee_with_deactive_contract`
+-- (See below for the actual view)
+--
+CREATE TABLE `employee_with_deactive_contract` (
+`SSN` char(15)
+,`EmployeeName` varchar(101)
+,`Store_Name` varchar(50)
+,`From_Date` date
+,`To_Date` date
+,`service_status` enum('Active','DeActive')
+);
 
 -- --------------------------------------------------------
 
@@ -1524,8 +1538,6 @@ INSERT INTO `stores` (`Store_ID`, `Branch_Store_ID`, `Store_Name`, `Address`, `E
 (114, 8, 'SCC - Espoo', 'Olarinluoma 19', 'espoo@scc.fi', '0300472211', '02200', '2024-03-25', '2024-03-25 17:09:47', NULL),
 (115, 8, 'SCC - Jyväskylä', 'Laukaantie 4', 'jyvaskyla@scc.fi', '0300472214', '40320', '2024-03-26', '2024-03-26 16:21:56', NULL),
 (116, 8, 'SCC - Turku', 'Tuotekatu 4', 'turku@scc.fi', '0300472230', '20320', '2024-03-26', '2024-03-26 16:22:43', NULL),
-(117, 8, 'SCC - Tampere', 'Pitkäkurunkuja 6', 'tampere@scc.fi', '0300472282', '37570', '2024-03-26', '2024-03-26 16:24:02', NULL),
-(118, 1, 'SAKA Headquarter', 'Rintinpolku 1 C 12', 'headquarter@saka.fi', '0449894411', '02200', '2024-04-04', '2024-04-04 16:12:08', NULL),
 (119, 2, 'KAMUX Headquarter', 'Snellmaninkatu 45', 'headquarter@kamux.fi', '040 886 2869', '02200', '2024-04-04', '2024-04-04 16:18:46', NULL),
 (120, 10, 'LänsiAuto Espoo', 'Marsbyntie 3', 'NULL', 'NULL', '02920', '2024-04-09', '2024-04-09 12:53:31', NULL),
 (121, 10, 'LänsiAuto Helsinki', 'Laivalahdenkatu 8', 'NULL', '010 525 2820', '00880', '2024-04-09', '2024-04-09 12:54:16', NULL),
@@ -1585,7 +1597,7 @@ CREATE TABLE `stores_employee` (
   `Emp_ID` int(15) NOT NULL,
   `From_Date` date NOT NULL,
   `To_Date` date DEFAULT NULL,
-  `Service_Status` enum('Contract ended','Got fired','Active') DEFAULT NULL
+  `Service_Status` enum('Active','DeActive') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
@@ -1593,15 +1605,18 @@ CREATE TABLE `stores_employee` (
 --
 
 INSERT INTO `stores_employee` (`Row_ID`, `Store_ID`, `Emp_ID`, `From_Date`, `To_Date`, `Service_Status`) VALUES
-(33, 8, 19, '2021-01-04', '2023-06-04', 'Contract ended'),
-(34, 92, 17, '2024-01-01', '2024-04-01', 'Got fired'),
-(35, 66, 12, '2022-12-01', '2023-11-30', 'Contract ended'),
-(36, 32, 16, '2024-01-01', '2025-03-01', 'Active'),
-(37, 109, 11, '2024-04-01', '2025-11-28', 'Active'),
-(38, 118, 7, '2021-08-01', '2023-07-01', 'Contract ended'),
-(39, 119, 7, '2023-08-01', '2024-12-31', 'Active'),
-(40, 6, 22, '2024-04-01', '2025-04-01', 'Active'),
-(41, 1, 21, '2024-05-07', '2025-05-07', 'Active');
+(33, 8, 22, '2021-01-04', '2024-04-30', 'DeActive'),
+(34, 92, 17, '2024-01-01', '2024-04-30', 'DeActive'),
+(35, 66, 12, '2022-12-01', '2024-04-30', 'DeActive'),
+(36, 32, 16, '2024-01-01', '2024-05-31', 'Active'),
+(37, 109, 11, '2024-04-01', '2024-05-31', 'Active'),
+(38, 13, 7, '2021-08-01', '2024-04-30', 'DeActive'),
+(39, 43, 7, '2023-08-01', '2024-05-31', 'Active'),
+(40, 6, 22, '2024-04-01', '2024-05-31', 'Active'),
+(41, 1, 21, '2024-05-07', '2024-05-31', 'Active'),
+(42, 134, 12, '2024-03-01', '2024-05-31', 'Active'),
+(43, 147, 9, '2024-01-01', '2024-05-31', 'Active'),
+(44, 8, 19, '2022-08-01', '2024-05-31', 'Active');
 
 -- --------------------------------------------------------
 
@@ -1672,15 +1687,6 @@ INSERT INTO `titles` (`Title_ID`, `Name`, `Date_OF_Add`, `Date_OF_Updated`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure for view `active_employee_by_store`
---
-DROP TABLE IF EXISTS `active_employee_by_store`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `active_employee_by_store`  AS SELECT `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) WHERE `stores_employee`.`Service_Status` = 'Active' ;
-
--- --------------------------------------------------------
-
---
 -- Structure for view `cars_by_stores`
 --
 DROP TABLE IF EXISTS `cars_by_stores`;
@@ -1717,15 +1723,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `deactive_employee_by_store`
---
-DROP TABLE IF EXISTS `deactive_employee_by_store`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deactive_employee_by_store`  AS SELECT `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name`, `stores_employee`.`Service_Status` AS `Service_Status` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) WHERE `stores_employee`.`Service_Status` <> 'Active' ;
-
--- --------------------------------------------------------
-
---
 -- Structure for view `employeecanspeaklanguage`
 --
 DROP TABLE IF EXISTS `employeecanspeaklanguage`;
@@ -1735,38 +1732,38 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `employee_by_store_active_contract`
---
-DROP TABLE IF EXISTS `employee_by_store_active_contract`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store_active_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name`, `titles`.`Name` AS `Title_Name` FROM ((((`employees` join `employee_titles` on(`employees`.`Emp_ID` = `employee_titles`.`Emp_ID`)) join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) join `titles` on(`titles`.`Title_ID` = `employee_titles`.`Title_ID`)) WHERE `stores_employee`.`Service_Status` = 'Active' GROUP BY `employees`.`SSN` ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `employee_by_store_not_active_contract`
---
-DROP TABLE IF EXISTS `employee_by_store_not_active_contract`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store_not_active_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store_Name`, `stores_employee`.`Service_Status` AS `Status` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) WHERE `stores_employee`.`Service_Status` <> 'Active' ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `employee_by_store_still_working`
---
-DROP TABLE IF EXISTS `employee_by_store_still_working`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_by_store_still_working`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `stores`.`Store_Name` AS `Store Name` FROM ((`employees` join `stores_employee` on(`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) join `stores` on(`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) WHERE `stores_employee`.`To_Date` is null ;
-
--- --------------------------------------------------------
-
---
 -- Structure for view `employee_credentials`
 --
 DROP TABLE IF EXISTS `employee_credentials`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_credentials`  AS SELECT `c`.`Credentials_ID` AS `Credentials_ID`, `e`.`F_Name` AS `F_Name`, `e`.`L_Name` AS `L_Name`, `c`.`Username` AS `Username`, `c`.`Password` AS `Password`, `c`.`Date_OF_Add` AS `Date_OF_Add` FROM (`credentials` `c` join `employees` `e` on(`c`.`Emp_ID` = `e`.`Emp_ID`)) WHERE `c`.`Emp_ID` is not null ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `employee_without_contract`
+--
+DROP TABLE IF EXISTS `employee_without_contract`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_without_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `employees`.`Gender` AS `Gender`, `employees`.`Phone` AS `Phone`, `employees`.`Email` AS `Email`, `employees`.`Address` AS `Address`, `employees`.`PostalCode` AS `PostalCode`, `employees`.`Date_OF_Add` AS `Date_OF_Add`, `employees`.`Date_OF_Update` AS `Date_OF_Update`, `employees`.`Reports_To` AS `Reports_To`, `employees`.`Image_Name` AS `Image_Name` FROM `employees` WHERE !exists(select 1 from `stores_employee` where `employees`.`Emp_ID` = `stores_employee`.`Emp_ID` limit 1) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `employee_with_active_contract`
+--
+DROP TABLE IF EXISTS `employee_with_active_contract`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_with_active_contract`  AS SELECT `e`.`SSN` AS `SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `EmployeeName`, `s`.`Store_Name` AS `Store_Name`, `se`.`From_Date` AS `From_Date`, `se`.`To_Date` AS `To_Date`, `se`.`Service_Status` AS `Service_Status` FROM ((`stores_employee` `se` join `stores` `s` on(`se`.`Store_ID` = `s`.`Store_ID`)) join `employees` `e` on(`se`.`Emp_ID` = `e`.`Emp_ID`)) WHERE `se`.`Service_Status` = 'Active' ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `employee_with_deactive_contract`
+--
+DROP TABLE IF EXISTS `employee_with_deactive_contract`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_with_deactive_contract`  AS SELECT `e`.`SSN` AS `SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `EmployeeName`, `s`.`Store_Name` AS `Store_Name`, `se`.`From_Date` AS `From_Date`, `se`.`To_Date` AS `To_Date`, `se`.`Service_Status` AS `service_status` FROM ((`stores_employee` `se` join `stores` `s` on(`se`.`Store_ID` = `s`.`Store_ID`)) join `employees` `e` on(`se`.`Emp_ID` = `e`.`Emp_ID`)) WHERE `se`.`Service_Status` <> 'Active' ;
 
 -- --------------------------------------------------------
 
@@ -2044,19 +2041,19 @@ ALTER TABLE `carsold`
 -- AUTO_INCREMENT for table `credentials`
 --
 ALTER TABLE `credentials`
-  MODIFY `Credentials_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `Credentials_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `credentials_logs`
 --
 ALTER TABLE `credentials_logs`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `Customer_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Customer_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -2104,7 +2101,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT for table `stores_employee`
 --
 ALTER TABLE `stores_employee`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `store_branches`
