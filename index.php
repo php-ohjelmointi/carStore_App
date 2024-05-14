@@ -218,6 +218,12 @@
             <a href="All_Tiitles_Salaries.php"><button type="button" class="btn btn-primary">Title and salary</button></a>
             <a href="show_emp_service_language.php"><button type="button" class="btn btn-warning">A/S serv. Lang.</button></a>
         </div> 
+        <br /><br />
+        
+        <div class="imagegrid">
+            <a href="WorkingPlace.php"><button type="button" class="btn btn-primary">Working places</button></a>
+            
+        </div> 
     </div>
 
     <div class="well">
@@ -234,7 +240,7 @@
         <br /><br />
 
         <div class="imagegrid">
-            <a href="addnewemployecredentialsLOG.php"> <button type="button" class="btn btn-success ">+ EMP cred LOG</button></a>
+            <a href="addemployeecredentialsLOG.php"> <button type="button" class="btn btn-success ">+ EMP cred LOG</button></a>
             <a href="addcustomercredentialsLOG.php"> <button type="button" class="btn btn-success">+ Cust cred LOG</button></a>
         </div> 
     </div>

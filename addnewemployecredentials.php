@@ -3,7 +3,7 @@
     
 
   //SQL query employeeID
-  $sql_employees = "SELECT * FROM employees";
+  $sql_employees = "SELECT * FROM employees WHERE NOT EXISTS (SELECT * FROM credentials WHERE employees.Emp_ID = credentials.Emp_ID)";
   $all_sql_employees = mysqli_query($conn,$sql_employees); 
 
 

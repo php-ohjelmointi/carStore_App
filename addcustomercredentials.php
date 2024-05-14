@@ -8,7 +8,8 @@
   $all_sql_employees = mysqli_query($conn,$sql_employees); */
 
  //SQL query CustomerID
- $sql_customers = "SELECT * FROM customers";
+ $sql_customers = "SELECT * FROM customers
+ WHERE  NOT EXISTS (SELECT * FROM credentials WHERE customers.Customer_ID = credentials.Customer_ID);";
  $all_sql_customers = mysqli_query($conn,$sql_customers);
 
 
@@ -72,7 +73,7 @@
             <option value="<?php echo $sql_customers["Customer_ID"];
                 // The value we usually set is the primary key
             ?>">
-                <?php echo $sql_customers["Customer_ID"]." - ".$sql_customers["F_Name"]." ".$sql_customers["L_Name"];
+                <?php echo $sql_customers["Customer_ID"]." - ".$sql_customers["F_Name"]." ".$sql_customers["L_Name"]." - ".$sql_customers["Email"];
                     // To show the category name to the user
                 ?>
             </option>

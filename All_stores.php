@@ -1,79 +1,73 @@
-<?php 
-     require 'db.php';
-
-
-   //SQL query
-   $GettingStores = "SELECT  s.*,sb.Name AS BranchName FROM stores as s
-        INNER JOIN  store_branches as sb
-        ON sb.Branch_Store_ID = s.Branch_Store_ID 
-        ORDER BY s.Date_OF_Add DESC";
-  
-?>
 
 <!DOCTYPE html>
-<html lang="fi-FI">
+<html lang="en">
 <head>
-  <title>ALL STORES</title>
+  <title>PHP MySQL Ajax Live Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/761c60ba3b.js" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </head>
-
-
 <body>
-<br /><br />
-<a href="index.php"><button type="button" class="btn btn-default btn-xs">MAIN PAGE</button></a>
+<?php
+require 'db.php';
+?>
+<div class="mt-2" style='margin-left:1em;margin-right:1em'>
+<a href="index.php"><button type="button" class="btn btn-info">MAIN PAGE</button></a>
 <a href="addnewstore.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW STORE</button></a>
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Store Branch</th>
-        <th>Store Name</th>
-        <th>Address</th>
-        <th>Postalcode</th>
-        <th>Date OF ADD</th>
-      </tr>
-    </thead>
-    <tbody>
-        <?php 
-        $GettingStores_Result = $conn->query($GettingStores);
-        if ($GettingStores_Result->num_rows > 0) {
-            // output data of each row
-            while($row = $GettingStores_Result->fetch_assoc()) {
-                $Brach_Name = $row["BranchName"];
-                $Store_Name  = $row["Store_Name"];
-                $Address  = $row["Address"];
-                $Postalcode  = $row["PostalCode"];
-                $Date_OF_Add  = $row["Date_OF_Add"];
-
-                echo "<tr>";
-                echo "<td>$Brach_Name</td>";
-                echo "<td>$Store_Name</td>";
-                echo "<td>$Address</td>";
-                echo "<td>$Postalcode</td>";
-                echo "<td>$Date_OF_Add</td>";
-                echo "</tr>";
-                
-            }
-        } else {
-      
-        }
-        mysqli_close($conn);  
-        ?>
-
-
-
-
-      
-      
-    </tbody>
-  </table>
+    <h6 class="mt-5"><b>Search Car</b></h6>
+    <div class="input-group mb-2 mt-1">
+         <div class="form-outline">
+            <input type="text" style='width:117em;height:3em;padding:10px;' id="getStores" placeholder="Search Cars by Branch, Store Name or Postalcodes"/>
+        </div>
+    </div>                   
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Store Branch</th>
+            <th>Store Name</th>
+            <th>Address</th>
+            <th>Postalcode</th>
+            <th>Date OF ADD</th>
+          </tr>
+        </thead>
+        <tbody id="showdata">
+          <?php  
+                $sql = "SELECT  s.*,sb.Name AS BranchName,PC.*
+                  FROM stores as s
+                  INNER JOIN  store_branches as sb ON sb.Branch_Store_ID = s.Branch_Store_ID 
+                  INNER JOIN  postalCodes as PC ON PC.PostalCode = s.PostalCode
+                  ORDER BY s.Date_OF_Add DESC";
+                  $query = mysqli_query($conn,$sql);
+                  while($row = mysqli_fetch_assoc($query))
+                  {
+                    echo"<tr>";
+                    echo"<td>".$row['BranchName']."</td>";
+                    echo"<td>".$row['Store_Name']."</td>";
+                    echo"<td>".$row['Address']."</td>";
+                    echo"<td>".$row['PostalCode'].", ".$row['Region']."</td>";
+                    echo"<td>".$row['Date_OF_Add']."</td>";
+                    echo"</tr>";   
+                  }
+            ?>
+        </tbody>
+    </table>
+</div>
+<script>
+  $(document).ready(function(){
+   $('#getStores').on("keyup", function(){
+     var getStore = $(this).val();
+     $.ajax({
+       method:'POST',
+       url:'searchFunctions/search_STORES.php',
+       data:{name:getStore},
+       success:function(response)
+       {
+            $("#showdata").html(response);
+       } 
+     });
+   });
+  });
+</script>
+</body>
 </html>

@@ -107,7 +107,7 @@
          <option value="<?php echo $sql_employees["Emp_ID"];
              // The value we usually set is the primary key
          ?>">
-             <?php echo $sql_employees["Emp_ID"]."-".$sql_employees["F_Name"]." ".$sql_employees["L_Name"]." - ".$sql_employees["PostalCode"];
+             <?php echo $sql_employees["Emp_ID"]." - ".$sql_employees["SSN"]." - ".$sql_employees["F_Name"]." ".$sql_employees["L_Name"];
                  // To show the category name to the user
              ?>
          </option>
@@ -121,17 +121,10 @@
 
 
     <div class="ROW">
-        <select name="Contract_Type" id="email" class="form-control">
-            <option value="#">Contract_Type</option>
-            <option value="Permanent">Permanent</option>
-            <option value="Temporarry">Temporarry</option>
-      </select>
-         &nbsp;&nbsp;
       <select name="Service_Status" id="email" class="form-control">
             <option value="#">Service_Status</option>
             <option value="Active">Active</option>
-            <option value="Contract ended">Contract ended</option>
-            <option value="Got fired">Got fired</option>
+            <option value="Contract ended">DeActive</option>
       </select>
     </div>
  

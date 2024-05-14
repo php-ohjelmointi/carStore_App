@@ -5,29 +5,28 @@
   $sql_postalcodes = "SELECT * FROM postalcodes";
   $all_sql_postalcodes = mysqli_query($conn,$sql_postalcodes);
 
+   //SQL query brands
+   $sql_country = "SELECT * FROM country";
+   $all_sql_country = mysqli_query($conn,$sql_country);
+
   if(isset($_POST['addcustomer'])){
     $SSN = mysqli_real_escape_string($conn,$_POST['SSN']);
     $F_Name = mysqli_real_escape_string($conn,$_POST['F_Name']);
     $L_Name = mysqli_real_escape_string($conn,$_POST['L_Name']);
     $Gender = mysqli_real_escape_string($conn,$_POST['Gender']);
-    $Nationality = mysqli_real_escape_string($conn,$_POST['Nationality']);
+    $Nationality = mysqli_real_escape_string($conn,$_POST['CountryCode']);
     $Title_OF_Courtesy = mysqli_real_escape_string($conn,$_POST['Title_OF_Courtesy']);
     $Email = mysqli_real_escape_string($conn,$_POST['Email']);
     $Phone= mysqli_real_escape_string($conn,$_POST['Phone']);
     $Address = mysqli_real_escape_string($conn,$_POST['Address']);
     $PostalCode= mysqli_real_escape_string($conn,$_POST['PostalCode']);
-    $Date_Of_Birth= mysqli_real_escape_string($conn,$_POST['Date_Of_Birth']);
     
 
-    if(empty($_POST['Date_Of_Birth'])){
-      $NewDate_Of_Birth = 'NULL';
-    }else{
-      $NewDate_Of_Birth = $Date_Of_Birth;
-    }
+    
 
     
-    $AddNewCustomer ="INSERT INTO customers (`SSN`, `F_Name`, `L_Name`, `Gender`, `Nationality`, `Title_OF_Courtesy`, `Phone`, `Email`, `Address`, `PostalCode`, `Date_Of_Birth`) 
-                    VALUES ('$SSN','$F_Name','$L_Name','$Gender','$Nationality','$Title_OF_Courtesy','$Email','$Email','$Address','$PostalCode','$NewDate_Of_Birth')";
+    $AddNewCustomer ="INSERT INTO customers (`SSN`, `F_Name`, `L_Name`, `Gender`, `Nationality`, `Title_OF_Courtesy`, `Phone`, `Email`, `Address`, `PostalCode`) 
+                    VALUES ('$SSN','$F_Name','$L_Name','$Gender','$Nationality','$Title_OF_Courtesy','$Email','$Email','$Address','$PostalCode')";
 
                   $AddNewCustomerKysely = mysqli_query($conn, $AddNewCustomer) or die (mysqli_error($conn));
 
@@ -86,7 +85,26 @@
         <option value="Female">Female</option>
       </select>
        &nbsp;&nbsp;&nbsp;
-      <input type="text" class="form-control" id="email" name="Nationality" placeholder="Nationality">
+       <select name="CountryCode" id="email" class="form-control">
+        <?php 
+            // use a while loop to fetch data 
+            // from the $all_categories variable 
+            // and individually display as an option
+            while ($sql_country = mysqli_fetch_array(
+                    $all_sql_country,MYSQLI_ASSOC)):; 
+        ?>
+            <option value="<?php echo $sql_country["Code"];
+                // The value we usually set is the primary key
+            ?>">
+                <?php echo $sql_country["Code"]." - ".$sql_country["Name"];
+                    // To show the category name to the user
+                ?>
+            </option>
+        <?php 
+            endwhile; 
+            // While loop must be terminated
+        ?>
+        </select>
     </div>
     <br />
 
@@ -113,8 +131,6 @@
 
    
     <div class="ROW">
-      <input type="text" class="form-control" id="email" name="Date_Of_Birth" placeholder="Date_Of_Birth">
-       &nbsp;&nbsp;&nbsp;
        <select name="PostalCode" id="email" class="form-control">
         <?php 
             // use a while loop to fetch data 
