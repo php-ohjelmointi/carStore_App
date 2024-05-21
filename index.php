@@ -221,7 +221,7 @@
         <br /><br />
         
         <div class="imagegrid">
-            <a href="WorkingPlace.php"><button type="button" class="btn btn-primary">Working places</button></a>
+            <a href="All_WorkingPlace.php"><button type="button" class="btn btn-primary">Working places</button></a>
             
         </div> 
     </div>
@@ -230,7 +230,7 @@
         <h1 style="border-bottom:1px solid gray;">Credentials</h1>
         <p>Credentials (TOTAL): <span><?php echo $CredentialsNumber; ?></span></p><br />
         <a href="All_credentials.php"><button type="button" class="btn btn-primary">All Credentials</button></a>
-        <a href="credentialslogs.php"><button type="button" class="btn btn-primary">Credentials logs</button></a>
+        <a href="All_credentialslogs.php"><button type="button" class="btn btn-primary">Credentials logs</button></a>
         <br /><br />
 
         <div class="imagegrid">

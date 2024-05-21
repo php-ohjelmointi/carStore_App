@@ -71,6 +71,14 @@
                 $Deal_Date  = $row["Deal_Date"];
                 $Deal_Place  = $row["Store_Name"];
 
+                //Erotellaan tuhannesosat
+                $ErotaTuhannet_Laske_Original_Price = $Original_Price;
+                $MuokattuTuhannet_ErotaTuhannet_Laske_Original_Price = number_format($ErotaTuhannet_Laske_Original_Price , 2, ',', ' ');
+
+                //Erotellaan tuhannesosat
+                $ErotaTuhannet_Laske_Sold_Price = $Sold_Price;
+                $MuokattuTuhannet_ErotaTuhannet_Laske_Sold_Price = number_format($ErotaTuhannet_Laske_Sold_Price , 2, ',', ' ');
+
 
                 echo "<tr>";
                 echo "<td>$VIN</td>";
@@ -78,8 +86,8 @@
                 echo "<td> $BrandName $Model</td>";
                 echo "<td> $Emp_SSN, $Sold_BY</td>";
                 echo "<td> $Customer_SSN, $Sold_To</td>";
-                echo "<td> $Original_Price</td>";
-                echo "<td> $Sold_Price</td>";
+                echo "<td> $MuokattuTuhannet_ErotaTuhannet_Laske_Original_Price</td>";
+                echo "<td> $MuokattuTuhannet_ErotaTuhannet_Laske_Sold_Price</td>";
                 echo "<td> $Deal_Place</td>";
                 echo "<td> $Deal_Date</td>";
                 echo "</tr>";

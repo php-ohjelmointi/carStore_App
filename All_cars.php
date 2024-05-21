@@ -29,6 +29,12 @@ require 'db.php';
           <th>Number_Plate</th>
           <th>Brand Model</th>
           <th>Model Spec</th>
+          <th>Gearbox</th>
+          <th>Fuel Type</th>
+          <th>Body Type</th>
+          <th>Color</th>
+          <th>Driving</th>
+          <th>Price</th>
           <th>Date OF ADD</th>
           </tr>
         </thead>
@@ -44,15 +50,32 @@ require 'db.php';
                 ORDER BY c.Date_OF_Add DESC";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
-                {
-                  echo"<tr>";
-                   echo"<td><strong>".$row['VIN']."</strong></td>";
-                   echo"<td><strong>".$row['Number_Plate']."</strong></td>";
-                   echo"<td>".$row['Name']." ".$row['Model']."</td>";
-                   echo"<td>".$row['Model_Spec']."</td>";
-                   echo"<td>".$row['Date_OF_Add']."</td>";
-                  echo"</tr>";   
-                }
+                    {
+                      //Erotellaan tuhannesosat
+                      $ErotaTuhannet_Laske_hinta = $row['Price'];
+                      $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 2, ',', ' '); 
+
+                      /* $gearboxICON = '';
+                      if($row['Gearbox'] == 'Automatic'){
+                        $gearboxICON = '<img src="./images/icons/gearbox_automatic.png" alt="Random image" ,width=50px, height=30px />';
+                      }else if($row['Gearbox'] == 'Manual'){
+                        $gearboxICON = '<img src="./images/icons/gearbox_manual.png" alt="Random image" ,width=50px, height=30px />';
+                      } */
+
+                      echo"<tr>";
+                      echo"<td>".$row['VIN']."</td>";
+                      echo"<td>".$row['Number_Plate']."</td>";
+                      echo"<td>".$row['Name']." ".$row['Model']."</td>";
+                      echo"<td>".$row['Model_Spec']."</td>";
+                      echo"<td>".$row['Gearbox']."</td>";
+                      echo"<td>".$row['Fuel_Type']."</td>";
+                      echo"<td>".$row['Type_OF_Body']."</td>";
+                      echo"<td>".$row['Color']."</td>";
+                      echo"<td>".$row['Draw_Method']."</td>";
+                      echo"<td>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta." €</td>";
+                      echo"<td>".$row['Date_OF_Add']."</td>";
+                      echo"</tr>";   
+                    }
             ?>
         </tbody>
     </table>

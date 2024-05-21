@@ -2,22 +2,14 @@
     require 'db.php';
     
   //SQL query brands
-  $sql_Get_Cars_Details = "SELECT * FROM car_store.cars_by_stores";
+  $sql_Get_Cars_Details = "SELECT C.VIN,C.Number_Plate,concat(B.Name,' ',C.Model) AS Car,S.Store_Name FROM cars AS C
+  INNER JOIN brands as B ON C.Brand_ID = B.Brand_ID
+  INNER JOIN stores as S ON C.Store_ID = S.Store_ID
+  WHERE NOT EXISTS (SELECT * FROM carsold WHERE C.VIN = carsold.VIN)";
   $sql_Get_Cars_Details_Result = mysqli_query($conn,$sql_Get_Cars_Details);
 
    //SQL Getting Employees
-   $sql_SellerDetails = "SELECT  `employees`.`Emp_ID` AS `Emp_ID`,
-   `employees`.`SSN` AS `SSN`, 
-   `employees`.`F_Name` AS `F_Name`, 
-   `employees`.`L_Name` AS `L_Name`, 
-   `stores`.`Store_Name` AS `Store_Name`,
-   `titles`.`Name` AS `Title_Name` 
-FROM ((((`employees` 
-       JOIN `employee_titles` ON (`employees`.`Emp_ID` = `employee_titles`.`Emp_ID`)) 
-          JOIN `stores_employee` ON (`employees`.`Emp_ID` = `stores_employee`.`Emp_ID`)) 
-         JOIN `stores` ON (`stores`.`Store_ID` = `stores_employee`.`Store_ID`)) 
-       JOIN `titles` ON (`titles`.`Title_ID` = `employee_titles`.`Title_ID`)) 
-WHERE `stores_employee`.`Service_Status` = 'Active' AND  `titles`.`Name` = 'Dealer'";
+   $sql_SellerDetails = "SELECT * FROM employee_with_active_contract";
    $sql_SellerDetails_Result = mysqli_query($conn,$sql_SellerDetails);
 
     //SQL Getting customer
@@ -26,7 +18,7 @@ WHERE `stores_employee`.`Service_Status` = 'Active' AND  `titles`.`Name` = 'Deal
 
   if(isset($_POST['addnewcarssold'])){
         $VIN = mysqli_real_escape_string($conn,$_POST['VIN']);
-        $Seller = mysqli_real_escape_string($conn,$_POST['Emp_ID']);
+        $Seller = mysqli_real_escape_string($conn,$_POST['EMP_ID']);
         $Buyer = mysqli_real_escape_string($conn,$_POST['Customer_ID']);
         $O_Price = mysqli_real_escape_string($conn,$_POST['O_Price']);
         $S_Price = mysqli_real_escape_string($conn,$_POST['S_Price']);
@@ -84,7 +76,7 @@ WHERE `stores_employee`.`Service_Status` = 'Active' AND  `titles`.`Name` = 'Deal
         ?>
             <option value="<?php echo $SellingCar["VIN"];
             ?>">
-                <?php echo $SellingCar["VIN"]." | ".$SellingCar["Number_Plate"]." | ".$SellingCar["Brand"]." ".$SellingCar["Model"]." | ".$SellingCar["Store_Name"]."";
+                <?php echo $SellingCar["VIN"]." | ".$SellingCar["Number_Plate"]." | ".$SellingCar["Car"]." | ".$SellingCar["Store_Name"]."";
                     
                 ?>
             </option>
@@ -99,7 +91,7 @@ WHERE `stores_employee`.`Service_Status` = 'Active' AND  `titles`.`Name` = 'Deal
         <p style="margin-left:40em;">Sold To</p>
     </div>
     <div class="ROW">
-        <select name="Emp_ID" id="email" class="form-control">
+        <select name="EMP_ID" id="email" class="form-control">
             <?php 
                 // use a while loop to fetch data 
                 // from the $all_categories variable 
@@ -107,10 +99,10 @@ WHERE `stores_employee`.`Service_Status` = 'Active' AND  `titles`.`Name` = 'Deal
                 while ($SellerDetails = mysqli_fetch_array(
                         $sql_SellerDetails_Result,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $SellerDetails["Emp_ID"];
+                <option value="<?php echo $SellerDetails["EMP_ID"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $SellerDetails["Emp_ID"]." - (".$SellerDetails["SSN"].") - ".$SellerDetails["F_Name"]." ".$SellerDetails["L_Name"]." | ".$SellerDetails["Store_Name"];
+                    <?php echo $SellerDetails["EMP_ID"]." - (".$SellerDetails["SSN"].") - ".$SellerDetails["EmployeeName"]." - ".$SellerDetails["Store_Name"];
                         // To show the category name to the user
                     ?>
                 </option>

@@ -2,10 +2,6 @@
      require 'db.php';
     
     
-/* 
-  //SQL query employeeID
-  $sql_employees = "SELECT * FROM employees";
-  $all_sql_employees = mysqli_query($conn,$sql_employees); */
 
  //SQL query CustomerID
  $sql_customers = "SELECT * FROM customers

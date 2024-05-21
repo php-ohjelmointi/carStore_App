@@ -117,7 +117,7 @@ a button {
         <tr>
           <th>EMP SSN</th>
           <th>Name</th>
-          <th>Salry</th>
+          <th>Salary</th>
           <th>From</th>
           <th>To</th>
         </tr>
@@ -135,12 +135,17 @@ a button {
                 $S_Salary  = $row["Salary"];
                 $S_FromDate  = $row["From_Date"];
                 $S_ToDate  = $row["To_Date"];
+
+                 //Erotellaan tuhannesosat
+                 $ErotaTuhannet_Laske_Salary = $S_Salary;
+                 $MuokattuTuhannet_ErotaTuhannet_Laske_Salary = number_format($ErotaTuhannet_Laske_Salary , 2, ',', ' ');
+ 
                 
 
                 echo "<tr>";
                 echo "<td>$S_SSN</td>";
                 echo "<td>$S_F_Name $S_L_Name</td>";
-                echo "<td> $S_Salary</td>";
+                echo "<td> $MuokattuTuhannet_ErotaTuhannet_Laske_Salary</td>";
                 echo "<td> $S_FromDate</td>";
                 echo "<td> $S_ToDate</td>";
                 echo "</tr>";

@@ -2,7 +2,7 @@
       require 'db.php';
     
     //SQL query employees
-  $sql_employees = "SELECT * FROM employees";
+  $sql_employees = "SELECT * FROM car_store.employee_without_contract;";
   $all_employees= mysqli_query($conn,$sql_employees);
 
     //SQL query stores
@@ -14,6 +14,7 @@
     $Store_ID = mysqli_real_escape_string($conn,$_POST['Store_ID']);
     $Emp_ID = mysqli_real_escape_string($conn,$_POST['Emp_ID']);
     $Service_Status= mysqli_real_escape_string($conn,$_POST['Service_Status']);
+    $Contract_Type= mysqli_real_escape_string($conn,$_POST['Contract_Type']);
     $From_Date = mysqli_real_escape_string($conn,$_POST['From_Date']);
     $To_Date = mysqli_real_escape_string($conn,$_POST['To_Date']);
     
@@ -33,12 +34,12 @@
     $orgDate_Resign_date = $Resign_date;  
     $Converted_Resign_date = date("Y-m-d", strtotime($orgDate_Resign_date));  
 
-        $AddNewworkingplace ="INSERT INTO stores_employee (`Store_ID`,`Emp_ID`,`From_Date`,`To_Date`,`Service_Status`) 
-          VALUES ('$Store_ID','$Emp_ID','$Converted_Date_From','$Converted_Date_To','$Service_Status')";
+        $AddNewworkingplace ="INSERT INTO stores_employee (`Store_ID`,`Emp_ID`,`From_Date`,`To_Date`,`Contract_Type`,`Service_Status`) 
+          VALUES ('$Store_ID','$Emp_ID','$Converted_Date_From','$Converted_Date_To','$Contract_Type','$Service_Status')";
             $AddNewworkingplace_Kysely = mysqli_query($conn, $AddNewworkingplace) or die (mysqli_error($conn));
               if($AddNewworkingplace_Kysely == 1)
                 {
-                  header('Location:index.php');
+                  header('Location:All_WorkingPlace.php');
                 } 
     }
 
@@ -125,6 +126,13 @@
             <option value="#">Service_Status</option>
             <option value="Active">Active</option>
             <option value="Contract ended">DeActive</option>
+      </select>
+      &nbsp;&nbsp;&nbsp;
+      <select name="Contract_Type" id="email" class="form-control">
+            <option value="#">Contract Type</option>
+            <option value="Permanent">Permanent</option>
+            <option value="For_Now">For now</option>
+            <option value="Temporary">Temporary</option>
       </select>
     </div>
  

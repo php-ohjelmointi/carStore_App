@@ -1,27 +1,27 @@
 <?php 
-     require 'db.php';
+  session_start();
+  require 'db.php';
+  error_reporting(0);
+  
+
 
    $GetCarsImage= "SELECT VIN, group_concat(i.Image_Name) AS CarImages
    FROM images AS i
     GROUP BY i.VIN";
 
     //Getting all cars
-    $GetAllCars = "SELECT 
-        c.VIN,
-        c.Number_Plate,
-        b.Name AS BrandName,
-        c.Model
-    FROM cars AS c
-        INNER JOIN  brands AS b 
-        ON c.Brand_ID = b.Brand_ID
-        ORDER BY c.Date_OF_Add DESC";
+    $GetAllCars = "SELECT cars.VIN,cars.Number_Plate, concat(brands.Name,' ',cars.Model) AS car,cars.color 
+      FROM cars 
+      INNER JOIN brands ON cars.Brand_ID = brands.Brand_ID 
+      WHERE NOT EXISTS 
+      (SELECT * FROM images WHERE cars.VIN = images.VIN)";
     $GetAllCars_Result = mysqli_query($conn,$GetAllCars);
 
 
     if(isset($_FILES["image"])){
         $VIN = mysqli_real_escape_string($conn,$_POST['VIN']);
         $message = "";
-        $allowedTypes = ["png","jpg","jpeg"];
+        $allowedTypes = ["png","jpg","jpeg","webp","jfif"];
         $fileType = strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));
          //Check Image Extension
         if(!in_array($fileType ,$allowedTypes)){
@@ -39,9 +39,10 @@
           if(move_uploaded_file($_FILES["image"]["tmp_name"],"images/cars/".$fileName)){
             //Save image name in database
             //$sql ="insert into tbl_images(image) values ('{$fileName}')";
-            $sql = "INSERT INTO images (`VIN`,`Image_Name`) VALUES ('$VIN','$fileName')";
+            $sql = "INSERT INTO temporary_image (`VIN`,`Image_Name`) VALUES ('$VIN','$fileName')";
             if($conn->query($sql)){
               $message = "<div class='alert alert-success'>Image Upload Successfully.</div>";
+                //Will Adding all data into actual image table
             }else{
               $message = "<div class='alert alert-danger'>Image Upload Failed.Try Again.</div>";
             }
@@ -51,14 +52,14 @@
         }
       }
    
-  
+      
   
 ?>
 
 <!DOCTYPE html>
 <html lang="fi-FI">
 <head>
-  <title>Cars/features</title>
+  <title>Cars image</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -106,17 +107,17 @@
     </thead>
     <tbody>
       <?php 
-            $sql ="select * from images ORDER BY Row_ID desc";
+            $sql ="select * from temporary_image ORDER BY Row_ID desc";
             $res = $conn->query($sql);
-            $i=0;
             while($row = $res->fetch_assoc()){
+             
                 
               $VIN = $row["VIN"];
               $Image_Name = $row["Image_Name"];
               echo "
                 <tr>
                   <td>{$VIN}</td>
-                  <td><img src='images/cars/{$row["Image_Name"]}' style='height:130px;' ></td>
+                  <td><img src='images/cars/{$row["Image_Name"]}' style='height:200px;' ></td>
                   <td>{$Image_Name}</td>
                 </tr>
               ";
@@ -138,7 +139,7 @@
               <option value="<?php echo $AllCars["VIN"];
                   // The value we usually set is the primary key
               ?>">
-                  <?php echo $AllCars["Number_Plate"]." - ".$AllCars["BrandName"]." ".$AllCars["Model"];
+                  <?php echo  $AllCars["VIN"]." - ".$AllCars["Number_Plate"]." - ".$AllCars["car"]." - ".$AllCars["color"];
                       // To show the category name to the user
                   ?>
               </option>
@@ -151,9 +152,13 @@
             <label>Choose Image</label>
             <input type='file' name='image' required class='form-control'>
         </div>
-        <input type='submit' name='submit' value='Submit' class='btn btn-primary'>
+        <input type='submit' value='Upload to Temporary table' class='btn btn-primary'>
+        <br /><br />
+        <?php $_SESSION['VIN'] = $VIN; ?>
+        <a href="other_Functionality/AddToActualImageTable.php"><p>Verify images and add to Actual Image Table</p></a>
     </form>
-  
+    
 </div>
 
 </html>
+
