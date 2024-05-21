@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 14, 2024 at 10:54 AM
+-- Generation Time: May 21, 2024 at 01:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -236,7 +236,7 @@ CREATE TABLE `cars` (
   `Fuel_Type` enum('Petrol','Diesel','Electric','Plug-In Hybrid','Gas') DEFAULT NULL,
   `Mileage` int(15) DEFAULT NULL,
   `Type_OF_Car` enum('Person','Van','Minibus','Motorcycle') DEFAULT NULL,
-  `Type_OF_Body` enum('Sedan','Hatchback','SUV','Wagon','Coupe','Logisti_Person_Van') DEFAULT NULL,
+  `Type_OF_Body` enum('Sedan','Hatchback','SUV','Wagon','Coupe','Van') DEFAULT NULL,
   `Draw_Method` enum('4WD','FWD','RWD') DEFAULT NULL,
   `Color` enum('White','Black','Silver','Red','Blue','Yellow','Orange') DEFAULT NULL,
   `Number_Of_Person` int(5) DEFAULT NULL,
@@ -255,50 +255,50 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`Row_ID`, `VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model_Spec`, `Price`, `Year`, `Gearbox`, `Fuel_Type`, `Mileage`, `Type_OF_Car`, `Type_OF_Body`, `Draw_Method`, `Color`, `Number_Of_Person`, `Number_OF_Doors`, `Power`, `Mass`, `TopSpeed`, `Engine_Capacity`, `Store_ID`, `Date_OF_Add`, `Date_OF_Update`) VALUES
-(2, 'YV1SW61R021197119', 'VAR-873', 10, 'XC90', NULL, 65000, 2020, 'Automatic', 'Petrol', 119000, 'Person', 'SUV', '4WD', 'White', 7, 5, '252', '3500', '250', '3.1', 133, '2024-03-05', '2024-04-23 14:47:49'),
-(3, '1D7HA18N38J191236', 'JIZ-610', 1, 'E-tron', NULL, 116000, 2020, 'Automatic', 'Petrol', 59000, 'Person', 'Sedan', '4WD', 'Black', 5, 3, '300', '2100', '300', '2.5', 2, '2024-03-06', '2024-03-06 13:07:38'),
-(4, '4S3BJ6329M1918965', 'IAR-058', 10, 'XC90', 'T8 TwE AWD Recharge Inscription aut', 70000, 2021, 'Automatic', 'Petrol', 104000, 'Person', 'SUV', 'RWD', 'White', 7, 5, '252', '3500', '250', '3.1', 5, '2024-03-06', '2024-04-23 14:44:36'),
-(5, 'JN6DY1AY8EX602144', 'HUI-995', 38, 'Pathfinder', '2,5 dCi SE 5AT 5-ov.', 7500, 2008, 'Manual', 'Diesel', 220000, 'Person', 'SUV', 'RWD', 'Blue', 5, 5, '150', '2600', '170', '3.5', 5, '2024-03-13', NULL),
-(6, 'WVGMR67L090010501', 'IJN-970', 9, 'Passat', 'Sedan Comfortline 2,0 TDI 103 kW', 5000, 2010, 'Automatic', 'Petrol', 425000, 'Person', 'Sedan', 'RWD', 'Silver', 5, 5, '160', '1600', '250', '2.5', 74, '2024-03-07', '2024-04-24 15:28:01'),
-(7, 'WB10557A13ZG36939', 'IPE-528', 2, '420', 'G26 Gran Coupé 420d A xDrive M Sport MHEV', 46500, 2022, 'Automatic', 'Petrol', 17000, 'Person', 'Sedan', 'RWD', 'Red', NULL, NULL, NULL, NULL, NULL, NULL, 6, '2024-03-06', '2024-03-07 10:43:34'),
-(8, 'YV1AX4747E1960685', 'LOE-886', 10, 'S90', 'D4 Business R-Design aut', 68000, 2018, 'Automatic', 'Petrol', 145000, 'Person', 'Sedan', '4WD', 'Silver', NULL, NULL, NULL, NULL, NULL, NULL, 10, '2024-03-07', '2024-04-23 13:30:53'),
-(9, 'WDBLK70G61T061039', 'JJE-655', 4, 'G-Wagon', '63 AMG, G700 Brabus Widestar', 120000, 2022, 'Automatic', 'Petrol', 100, 'Person', 'SUV', '4WD', 'Yellow', NULL, NULL, NULL, NULL, NULL, NULL, 6, '2024-03-07', '2024-04-23 14:52:20'),
-(10, 'WDDUG7JB1EA027074', 'HYY-779', 4, 'GLS', '600 Maybach', 65000, 2024, 'Automatic', 'Petrol', 200, 'Person', 'SUV', '4WD', 'Black', NULL, NULL, NULL, NULL, NULL, NULL, 72, '2024-03-07', '2024-04-23 14:52:15'),
-(11, 'ZA9DU01B21L903178', 'MMH-119', 22, 'Huracán', 'Huracan Evo Spyder 640hv', 98000, 2020, 'Automatic', 'Petrol', 16000, 'Person', 'Coupe', 'RWD', 'Silver', NULL, NULL, NULL, NULL, NULL, NULL, 39, '2024-03-07', '2024-04-23 14:52:24'),
-(12, 'ZFF73SKA9E0200021', 'LLK-225', 12, 'Portofino', 'Ferrari M Ferrari Portofino M Avoauto (AE)', 98000, 2023, 'Automatic', 'Petrol', 1000, 'Person', 'Coupe', 'RWD', 'Red', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2024-03-07', '2024-04-23 14:51:59'),
-(13, 'WAU3FLFF5F1034279', 'OXS-665', 1, 'RS6', NULL, 64000, 2020, 'Automatic', 'Petrol', 44000, 'Person', 'Sedan', '4WD', 'Blue', NULL, NULL, NULL, NULL, NULL, NULL, 7, '2024-03-07', '2024-04-23 14:52:10'),
-(14, 'WUAENAFG5FN000527', 'FRM-648', 1, 'Q8 e-tron', 'SQ8 e-tron quattro', 125000, 2023, 'Automatic', 'Petrol', 50, 'Person', 'SUV', '4WD', 'Black', 5, 5, '250', '2300', '300', '3.5', 2, '2024-03-07', '2024-03-07 10:30:29'),
-(15, 'JT2VV22E0J0018536', 'YLC-633', 8, 'Land Cruiser', NULL, 65000, 2019, 'Automatic', 'Diesel', 75000, 'Person', 'SUV', '4WD', 'White', 7, 5, '0', '0', '0', '', 6, '2024-03-07', NULL),
-(16, 'SCBBB7ZH2FC053880', 'GTW-129', 19, 'Continental', 'GT Coupe W12 Twin Turbo', 79000, 2006, 'Automatic', 'Diesel', 75000, 'Person', 'Sedan', '4WD', 'Black', 4, 5, '350', '2600', '350', '5.1', 84, '2024-03-07', '2024-04-24 15:29:23'),
-(17, '1GKEC13V21J196436', 'UJH-331', 14, 'Sierra', '1500 Crew cab 3.0 duramax Turbo-diesel, 10-speed A', 125000, 2024, 'Automatic', 'Diesel', 500, 'Person', 'Sedan', '4WD', 'Red', 5, 2, '350', '3500', '250', '6.1', 13, '2024-03-06', NULL),
-(18, 'WAUHFBFR9AA011915', 'GYA-181', 1, 'A6', 'Sedan 50 TFSI e quattro S-tronic', 59500, 2023, 'Automatic', 'Petrol', 13000, 'Person', 'Sedan', '4WD', 'Silver', 5, 5, '295', '2100', '270', NULL, 91, '2024-03-18', '2024-04-05 11:52:50'),
-(19, 'WA1VGCFE0D0016673', 'IMA-570', 1, 'S3', 'Sedan 2,0 TFSI quattro S tronic', 33990, 2015, 'Automatic', 'Petrol', 96000, 'Person', 'Sedan', '4WD', 'Red', 5, 4, '221', '1535', '250', '2.1', 93, '2024-03-18', '2024-04-05 11:52:56'),
-(20, 'WAUHE98P29A071392', 'BXU-870', 2, '318', 'G20 Sedan 318d A Business', 24890, 2019, 'Automatic', 'Diesel', 70000, 'Person', 'Sedan', 'RWD', 'Black', 7, 5, '189', '2600', '210', '1.8', 92, '2024-03-18', '2024-04-05 11:53:00'),
-(21, '1M2AA18C0WW092489', 'KUA-347', 7, 'Octavia', 'Ambition Launch Edition DSG', 18650, 2020, 'Automatic', 'Diesel', 136000, 'Person', 'Sedan', 'FWD', 'Blue', 5, 4, '115', '1461', '227', '2.1', 93, '2024-03-18', NULL),
-(22, '3N1AB61E59L645953', 'JKC-161', 38, 'Qashqai', 'DIG-T 115 Acenta 2WD 6M/T Safety Pack', 12400, 2017, 'Manual', 'Petrol', 98000, 'Person', 'SUV', 'FWD', 'Blue', 5, 5, '86', NULL, NULL, '1.2', 19, '2024-03-21', '2024-03-21 11:33:23'),
-(24, '5YJSA1DP2DFP07403', 'VAR-657', 11, 'Model 3', 'Long-Range Dual Motor AWD', 32800, 2016, 'Automatic', 'Electric', 88000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '65', NULL, NULL, NULL, 12, '2024-03-21', '2024-04-23 14:55:27'),
-(25, '3VWJ17AT8EM646195', 'NKF-190', 9, 'Passat', 'Variant Alltrack 2,0 TDI 140 kW 4MOTION DSG', 16900, NULL, 'Automatic', 'Diesel', 220000, 'Person', 'Sedan', '4WD', 'Red', 5, 5, NULL, NULL, NULL, NULL, 26, '2024-03-21', '2024-04-30 13:17:01'),
-(26, '5XYKWDA20BG098863', 'OYU-292', 32, 'Venga', '1,4 ISG EX 5D EcoDynamics', 4400, NULL, 'Automatic', 'Petrol', 184000, 'Person', 'SUV', 'FWD', 'Blue', 5, 4, NULL, NULL, NULL, 'NULL', 1, '2024-03-21', '2024-04-23 14:57:58'),
-(27, 'KNDMB5C13H6230590', 'VAR-461', 32, 'Sorento', '1,6 T-GDI Plug-in Hybrid AWD Business Premium AT 7', 40500, NULL, 'Automatic', 'Plug-In Hybrid', 11000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '0', NULL, NULL, 'NULL', 135, '2024-03-21', '2024-04-24 15:26:59'),
-(28, '4JGBB72E98A297923', 'VXN-476', 4, 'EQC', '400 4MATIC Business', 50900, NULL, 'Automatic', 'Electric', 56000, 'Person', 'SUV', '4WD', 'White', 5, 4, '0', NULL, NULL, 'NULL', 1, '2024-03-21', '2024-04-23 14:55:34'),
-(35, '1NXAE82G1HZ435690', 'LKJ-876', 8, 'RAV4', '2,5 Hybrid AWD-i Active', 42800, NULL, 'Manual', 'Plug-In Hybrid', 42000, 'Person', 'SUV', '4WD', 'White', 5, 4, 'NULL', 'NULL', 'NULL', 'NULL', 1, '2024-03-21', '2024-04-23 14:56:01'),
-(36, '4V1KLDJF1LN627146', 'EWR-876', 10, 'V60', 'T8 AWD Long Range High Performance R-Design aut', 47900, NULL, 'Automatic', 'Plug-In Hybrid', 89000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '335', 'NULL', 'NULL', '2.1', 5, '2024-03-21', '2024-04-23 14:58:34'),
-(37, 'JM3KE4BE2F0432552', 'RSE-128', 34, '6', 'Sedan 2,0 (165) SKYACTIV-G Premium Plus 6AT 4ov SL', 16900, NULL, 'Manual', 'Petrol', 110000, 'Person', 'Sedan', 'FWD', 'Blue', 5, 4, '121', '1500', '209', '2.1', 5, '2024-03-21', '2024-04-23 14:56:10'),
-(38, '1YVGF22D225527370', 'CTG-337', 34, '6', 'Sport Wagon 2,2 (150) SKYACTIV-D PREMIUM Plus 6AT', 12400, 2015, 'Manual', 'Diesel', 157000, 'Person', 'Wagon', 'FWD', 'Red', 5, 4, '110', '1600', '202', '2.2', 10, '2024-03-21', '2024-04-23 14:58:45'),
-(39, 'WVWAAA3C2CE516820', 'AAQ-980', 9, 'Arteon', 'Shooting Brake R-Line eHybrid ', 34400, 2021, 'Automatic', 'Plug-In Hybrid', 58000, 'Person', 'Wagon', 'FWD', 'Silver', 5, 4, '160', 'NULL', 'NULL', '1.4', 1, '2024-03-21', '2024-04-23 14:56:15'),
-(40, 'WBAFF8402D7852216', 'LRT-399', 2, '530', 'G30 Sedan 530e xDrive A Charged Edition M Sport', 57900, 2023, 'Automatic', 'Plug-In Hybrid', 14000, 'Person', 'Sedan', '4WD', 'Silver', 5, 4, '135', '2000', '290', '3.0', 112, '2024-03-22', '2024-04-23 14:59:27'),
-(41, 'WBAYF8C52EDS00432', 'NNB-507', 2, 'M2', 'M2 Coupé', 133859, 2023, 'Automatic', 'Petrol', 5, 'Person', 'Coupe', 'RWD', 'Red', 4, 2, '338', '1200', '310', '4.2', 111, '2024-03-22', '2024-04-23 14:59:27'),
-(42, 'SALWA2BY5LA713795', 'RUK-178', 13, 'Range Rover Spo', '400e Plug-in Hybrid HSE Dynamic', 68000, 2020, 'Automatic', 'Plug-In Hybrid', 78000, 'Person', 'SUV', '4WD', 'White', 5, 5, '221', NULL, NULL, '2.9', 113, '2024-03-28', '2024-04-23 13:33:07'),
-(43, 'W1N1673171A302625', 'CPO-562', 4, 'GLE', '350 de 4MATIC Coupé AMG', 81800, 2021, 'Automatic', 'Plug-In Hybrid', 45000, 'Person', 'SUV', '4WD', 'White', 5, 5, '143', NULL, NULL, '1.95', 113, '2024-03-28', NULL),
-(44, 'WF0YXXTTGYNS57312', 'XRL-291', 3, 'Transit Custom', '320 2,0TDCi 170 hv A6 Etuveto Limited Van N1 L2H1', 39800, 2022, 'Manual', 'Diesel', 25000, 'Van', 'Logisti_Person_Van', 'FWD', 'White', 2, 3, '125', NULL, NULL, '2.0', 114, '2024-03-28', '2024-04-23 15:00:19'),
-(48, 'SALGA2BY7JA507105', 'JLF-602', 13, 'Range Rover', 'P400e Autobiography', 76800, 2018, 'Automatic', 'Plug-In Hybrid', 90000, 'Person', 'SUV', '4WD', 'Silver', 5, 5, '221', '2000', '290', '3.0', 116, '2024-04-05', '2024-04-23 14:59:27'),
-(49, 'WDBEA30E1NB582331', 'NNN-400', 4, 'EQB', '300 4MATIC Business Progressive', 49800, 2022, 'Automatic', 'Electric', 12000, 'Person', 'SUV', '4WD', 'Silver', 5, 5, '228', '2202', '160', '1.2', 71, '2024-04-09', '2024-04-23 14:59:27'),
-(50, 'JH4KA8260PC000495', 'GGY-123', 43, 'Formentor', 'VZ 1.4 PHEV 180 kW e-HYBRID DSG', 29890, 2023, 'Automatic', 'Plug-In Hybrid', 53000, 'Person', 'SUV', 'FWD', 'Silver', 5, 5, '110', '2120', '210', '1.4', 132, '2024-04-09', '2024-04-23 14:59:27'),
-(51, 'WBAVB13256PS66453', 'GGY-098', 2, 'X5', 'G05 xDrive45e \"X5 M\" * ACC', 74690, 2023, 'Automatic', 'Plug-In Hybrid', 82000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '290', '2150', '310', '3.0', 133, '2024-04-09', '2024-04-23 14:59:27'),
-(52, 'WP0AA2964PS820410', 'KLP-337', 16, 'Taycan', '4S Cross Turismo * Nelipyöräohjaus', 88990, 2023, 'Automatic', 'Electric', 53000, 'Person', 'Wagon', '4WD', 'Black', 5, 4, '420', '2885', '240', '0.0', 132, '2024-04-09', '2024-04-23 14:59:27'),
-(53, '1FTDR15X4TPA96892', 'UVG-483', 32, 'Sportage', '1,6 ISG Urban Active EcoDynamics ', 12, 2014, 'Automatic', 'Petrol', 107, 'Person', 'SUV', 'FWD', 'Silver', 5, 4, '99', '1200', '178', '1,6', 134, '2024-04-10', '2024-05-06 15:19:30'),
-(54, '3GYFNHEY4BS0002EX', 'SOU-807', 15, 'Escalade', 'Sport Platinum 3.0l Duramax', 184, 2023, 'Automatic', 'Diesel', 150, 'Person', 'SUV', '4WD', 'White', 7, 5, ' 204', '3 500', '290', '3.0', 8, '2024-05-06', '2024-05-14 10:35:36'),
-(55, 'ZFFMN34A0L0085788', 'WQY-449', 12, 'SF90', 'STRADALE 3.9 V8 DCT', 599, 2021, 'Automatic', 'Plug-In Hybrid', 2300, 'Person', 'Coupe', '4WD', 'Black', 2, 2, '735', 'NULL', '359', '3.9', 152, '2024-05-06', '2024-05-14 10:35:40');
+(1, 'YV1SW61R021197119', 'VAR-873', 10, 'XC90', NULL, 65000, 2020, 'Automatic', 'Petrol', 119000, 'Person', 'SUV', '4WD', 'White', 7, 5, '252', '3500', '250', '3.1', 133, '2024-03-05', '2024-05-14 12:57:13'),
+(2, '1D7HA18N38J191236', 'JIZ-610', 1, 'E-tron', 'GT', 116000, 2020, 'Automatic', 'Petrol', 59000, 'Person', 'Sedan', '4WD', 'Silver', 5, 3, '300', '2100', '300', '2.5', 2, '2024-03-06', '2024-05-21 10:50:08'),
+(3, '4S3BJ6329M1918965', 'IAR-058', 10, 'XC90', 'T8 TwE AWD Recharge Inscription aut', 70000, 2021, 'Automatic', 'Petrol', 104000, 'Person', 'SUV', 'RWD', 'White', 7, 5, '252', '3500', '250', '3.1', 5, '2024-03-06', '2024-05-14 12:57:13'),
+(4, 'JN6DY1AY8EX602144', 'HUI-995', 38, 'Pathfinder', '2,5 dCi SE 5AT 5-ov.', 7500, 2008, 'Manual', 'Diesel', 220000, 'Person', 'SUV', 'RWD', 'Blue', 5, 5, '150', '2600', '170', '3.5', 5, '2024-03-13', '2024-05-14 12:57:13'),
+(5, 'WVGMR67L090010501', 'IJN-970', 9, 'Passat', 'Sedan Comfortline 2,0 TDI 103 kW', 5000, 2010, 'Automatic', 'Petrol', 425000, 'Person', 'Sedan', 'RWD', 'Silver', 5, 5, '160', '1600', '250', '2.5', 74, '2024-03-07', '2024-05-14 12:57:13'),
+(6, 'WB10557A13ZG36939', 'IPE-528', 2, '420', 'G26 Gran Coupé 420d A xDrive M Sport MHEV', 46500, 2022, 'Automatic', 'Petrol', 17000, 'Person', 'Sedan', 'RWD', 'Red', NULL, NULL, NULL, NULL, NULL, NULL, 6, '2024-03-06', '2024-05-14 12:57:13'),
+(7, 'YV1AX4747E1960685', 'LOE-886', 10, 'S90', 'D4 Business R-Design aut', 68000, 2018, 'Automatic', 'Petrol', 145000, 'Person', 'Sedan', '4WD', 'Silver', NULL, NULL, NULL, NULL, NULL, NULL, 10, '2024-03-07', '2024-05-14 12:57:13'),
+(8, 'WDBLK70G61T061039', 'JJE-655', 4, 'G-Wagon', '63 AMG, G700 Brabus Widestar', 120000, 2022, 'Automatic', 'Petrol', 1000, 'Person', 'SUV', '4WD', 'Yellow', NULL, NULL, NULL, NULL, NULL, NULL, 6, '2024-03-07', '2024-05-21 12:21:42'),
+(9, 'WDDUG7JB1EA027074', 'HYY-779', 4, 'GLS', '600 Maybach', 65000, 2024, 'Automatic', 'Petrol', 2000, 'Person', 'SUV', '4WD', 'Black', NULL, NULL, NULL, NULL, NULL, NULL, 72, '2024-03-07', '2024-05-21 12:21:47'),
+(10, 'ZA9DU01B21L903178', 'MMH-119', 22, 'Huracán', 'Huracan Evo Spyder 640hv', 98000, 2020, 'Automatic', 'Petrol', 16000, 'Person', 'Coupe', 'RWD', 'White', NULL, NULL, NULL, NULL, NULL, NULL, 39, '2024-03-07', '2024-05-21 11:25:11'),
+(11, 'ZFF73SKA9E0200021', 'LLK-225', 12, 'Portofino', 'Ferrari M Ferrari Portofino M Avoauto (AE)', 98000, 2023, 'Automatic', 'Petrol', 1000, 'Person', 'Coupe', 'RWD', 'Red', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2024-03-07', '2024-05-14 12:57:13'),
+(12, 'WAU3FLFF5F1034279', 'OXS-665', 1, 'RS6', NULL, 64000, 2020, 'Automatic', 'Petrol', 44000, 'Person', 'Sedan', '4WD', 'Blue', NULL, NULL, NULL, NULL, NULL, NULL, 7, '2024-03-07', '2024-05-14 12:57:13'),
+(13, 'WUAENAFG5FN000527', 'FRM-648', 1, 'Q8 e-tron', 'SQ8 e-tron quattro', 125000, 2023, 'Automatic', 'Petrol', 50, 'Person', 'SUV', '4WD', 'Black', 5, 5, '250', '2300', '300', '3.5', 2, '2024-03-07', '2024-05-14 12:57:13'),
+(14, 'JT2VV22E0J0018536', 'YLC-633', 8, 'Land Cruiser', NULL, 65000, 2019, 'Automatic', 'Diesel', 75000, 'Person', 'SUV', '4WD', 'White', 7, 5, '0', '0', '0', '', 6, '2024-03-07', '2024-05-14 12:57:13'),
+(15, 'SCBBB7ZH2FC053880', 'GTW-129', 19, 'Continental', 'GT Coupe W12 Twin Turbo', 79000, 2006, 'Automatic', 'Diesel', 75000, 'Person', 'Sedan', '4WD', 'Black', 4, 5, '350', '2600', '350', '5.1', 84, '2024-03-07', '2024-05-14 12:57:13'),
+(16, '1GKEC13V21J196436', 'UJH-331', 14, 'Sierra', '1500 Crew cab 3.0 duramax Turbo-diesel, 10-speed A', 125000, 2024, 'Automatic', 'Diesel', 5000, 'Person', 'Sedan', '4WD', 'Red', 5, 2, '350', '3500', '250', '6.1', 13, '2024-03-06', '2024-05-21 12:21:53'),
+(17, 'WAUHFBFR9AA011915', 'GYA-181', 1, 'A6', 'Sedan 50 TFSI e quattro S-tronic', 59500, 2023, 'Automatic', 'Petrol', 13000, 'Person', 'Sedan', '4WD', 'Silver', 5, 5, '295', '2100', '270', NULL, 91, '2024-03-18', '2024-05-14 12:57:13'),
+(18, 'WA1VGCFE0D0016673', 'IMA-570', 1, 'S3', 'Sedan 2,0 TFSI quattro S tronic', 33990, 2015, 'Automatic', 'Petrol', 96000, 'Person', 'Sedan', '4WD', 'Red', 5, 4, '221', '1535', '250', '2.1', 93, '2024-03-18', '2024-05-14 12:57:13'),
+(19, 'WAUHE98P29A071392', 'BXU-870', 2, '318', 'G20 Sedan 318d A Business', 24890, 2019, 'Automatic', 'Diesel', 70000, 'Person', 'Sedan', 'RWD', 'Black', 7, 5, '189', '2600', '210', '1.8', 92, '2024-03-18', '2024-05-14 12:57:13'),
+(20, '1M2AA18C0WW092489', 'KUA-347', 7, 'Octavia', 'Ambition Launch Edition DSG', 18650, 2020, 'Automatic', 'Diesel', 136000, 'Person', 'Sedan', 'FWD', 'Blue', 5, 4, '115', '1461', '227', '2.1', 93, '2024-03-18', '2024-05-14 12:57:13'),
+(21, '3N1AB61E59L645953', 'JKC-161', 38, 'Qashqai', 'DIG-T 115 Acenta 2WD 6M/T Safety Pack', 12400, 2017, 'Manual', 'Petrol', 98000, 'Person', 'SUV', 'FWD', 'Blue', 5, 5, '86', NULL, NULL, '1.2', 19, '2024-03-21', '2024-05-14 12:57:13'),
+(22, '5YJSA1DP2DFP07403', 'VAR-657', 11, 'Model 3', 'Long-Range Dual Motor AWD', 32800, 2016, 'Automatic', 'Electric', 88000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '65', NULL, NULL, NULL, 12, '2024-03-21', '2024-05-14 12:57:13'),
+(23, '3VWJ17AT8EM646195', 'NKF-190', 9, 'Passat', 'Variant Alltrack 2,0 TDI 140 kW 4MOTION DSG', 16900, NULL, 'Automatic', 'Diesel', 220000, 'Person', 'Sedan', '4WD', 'Red', 5, 5, NULL, NULL, NULL, NULL, 26, '2024-03-21', '2024-05-14 12:57:13'),
+(24, '5XYKWDA20BG098863', 'OYU-292', 32, 'Venga', '1,4 ISG EX 5D EcoDynamics', 4400, NULL, 'Automatic', 'Petrol', 184000, 'Person', 'SUV', 'FWD', 'Blue', 5, 4, NULL, NULL, NULL, 'NULL', 1, '2024-03-21', '2024-05-14 12:57:13'),
+(25, 'KNDMB5C13H6230590', 'VAR-461', 32, 'Sorento', '1,6 T-GDI Plug-in Hybrid AWD Business Premium AT 7', 40500, NULL, 'Automatic', 'Plug-In Hybrid', 11000, 'Person', 'SUV', '4WD', 'Blue', 5, 4, '0', NULL, NULL, 'NULL', 135, '2024-03-21', '2024-05-14 12:57:13'),
+(26, '4JGBB72E98A297923', 'VXN-476', 4, 'EQC', '400 4MATIC Business', 50900, NULL, 'Automatic', 'Electric', 56000, 'Person', 'SUV', '4WD', 'White', 5, 4, '0', NULL, NULL, 'NULL', 1, '2024-03-21', '2024-05-14 12:57:13'),
+(27, '1NXAE82G1HZ435690', 'LKJ-876', 8, 'RAV4', '2,5 Hybrid AWD-i Active', 42800, NULL, 'Manual', 'Plug-In Hybrid', 42000, 'Person', 'SUV', '4WD', 'White', 5, 4, 'NULL', 'NULL', 'NULL', 'NULL', 1, '2024-03-21', '2024-05-14 12:57:13'),
+(28, '4V1KLDJF1LN627146', 'EWR-876', 10, 'V60', 'T8 AWD Long Range High Performance R-Design aut', 47900, NULL, 'Automatic', 'Plug-In Hybrid', 89000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '335', 'NULL', 'NULL', '2.1', 5, '2024-03-21', '2024-05-14 12:57:13'),
+(29, 'JM3KE4BE2F0432552', 'RSE-128', 34, '6', 'Sedan 2,0 (165) SKYACTIV-G Premium Plus 6AT 4ov SL', 16900, NULL, 'Manual', 'Petrol', 110000, 'Person', 'Sedan', 'FWD', 'Blue', 5, 4, '121', '1500', '209', '2.1', 5, '2024-03-21', '2024-05-14 12:57:13'),
+(30, '1YVGF22D225527370', 'CTG-337', 34, '6', 'Sport Wagon 2,2 (150) SKYACTIV-D PREMIUM Plus 6AT', 12400, 2015, 'Manual', 'Diesel', 157000, 'Person', 'Wagon', 'FWD', 'Red', 5, 4, '110', '1600', '202', '2.2', 10, '2024-03-21', '2024-05-14 12:57:13'),
+(31, 'WVWAAA3C2CE516820', 'AAQ-980', 9, 'Arteon', 'Shooting Brake R-Line eHybrid ', 34400, 2021, 'Automatic', 'Plug-In Hybrid', 58000, 'Person', 'Wagon', 'FWD', 'Silver', 5, 4, '160', 'NULL', 'NULL', '1.4', 1, '2024-03-21', '2024-05-14 12:57:13'),
+(32, 'WBAFF8402D7852216', 'LRT-399', 2, '530', 'G30 Sedan 530e xDrive A Charged Edition M Sport', 57900, 2023, 'Automatic', 'Plug-In Hybrid', 14000, 'Person', 'Sedan', '4WD', 'Silver', 5, 4, '135', '2000', '290', '3.0', 112, '2024-03-22', '2024-05-14 12:57:13'),
+(33, 'WBAYF8C52EDS00432', 'NNB-507', 2, 'M2', 'M2 Coupé', 133859, 2023, 'Automatic', 'Petrol', 5, 'Person', 'Coupe', 'RWD', 'Red', 4, 2, '338', '1200', '310', '4.2', 111, '2024-03-22', '2024-05-14 12:57:13'),
+(34, 'SALWA2BY5LA713795', 'RUK-178', 13, 'Range Rover Spo', '400e Plug-in Hybrid HSE Dynamic', 68000, 2020, 'Automatic', 'Plug-In Hybrid', 78000, 'Person', 'SUV', '4WD', 'White', 5, 5, '221', NULL, NULL, '2.9', 113, '2024-03-28', '2024-05-14 12:57:13'),
+(35, 'W1N1673171A302625', 'CPO-562', 4, 'GLE', '350 de 4MATIC Coupé AMG', 81800, 2021, 'Automatic', 'Plug-In Hybrid', 45000, 'Person', 'SUV', '4WD', 'White', 5, 5, '143', NULL, NULL, '1.95', 113, '2024-03-28', '2024-05-14 12:57:13'),
+(36, 'WF0YXXTTGYNS57312', 'XRL-291', 3, 'Transit Custom', '320 2,0TDCi 170 hv A6 Etuveto Limited Van N1 L2H1', 39800, 2022, 'Manual', 'Diesel', 25000, 'Van', 'Van', 'FWD', 'White', 2, 3, '125', NULL, NULL, '2.0', 114, '2024-03-28', '2024-05-20 15:23:01'),
+(37, 'SALGA2BY7JA507105', 'JLF-602', 13, 'Range Rover', 'P400e Autobiography', 76800, 2018, 'Automatic', 'Plug-In Hybrid', 90000, 'Person', 'SUV', '4WD', 'Silver', 5, 5, '221', '2000', '290', '3.0', 116, '2024-04-05', '2024-05-14 12:57:13'),
+(38, 'WDBEA30E1NB582331', 'NNN-400', 4, 'EQB', '300 4MATIC Business Progressive', 49800, 2022, 'Automatic', 'Electric', 12000, 'Person', 'SUV', '4WD', 'Silver', 5, 5, '228', '2202', '160', '1.2', 71, '2024-04-09', '2024-05-14 12:57:13'),
+(39, 'JH4KA8260PC000495', 'GGY-123', 43, 'Formentor', 'VZ 1.4 PHEV 180 kW e-HYBRID DSG', 29890, 2023, 'Automatic', 'Plug-In Hybrid', 53000, 'Person', 'SUV', 'FWD', 'Silver', 5, 5, '110', '2120', '210', '1.4', 132, '2024-04-09', '2024-05-14 12:57:13'),
+(40, 'WBAVB13256PS66453', 'GGY-098', 2, 'X5', 'G05 xDrive45e \"X5 M\" * ACC', 74690, 2023, 'Automatic', 'Plug-In Hybrid', 82000, 'Person', 'SUV', '4WD', 'Silver', 5, 4, '290', '2150', '310', '3.0', 133, '2024-04-09', '2024-05-14 12:57:13'),
+(41, 'WP0AA2964PS820410', 'KLP-337', 16, 'Taycan', '4S Cross Turismo * Nelipyöräohjaus', 88990, 2023, 'Automatic', 'Electric', 53000, 'Person', 'Wagon', '4WD', 'Black', 5, 4, '420', '2885', '240', '0.0', 132, '2024-04-09', '2024-05-14 12:57:13'),
+(42, '1FTDR15X4TPA96892', 'UVG-483', 32, 'Sportage', '1,6 ISG Urban Active EcoDynamics ', 12500, 2014, 'Automatic', 'Petrol', 107000, 'Person', 'SUV', 'FWD', 'Silver', 5, 4, '99', '1200', '178', '1,6', 134, '2024-04-10', '2024-05-21 12:22:06'),
+(43, '3GYFNHEY4BS0002EX', 'SOU-807', 15, 'Escalade', 'Sport Platinum 3.0l Duramax', 184000, 2023, 'Automatic', 'Diesel', 40000, 'Person', 'SUV', '4WD', 'White', 7, 5, ' 204', '3 500', '290', '3.0', 8, '2024-05-06', '2024-05-21 12:22:22'),
+(44, 'ZFFMN34A0L0085788', 'WQY-449', 12, 'SF90', 'STRADALE 3.9 V8 DCT', 599900, 2021, 'Automatic', 'Plug-In Hybrid', 2300, 'Person', 'Coupe', '4WD', 'Black', 2, 2, '735', 'NULL', '359', '3.9', 152, '2024-05-06', '2024-05-20 14:59:30');
 
 -- --------------------------------------------------------
 
@@ -321,10 +321,15 @@ CREATE TABLE `carsold` (
 --
 
 INSERT INTO `carsold` (`Row_ID`, `VIN`, `Sold_By`, `Sold_To`, `Original_Price`, `Sold_Price`, `Sold_Date`) VALUES
-(6, 'WDBLK70G61T061039', 22, 1, 120000, 115000, '2024-05-07'),
-(7, '1NXAE82G1HZ435690', 21, 6, 42800, 40000, '2024-05-07'),
-(8, '5XYKWDA20BG098863', 21, 7, 4400, 4000, '2023-05-07'),
-(11, 'WVWAAA3C2CE516820', 21, 9, 34400, 32000, '2024-05-07');
+(1, 'WDBLK70G61T061039', 22, 1, 120000, 115000, '2024-05-07'),
+(2, '1NXAE82G1HZ435690', 21, 6, 42800, 40000, '2024-05-07'),
+(3, '5XYKWDA20BG098863', 21, 7, 4400, 4000, '2023-05-07'),
+(4, 'WVWAAA3C2CE516820', 21, 9, 34400, 32000, '2024-05-07'),
+(5, '4V1KLDJF1LN627146', 16, 7, 47900, 47700, '2024-05-14'),
+(6, 'WUAENAFG5FN000527', 7, 18, 125000, 119000, '2024-05-14'),
+(7, '5YJSA1DP2DFP07403', 7, 8, 32800, 31800, '2024-05-14'),
+(8, 'WB10557A13ZG36939', 22, 5, 46500, 46000, '2024-05-14'),
+(9, 'JN6DY1AY8EX602144', 19, 22, 7500, 7000, '2024-05-14');
 
 -- --------------------------------------------------------
 
@@ -997,14 +1002,6 @@ CREATE TABLE `employee_without_contract` (
 ,`F_Name` varchar(50)
 ,`L_Name` varchar(50)
 ,`Gender` enum('Male','Female')
-,`Phone` varchar(15)
-,`Email` varchar(50)
-,`Address` varchar(50)
-,`PostalCode` char(5)
-,`Date_OF_Add` date
-,`Date_OF_Update` datetime
-,`Reports_To` int(15)
-,`Image_Name` varchar(150)
 );
 
 -- --------------------------------------------------------
@@ -1014,27 +1011,14 @@ CREATE TABLE `employee_without_contract` (
 -- (See below for the actual view)
 --
 CREATE TABLE `employee_with_active_contract` (
-`SSN` char(15)
+`EMP_ID` int(15)
+,`SSN` char(15)
 ,`EmployeeName` varchar(101)
 ,`Store_Name` varchar(50)
 ,`From_Date` date
 ,`To_Date` date
 ,`Service_Status` enum('Active','DeActive')
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `employee_with_deactive_contract`
--- (See below for the actual view)
---
-CREATE TABLE `employee_with_deactive_contract` (
-`SSN` char(15)
-,`EmployeeName` varchar(101)
-,`Store_Name` varchar(50)
-,`From_Date` date
-,`To_Date` date
-,`service_status` enum('Active','DeActive')
+,`Contract_Type` enum('Permanent','For_Now','Temporary')
 );
 
 -- --------------------------------------------------------
@@ -1256,7 +1240,126 @@ INSERT INTO `images` (`Row_ID`, `VIN`, `Image_Name`, `Date_OF_Add`, `Date_OF_Upd
 (118, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_81561.jpg', '2024-05-06', NULL),
 (119, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_57819.jpg', '2024-05-06', NULL),
 (120, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_13702.jpg', '2024-05-06', NULL),
-(121, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_48669.jpg', '2024-05-06', NULL);
+(121, 'ZFFMN34A0L0085788', 'ZFFMN34A0L0085788_48669.jpg', '2024-05-06', NULL),
+(122, 'WVGMR67L090010501', 'WVGMR67L090010501_71157.jpg', '2024-05-15', NULL),
+(123, 'WVGMR67L090010501', 'WVGMR67L090010501_54458.jpg', '2024-05-15', NULL),
+(124, 'WVGMR67L090010501', 'WVGMR67L090010501_36106.jpg', '2024-05-15', NULL),
+(125, 'WVGMR67L090010501', 'WVGMR67L090010501_44606.jpg', '2024-05-15', NULL),
+(126, 'WVGMR67L090010501', 'WVGMR67L090010501_66868.jpg', '2024-05-15', NULL),
+(127, 'WVGMR67L090010501', 'WVGMR67L090010501_24785.jpg', '2024-05-15', NULL),
+(128, 'WVGMR67L090010501', 'WVGMR67L090010501_27086.jpg', '2024-05-15', NULL),
+(129, 'WVGMR67L090010501', 'WVGMR67L090010501_5216.jpg', '2024-05-15', NULL),
+(130, 'WVGMR67L090010501', 'WVGMR67L090010501_73727.jpg', '2024-05-15', NULL),
+(131, 'WVGMR67L090010501', 'WVGMR67L090010501_20906.jpg', '2024-05-15', NULL),
+(132, 'WVGMR67L090010501', 'WVGMR67L090010501_52903.jpg', '2024-05-15', NULL),
+(133, 'WVGMR67L090010501', 'WVGMR67L090010501_12300.jpg', '2024-05-15', NULL),
+(134, 'WVGMR67L090010501', 'WVGMR67L090010501_70915.jpg', '2024-05-15', NULL),
+(135, 'WVGMR67L090010501', 'WVGMR67L090010501_48520.jpg', '2024-05-15', NULL),
+(136, 'WVGMR67L090010501', 'WVGMR67L090010501_62494.jpg', '2024-05-15', NULL),
+(137, 'WVGMR67L090010501', 'WVGMR67L090010501_51908.jpg', '2024-05-15', NULL),
+(138, 'WVGMR67L090010501', 'WVGMR67L090010501_30407.jpg', '2024-05-15', NULL),
+(139, 'WP0AA2964PS820410', 'WP0AA2964PS820410_84209.jpg', '2024-05-15', NULL),
+(140, 'WP0AA2964PS820410', 'WP0AA2964PS820410_20882.jpg', '2024-05-15', NULL),
+(141, 'WP0AA2964PS820410', 'WP0AA2964PS820410_83945.jpg', '2024-05-15', NULL),
+(142, 'WP0AA2964PS820410', 'WP0AA2964PS820410_56485.jpg', '2024-05-15', NULL),
+(143, 'WP0AA2964PS820410', 'WP0AA2964PS820410_20201.jpg', '2024-05-15', NULL),
+(144, 'WP0AA2964PS820410', 'WP0AA2964PS820410_93807.jpg', '2024-05-15', NULL),
+(145, 'WP0AA2964PS820410', 'WP0AA2964PS820410_44915.jpg', '2024-05-15', NULL),
+(146, 'WP0AA2964PS820410', 'WP0AA2964PS820410_61209.jpg', '2024-05-15', NULL),
+(147, 'WP0AA2964PS820410', 'WP0AA2964PS820410_80976.jpg', '2024-05-15', NULL),
+(148, 'WP0AA2964PS820410', 'WP0AA2964PS820410_39265.jpg', '2024-05-15', NULL),
+(149, 'WP0AA2964PS820410', 'WP0AA2964PS820410_90215.jpg', '2024-05-15', NULL),
+(150, 'WP0AA2964PS820410', 'WP0AA2964PS820410_56322.jpg', '2024-05-15', NULL),
+(151, 'WP0AA2964PS820410', 'WP0AA2964PS820410_1933.jpg', '2024-05-15', NULL),
+(316, 'YV1SW61R021197119', 'YV1SW61R021197119_47899.webp', '2024-05-21', NULL),
+(317, 'YV1SW61R021197119', 'YV1SW61R021197119_18638.webp', '2024-05-21', NULL),
+(318, 'YV1SW61R021197119', 'YV1SW61R021197119_607.webp', '2024-05-21', NULL),
+(319, 'YV1SW61R021197119', 'YV1SW61R021197119_55442.webp', '2024-05-21', NULL),
+(320, 'YV1SW61R021197119', 'YV1SW61R021197119_80727.webp', '2024-05-21', NULL),
+(321, 'YV1SW61R021197119', 'YV1SW61R021197119_2326.webp', '2024-05-21', NULL),
+(322, 'YV1SW61R021197119', 'YV1SW61R021197119_87868.webp', '2024-05-21', NULL),
+(323, 'YV1SW61R021197119', 'YV1SW61R021197119_24018.webp', '2024-05-21', NULL),
+(324, 'YV1SW61R021197119', 'YV1SW61R021197119_31050.webp', '2024-05-21', NULL),
+(325, 'YV1SW61R021197119', 'YV1SW61R021197119_65232.webp', '2024-05-21', NULL),
+(326, 'YV1SW61R021197119', 'YV1SW61R021197119_4950.webp', '2024-05-21', NULL),
+(327, 'YV1SW61R021197119', 'YV1SW61R021197119_75862.webp', '2024-05-21', NULL),
+(328, 'YV1SW61R021197119', 'YV1SW61R021197119_35207.webp', '2024-05-21', NULL),
+(329, 'YV1SW61R021197119', 'YV1SW61R021197119_84594.webp', '2024-05-21', NULL),
+(330, 'YV1SW61R021197119', 'YV1SW61R021197119_57063.webp', '2024-05-21', NULL),
+(331, '1D7HA18N38J191236', '1D7HA18N38J191236_96817.jfif', '2024-05-21', NULL),
+(332, '1D7HA18N38J191236', '1D7HA18N38J191236_9172.jfif', '2024-05-21', NULL),
+(333, '1D7HA18N38J191236', '1D7HA18N38J191236_94741.jfif', '2024-05-21', NULL),
+(334, '1D7HA18N38J191236', '1D7HA18N38J191236_70110.jfif', '2024-05-21', NULL),
+(335, '1D7HA18N38J191236', '1D7HA18N38J191236_94220.jfif', '2024-05-21', NULL),
+(336, '1D7HA18N38J191236', '1D7HA18N38J191236_53762.jfif', '2024-05-21', NULL),
+(337, '1D7HA18N38J191236', '1D7HA18N38J191236_85590.jfif', '2024-05-21', NULL),
+(338, '1D7HA18N38J191236', '1D7HA18N38J191236_98834.jfif', '2024-05-21', NULL),
+(339, '1D7HA18N38J191236', '1D7HA18N38J191236_4197.jfif', '2024-05-21', NULL),
+(340, '1D7HA18N38J191236', '1D7HA18N38J191236_39980.jfif', '2024-05-21', NULL),
+(341, '1D7HA18N38J191236', '1D7HA18N38J191236_45637.jfif', '2024-05-21', NULL),
+(342, '1D7HA18N38J191236', '1D7HA18N38J191236_19304.jfif', '2024-05-21', NULL),
+(343, '1D7HA18N38J191236', '1D7HA18N38J191236_81486.jfif', '2024-05-21', NULL),
+(344, '1D7HA18N38J191236', '1D7HA18N38J191236_76715.jfif', '2024-05-21', NULL),
+(345, '1D7HA18N38J191236', '1D7HA18N38J191236_4363.jfif', '2024-05-21', NULL),
+(346, '1D7HA18N38J191236', '1D7HA18N38J191236_79937.jfif', '2024-05-21', NULL),
+(347, '1D7HA18N38J191236', '1D7HA18N38J191236_43431.jfif', '2024-05-21', NULL),
+(348, '1D7HA18N38J191236', '1D7HA18N38J191236_62720.jfif', '2024-05-21', NULL),
+(349, '1D7HA18N38J191236', '1D7HA18N38J191236_82778.jfif', '2024-05-21', NULL),
+(350, '4S3BJ6329M1918965', '4S3BJ6329M1918965_8486.webp', '2024-05-21', NULL),
+(351, '4S3BJ6329M1918965', '4S3BJ6329M1918965_75801.webp', '2024-05-21', NULL),
+(352, '4S3BJ6329M1918965', '4S3BJ6329M1918965_15400.webp', '2024-05-21', NULL),
+(353, '4S3BJ6329M1918965', '4S3BJ6329M1918965_33475.webp', '2024-05-21', NULL),
+(354, '4S3BJ6329M1918965', '4S3BJ6329M1918965_32710.webp', '2024-05-21', NULL),
+(355, '4S3BJ6329M1918965', '4S3BJ6329M1918965_17839.webp', '2024-05-21', NULL),
+(356, '4S3BJ6329M1918965', '4S3BJ6329M1918965_4620.webp', '2024-05-21', NULL),
+(357, '4S3BJ6329M1918965', '4S3BJ6329M1918965_50058.webp', '2024-05-21', NULL),
+(358, '4S3BJ6329M1918965', '4S3BJ6329M1918965_13367.webp', '2024-05-21', NULL),
+(359, '4S3BJ6329M1918965', '4S3BJ6329M1918965_71970.webp', '2024-05-21', NULL),
+(360, '4S3BJ6329M1918965', '4S3BJ6329M1918965_74143.webp', '2024-05-21', NULL),
+(361, '4S3BJ6329M1918965', '4S3BJ6329M1918965_56456.webp', '2024-05-21', NULL),
+(362, '4S3BJ6329M1918965', '4S3BJ6329M1918965_98591.webp', '2024-05-21', NULL),
+(363, '4S3BJ6329M1918965', '4S3BJ6329M1918965_91567.webp', '2024-05-21', NULL),
+(364, '4S3BJ6329M1918965', '4S3BJ6329M1918965_69409.webp', '2024-05-21', NULL),
+(365, '4S3BJ6329M1918965', '4S3BJ6329M1918965_63411.webp', '2024-05-21', NULL),
+(366, '4S3BJ6329M1918965', '4S3BJ6329M1918965_17966.webp', '2024-05-21', NULL),
+(367, '4S3BJ6329M1918965', '4S3BJ6329M1918965_23704.webp', '2024-05-21', NULL),
+(368, '4S3BJ6329M1918965', '4S3BJ6329M1918965_5423.webp', '2024-05-21', NULL),
+(369, '4S3BJ6329M1918965', '4S3BJ6329M1918965_69135.webp', '2024-05-21', NULL),
+(370, '4S3BJ6329M1918965', '4S3BJ6329M1918965_98082.webp', '2024-05-21', NULL),
+(371, '4S3BJ6329M1918965', '4S3BJ6329M1918965_28282.webp', '2024-05-21', NULL),
+(372, '4S3BJ6329M1918965', '4S3BJ6329M1918965_20453.webp', '2024-05-21', NULL),
+(373, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_82891.jpg', '2024-05-21', NULL),
+(374, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_54577.jpg', '2024-05-21', NULL),
+(375, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_89072.jpg', '2024-05-21', NULL),
+(376, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_81972.jpg', '2024-05-21', NULL),
+(377, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_49247.jpg', '2024-05-21', NULL),
+(378, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_42260.jpg', '2024-05-21', NULL),
+(379, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_479.jpg', '2024-05-21', NULL),
+(380, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_80046.jpg', '2024-05-21', NULL),
+(381, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_47736.jpg', '2024-05-21', NULL),
+(382, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_77445.jpg', '2024-05-21', NULL),
+(383, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_77705.jpg', '2024-05-21', NULL),
+(384, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_20569.jpg', '2024-05-21', NULL),
+(385, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_76091.jpg', '2024-05-21', NULL),
+(386, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_87953.jpg', '2024-05-21', NULL),
+(387, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_62391.jpg', '2024-05-21', NULL),
+(388, 'ZA9DU01B21L903178', 'ZA9DU01B21L903178_95910.jpg', '2024-05-21', NULL),
+(389, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_97230.jpg', '2024-05-21', NULL),
+(390, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_6303.jpg', '2024-05-21', NULL),
+(391, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_4385.jpg', '2024-05-21', NULL),
+(392, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_5058.jpg', '2024-05-21', NULL),
+(393, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_88001.jpg', '2024-05-21', NULL),
+(394, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_9403.jpg', '2024-05-21', NULL),
+(395, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_76356.jpg', '2024-05-21', NULL),
+(396, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_86651.jpg', '2024-05-21', NULL),
+(397, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_85159.jpg', '2024-05-21', NULL),
+(398, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_96659.jpg', '2024-05-21', NULL),
+(399, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_87971.jpg', '2024-05-21', NULL),
+(400, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_92303.jpg', '2024-05-21', NULL),
+(401, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_11462.jpg', '2024-05-21', NULL),
+(402, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_7944.jpg', '2024-05-21', NULL),
+(403, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_29227.jpg', '2024-05-21', NULL),
+(404, 'JN6DY1AY8EX602144', 'JN6DY1AY8EX602144_89818.jpg', '2024-05-21', NULL);
 
 -- --------------------------------------------------------
 
@@ -1325,7 +1428,7 @@ CREATE TABLE `percentage_of_cars_by_gearbox` (
 -- (See below for the actual view)
 --
 CREATE TABLE `percentage_of_cars_by_type_of_body` (
-`Type_OF_Body` enum('Sedan','Hatchback','SUV','Wagon','Coupe','Logisti_Person_Van')
+`Type_OF_Body` enum('Sedan','Hatchback','SUV','Wagon','Coupe','Van')
 ,`NOC` bigint(21)
 ,`POAC` varchar(27)
 );
@@ -1597,6 +1700,7 @@ CREATE TABLE `stores_employee` (
   `Emp_ID` int(15) NOT NULL,
   `From_Date` date NOT NULL,
   `To_Date` date DEFAULT NULL,
+  `Contract_Type` enum('Permanent','For_Now','Temporary') DEFAULT NULL,
   `Service_Status` enum('Active','DeActive') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
@@ -1604,19 +1708,26 @@ CREATE TABLE `stores_employee` (
 -- Dumping data for table `stores_employee`
 --
 
-INSERT INTO `stores_employee` (`Row_ID`, `Store_ID`, `Emp_ID`, `From_Date`, `To_Date`, `Service_Status`) VALUES
-(33, 8, 22, '2021-01-04', '2024-04-30', 'DeActive'),
-(34, 92, 17, '2024-01-01', '2024-04-30', 'DeActive'),
-(35, 66, 12, '2022-12-01', '2024-04-30', 'DeActive'),
-(36, 32, 16, '2024-01-01', '2024-05-31', 'Active'),
-(37, 109, 11, '2024-04-01', '2024-05-31', 'Active'),
-(38, 13, 7, '2021-08-01', '2024-04-30', 'DeActive'),
-(39, 43, 7, '2023-08-01', '2024-05-31', 'Active'),
-(40, 6, 22, '2024-04-01', '2024-05-31', 'Active'),
-(41, 1, 21, '2024-05-07', '2024-05-31', 'Active'),
-(42, 134, 12, '2024-03-01', '2024-05-31', 'Active'),
-(43, 147, 9, '2024-01-01', '2024-05-31', 'Active'),
-(44, 8, 19, '2022-08-01', '2024-05-31', 'Active');
+INSERT INTO `stores_employee` (`Row_ID`, `Store_ID`, `Emp_ID`, `From_Date`, `To_Date`, `Contract_Type`, `Service_Status`) VALUES
+(33, 8, 22, '2021-01-04', '2024-04-30', 'Temporary', 'DeActive'),
+(34, 92, 17, '2024-01-01', '2024-04-30', 'Temporary', 'DeActive'),
+(35, 66, 12, '2022-12-01', '2024-04-30', 'Temporary', 'DeActive'),
+(36, 32, 16, '2024-01-01', '2024-05-31', 'For_Now', 'Active'),
+(37, 109, 11, '2024-04-01', '2024-05-31', 'For_Now', 'Active'),
+(38, 13, 7, '2021-08-01', '2024-04-30', 'Temporary', 'DeActive'),
+(39, 43, 7, '2023-08-01', '2024-05-31', 'For_Now', 'Active'),
+(40, 6, 22, '2024-04-01', '2024-05-31', 'For_Now', 'Active'),
+(41, 1, 21, '2024-05-07', '2024-05-31', 'For_Now', 'Active'),
+(42, 134, 12, '2024-03-01', '2024-05-31', 'Temporary', 'Active'),
+(43, 147, 9, '2024-01-01', '2024-05-31', 'For_Now', 'Active'),
+(44, 8, 19, '2022-08-01', '2034-05-31', 'Permanent', 'Active'),
+(45, 132, 6, '2023-05-01', '2024-05-31', 'For_Now', 'Active'),
+(46, 121, 18, '2022-05-01', '2024-05-31', 'For_Now', 'Active'),
+(47, 135, 13, '2021-10-07', '2024-05-31', 'For_Now', 'Active'),
+(48, 111, 14, '2022-05-01', '2024-05-31', 'Temporary', 'Active'),
+(49, 152, 10, '2024-02-01', '2024-05-31', 'For_Now', 'Active'),
+(50, 141, 8, '2022-04-01', '2024-05-31', 'Permanent', 'Active'),
+(51, 49, 15, '2021-01-01', '2024-04-30', 'For_Now', 'DeActive');
 
 -- --------------------------------------------------------
 
@@ -1650,13 +1761,13 @@ INSERT INTO `store_branches` (`Branch_Store_ID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_images`
+-- Table structure for table `temporary_image`
 --
 
-CREATE TABLE `tbl_images` (
-  `id` int(11) NOT NULL,
-  `image` varchar(50) NOT NULL,
-  `filename` varchar(150) DEFAULT NULL
+CREATE TABLE `temporary_image` (
+  `Row_ID` int(15) NOT NULL,
+  `VIN` char(50) NOT NULL,
+  `Image_Name` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 -- --------------------------------------------------------
@@ -1745,7 +1856,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `employee_without_contract`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_without_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `employees`.`Gender` AS `Gender`, `employees`.`Phone` AS `Phone`, `employees`.`Email` AS `Email`, `employees`.`Address` AS `Address`, `employees`.`PostalCode` AS `PostalCode`, `employees`.`Date_OF_Add` AS `Date_OF_Add`, `employees`.`Date_OF_Update` AS `Date_OF_Update`, `employees`.`Reports_To` AS `Reports_To`, `employees`.`Image_Name` AS `Image_Name` FROM `employees` WHERE !exists(select 1 from `stores_employee` where `employees`.`Emp_ID` = `stores_employee`.`Emp_ID` limit 1) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_without_contract`  AS SELECT `employees`.`Emp_ID` AS `Emp_ID`, `employees`.`SSN` AS `SSN`, `employees`.`F_Name` AS `F_Name`, `employees`.`L_Name` AS `L_Name`, `employees`.`Gender` AS `Gender` FROM `employees` WHERE !exists(select 1 from `stores_employee` where `employees`.`Emp_ID` = `stores_employee`.`Emp_ID` limit 1) ;
 
 -- --------------------------------------------------------
 
@@ -1754,16 +1865,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `employee_with_active_contract`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_with_active_contract`  AS SELECT `e`.`SSN` AS `SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `EmployeeName`, `s`.`Store_Name` AS `Store_Name`, `se`.`From_Date` AS `From_Date`, `se`.`To_Date` AS `To_Date`, `se`.`Service_Status` AS `Service_Status` FROM ((`stores_employee` `se` join `stores` `s` on(`se`.`Store_ID` = `s`.`Store_ID`)) join `employees` `e` on(`se`.`Emp_ID` = `e`.`Emp_ID`)) WHERE `se`.`Service_Status` = 'Active' ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `employee_with_deactive_contract`
---
-DROP TABLE IF EXISTS `employee_with_deactive_contract`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_with_deactive_contract`  AS SELECT `e`.`SSN` AS `SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `EmployeeName`, `s`.`Store_Name` AS `Store_Name`, `se`.`From_Date` AS `From_Date`, `se`.`To_Date` AS `To_Date`, `se`.`Service_Status` AS `service_status` FROM ((`stores_employee` `se` join `stores` `s` on(`se`.`Store_ID` = `s`.`Store_ID`)) join `employees` `e` on(`se`.`Emp_ID` = `e`.`Emp_ID`)) WHERE `se`.`Service_Status` <> 'Active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_with_active_contract`  AS SELECT `e`.`Emp_ID` AS `EMP_ID`, `e`.`SSN` AS `SSN`, concat(`e`.`F_Name`,' ',`e`.`L_Name`) AS `EmployeeName`, `s`.`Store_Name` AS `Store_Name`, `se`.`From_Date` AS `From_Date`, `se`.`To_Date` AS `To_Date`, `se`.`Service_Status` AS `Service_Status`, `se`.`Contract_Type` AS `Contract_Type` FROM ((`stores_employee` `se` join `stores` `s` on(`se`.`Store_ID` = `s`.`Store_ID`)) join `employees` `e` on(`se`.`Emp_ID` = `e`.`Emp_ID`)) ;
 
 -- --------------------------------------------------------
 
@@ -1997,10 +2099,11 @@ ALTER TABLE `store_branches`
   ADD KEY `Branch_Store_ID` (`Branch_Store_ID`);
 
 --
--- Indexes for table `tbl_images`
+-- Indexes for table `temporary_image`
 --
-ALTER TABLE `tbl_images`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `temporary_image`
+  ADD PRIMARY KEY (`Row_ID`),
+  ADD KEY `VIN` (`VIN`);
 
 --
 -- Indexes for table `titles`
@@ -2029,13 +2132,13 @@ ALTER TABLE `carfeatures`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `carsold`
 --
 ALTER TABLE `carsold`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `credentials`
@@ -2089,7 +2192,7 @@ ALTER TABLE `feature_list`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=405;
 
 --
 -- AUTO_INCREMENT for table `stores`
@@ -2101,7 +2204,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT for table `stores_employee`
 --
 ALTER TABLE `stores_employee`
-  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `store_branches`
@@ -2110,10 +2213,10 @@ ALTER TABLE `store_branches`
   MODIFY `Branch_Store_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tbl_images`
+-- AUTO_INCREMENT for table `temporary_image`
 --
-ALTER TABLE `tbl_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+ALTER TABLE `temporary_image`
+  MODIFY `Row_ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `titles`
