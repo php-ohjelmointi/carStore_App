@@ -54,7 +54,7 @@
     } 
 
 
-       //Counting credentials
+    //Counting credentials
    $sql_countCredentials= "SELECT count(Credentials_ID ) AS numberOFCredentials_ID  FROM credentials";
    $countCredentials= mysqli_query($conn,$sql_countCredentials);
 
@@ -66,6 +66,7 @@
     } else {
 
     } 
+
 
 
 ?>
@@ -150,8 +151,12 @@
     <div class="imagegrid">
         <a href="All_CarsByStores.php"><button type="button" class="btn btn-primary">cars by stores</button></a>
         <a href="All_CarsByBranches.php"><button type="button" class="btn btn-primary">cars by Branch</button></a>
-    </div>   
+    </div> 
+    <br /><br />
 
+    <div class="imagegrid">
+        <a href="NumbersOFcarsImage.php"><button type="button" class="btn btn-primary"># of cars image</button></a>
+    </div> 
     </div>
 
     <div class="well">
@@ -245,6 +250,23 @@
         </div> 
     </div>
 
-    
+    <div class="well">
+        <h1 style="border-bottom:1px solid gray;">Analytics</h1>
+        <br />
+        <a href="All_CarsByColor.php"><button type="button" class="btn btn-primary">CarsByColors</button></a>
+        <a href="All_CarsByDrawmethod.php"><button type="button" class="btn btn-primary">CarsByD.Method</button></a>
+        <br /><br />
+
+        <div class="imagegrid">
+            <a href="All_CarsByGearbox.php"> <button type="button" class="btn btn-primary ">CarsByGearbox</button></a>
+            <a href="All_CarsByBodyType.php"> <button type="button" class="btn btn-primary">CarsByBodyType</button></a>
+        </div>
+        <br /><br />
+        <div class="imagegrid">
+            <a href="CarsByCarType.php"> <button type="button" class="btn btn-primary ">CarsByCarType</button></a>
+            <a href="All_CarsByFuelType.php"> <button type="button" class="btn btn-primary">CarsByFuelType</button></a>
+        </div> 
+    </div>
+
 </div>
 </html>

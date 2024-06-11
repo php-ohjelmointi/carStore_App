@@ -2,8 +2,20 @@
 session_start();
 include("../db.php");
 
+/**
+ * SET @num := 0;
+ * UPDATE images SET Row_ID = @num := (@num+1);
+ * ALTER TABLE images AUTO_INCREMENT = 1;
+ */
 
+ $sql_CountImages= "SELECT count(VIN) AS NumberOFImage FROM temporary_image";
+ $res_sql_CountImages = $conn->query($sql_CountImages);
 
+ while($row = $res_sql_CountImages->fetch_assoc()){
+  $NumberOFImage = $row["NumberOFImage"];
+ }
+
+ 
 if(isset($_POST["add"])){
   $VIN_session = $_SESSION['VIN'];
   $sql_Transferdata = "SELECT * FROM temporary_image";
@@ -81,6 +93,7 @@ if(isset($_POST["add"])){
 <body>
 
   <div class="container-fluid">
+  <h2 style="font-size:35px;">Number Of images: <strong><?php echo $NumberOFImage; ?></h2></strong><br />
     <div class="row">
 
     <?php 
@@ -89,7 +102,7 @@ if(isset($_POST["add"])){
             while($row = $res->fetch_assoc()){
               $VIN = $row["VIN"];
               $Image_Name = $row["Image_Name"];
-
+            
               echo "
                 <div class='col-lg-3'> <div class='card' style='width:400px'>
                     <img class='card-img-top' src='../images/cars/{$row["Image_Name"]}' alt='Card image' style='width:100%'>

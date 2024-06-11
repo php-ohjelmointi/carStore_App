@@ -3,8 +3,6 @@
   require 'db.php';
   error_reporting(0);
   
-
-
    $GetCarsImage= "SELECT VIN, group_concat(i.Image_Name) AS CarImages
    FROM images AS i
     GROUP BY i.VIN";
@@ -92,7 +90,6 @@
 <body>
 <br />
 <a href="index.php"><button type="button" class="btn btn-default btn-xs">MAIN PAGE</button></a>
-<a href="addshow_features.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW feature</button></a>
 <a href="addnewcar.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW CAR</button></a>
 <br /> <br />
 

@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </head>
+
+<style>
+  img {
+    height: 20px;
+    cursor: pointer;
+  }
+
+  
+
+</style>
+
+
 <body>
 <?php
 require 'db.php';
@@ -36,6 +48,7 @@ require 'db.php';
           <th>Driving</th>
           <th>Price</th>
           <th>Date OF ADD</th>
+          <th>Actions</th>
           </tr>
         </thead>
         <tbody id="showdata">
@@ -53,7 +66,7 @@ require 'db.php';
                     {
                       //Erotellaan tuhannesosat
                       $ErotaTuhannet_Laske_hinta = $row['Price'];
-                      $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 2, ',', ' '); 
+                      $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 0, ',', ' '); 
 
                       /* $gearboxICON = '';
                       if($row['Gearbox'] == 'Automatic'){
@@ -62,8 +75,15 @@ require 'db.php';
                         $gearboxICON = '<img src="./images/icons/gearbox_manual.png" alt="Random image" ,width=50px, height=30px />';
                       } */
 
+
+                      $Date_OF_Add_Original = $row['Date_OF_Add'];
+                      $New_DateOFAdd = date("d.m.Y", strtotime($Date_OF_Add_Original));  
+
+
+                      $VIN = $row['VIN'];
+
                       echo"<tr>";
-                      echo"<td>".$row['VIN']."</td>";
+                      echo"<td>".$VIN."</td>";
                       echo"<td>".$row['Number_Plate']."</td>";
                       echo"<td>".$row['Name']." ".$row['Model']."</td>";
                       echo"<td>".$row['Model_Spec']."</td>";
@@ -73,7 +93,12 @@ require 'db.php';
                       echo"<td>".$row['Color']."</td>";
                       echo"<td>".$row['Draw_Method']."</td>";
                       echo"<td>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta." €</td>";
-                      echo"<td>".$row['Date_OF_Add']."</td>";
+                      echo"<td>".$New_DateOFAdd."</td>";
+                      echo"<td>
+                      <a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'><img src='./images/icons/analytics.png'></a>
+                      <a href='other_Functionality/updates/Update_car.php?VIN=$VIN'><img src='./images/icons/user-pen.svg'></a>
+                      <a href='other_Functionality/delete/delete_car.php?VIN=$VIN'><img src='./images/icons/trash-bin.png' ></a>
+                      </td>";
                       echo"</tr>";   
                     }
             ?>

@@ -25,7 +25,7 @@ ORDER BY c.Date_OF_Add DESC";
         //Erotellaan tuhannesosat
         $ErotaTuhannet_Laske_hinta = $row['Price'];
         $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 2, ',', ' '); 
-
+        $VIN = $row['VIN'];
 
         $data .=  "<tr>
             <td>".$row['VIN']."</td>
@@ -39,6 +39,11 @@ ORDER BY c.Date_OF_Add DESC";
             <td>".$row['Draw_Method']."</td>
             <td>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta."</td>
             <td>".$row['Date_OF_Add']."</td>
+            <td>
+                <a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'><img src='./images/icons/analytics.png'></a>
+                <a href='other_Functionality/updates/Update_car.php?VIN=$VIN'><img src='./images/icons/user-pen.svg'></a>
+                <a href='other_Functionality/delete/delete_car.php?VIN=$VIN'><img src='./images/icons/trash-bin.png' ></a>
+            </td>
             </tr>";
     }
         echo $data;

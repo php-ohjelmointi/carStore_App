@@ -11,7 +11,7 @@
         $Store_ID = mysqli_real_escape_string($conn,$_POST['Store_ID']);
 
         $message = "";
-        $allowedTypes = ["png","jpg","jpeg"];
+        $allowedTypes = ["png","jpg","jpeg","jfif",'webp'];
         $fileType = strtolower(pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION));
          //Check Image Extension
         if(!in_array($fileType ,$allowedTypes)){
