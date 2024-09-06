@@ -27,6 +27,9 @@ ORDER BY c.Date_OF_Add DESC";
         $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 2, ',', ' '); 
         $VIN = $row['VIN'];
 
+        $Date_OF_Add_Original = $row['Date_OF_Add'];
+        $New_DateOFAdd = date("d.m.Y", strtotime($Date_OF_Add_Original)); 
+
         $data .=  "<tr>
             <td>".$row['VIN']."</td>
             <td>".$row['Number_Plate']."</td>
@@ -37,10 +40,10 @@ ORDER BY c.Date_OF_Add DESC";
             <td>".$row['Type_OF_Body']."</td>
             <td>".$row['Color']."</td>
             <td>".$row['Draw_Method']."</td>
-            <td>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta."</td>
-            <td>".$row['Date_OF_Add']."</td>
+            <td style='text-align:right;'>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta."&nbsp;<strong>€</strong></td>
+            <td style='text-align:center;'>".$New_DateOFAdd."</td>
             <td>
-                <a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'><img src='./images/icons/analytics.png'></a>
+                <a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'><img src='./images/icons/car.png'></a>
                 <a href='other_Functionality/updates/Update_car.php?VIN=$VIN'><img src='./images/icons/user-pen.svg'></a>
                 <a href='other_Functionality/delete/delete_car.php?VIN=$VIN'><img src='./images/icons/trash-bin.png' ></a>
             </td>

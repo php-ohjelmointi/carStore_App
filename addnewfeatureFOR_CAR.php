@@ -7,7 +7,8 @@
     FROM cars AS C
         INNER JOIN carfeatures AS CF ON CF.VIN = C.VIN
         INNER JOIN brands AS B ON B.Brand_ID = C.Brand_ID
-        INNER JOIN feature_list AS FL ON FL.Feature_ID = CF.Feature_ID;";
+        INNER JOIN feature_list AS FL ON FL.Feature_ID = CF.Feature_ID
+    ORDER BY CF.Row_ID DESC;";
 
     //Getting all cars
     $GetAllCars = "SELECT 
@@ -104,9 +105,8 @@
                 $Model  = $CBF["Model"];
                 $Feature_Name  = $CBF["Name"];
 
-
                 echo "<tr>";
-                echo "<td>$VIN</td>";
+                echo "<td><a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'>$VIN</a></td>";
                 echo "<td>$Numberplate</td>";
                 echo "<td>$Brand  $Model</td>";
                 echo "<td>$Feature_Name</td>";

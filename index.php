@@ -266,6 +266,10 @@
             <a href="CarsByCarType.php"> <button type="button" class="btn btn-primary ">CarsByCarType</button></a>
             <a href="All_CarsByFuelType.php"> <button type="button" class="btn btn-primary">CarsByFuelType</button></a>
         </div> 
+        <br /><br />
+        <div class="imagegrid">
+            <a href="All_StoreByCarValue.php"> <button type="button" class="btn btn-primary ">StoreByCarValue</button></a>
+        </div> 
     </div>
 
 </div>

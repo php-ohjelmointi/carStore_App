@@ -41,7 +41,7 @@ require 'db.php';
                   while($row = mysqli_fetch_assoc($query))
                   {
                     echo"<tr>";
-                    echo"<td".$row['SSN']."</td>";
+                    echo"<td>".$row['SSN']."</td>";
                     echo"<td>".$row['F_Name']." ".$row['L_Name']."</td>";
                     echo"<td>".$row['Gender']."</td>";
                     echo"<td>".$row['Nationality']."</td>";

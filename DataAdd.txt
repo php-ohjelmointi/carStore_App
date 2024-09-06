@@ -1,0 +1,17 @@
+insert into employees (
+    SSN, 
+    F_Name, 
+    L_Name, 
+    Gender, 
+    Phone, 
+    Email, 
+    Address) 
+    values (
+        '', 
+     	'', 
+        '', 
+        '', 
+        '', 
+        '', 
+        ''
+    );

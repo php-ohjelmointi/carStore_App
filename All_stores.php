@@ -37,13 +37,15 @@ require 'db.php';
                   FROM stores as s
                   INNER JOIN  store_branches as sb ON sb.Branch_Store_ID = s.Branch_Store_ID 
                   INNER JOIN  postalCodes as PC ON PC.PostalCode = s.PostalCode
-                  ORDER BY s.Date_OF_Add DESC";
+                  ORDER BY s.Store_Name ASC";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
+                    $SID = $row['Store_ID'];
+
                     echo"<tr>";
                     echo"<td>".$row['BranchName']."</td>";
-                    echo"<td>".$row['Store_Name']."</td>";
+                    echo"<td><a href='other_Functionality/view/Admin_StorePage.php?SID=$SID'>".$row['Store_Name']."</a></td>";
                     echo"<td>".$row['Address']."</td>";
                     echo"<td>".$row['PostalCode'].", ".$row['Region']."</td>";
                     echo"<td>".$row['Date_OF_Add']."</td>";

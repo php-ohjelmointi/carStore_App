@@ -1,7 +1,5 @@
 <?php 
      require 'db.php';
-
-
    //SQL query
    $GettingNumberOFCarsByStores = "SELECT * FROM number_of_cars_by_stores";
   
@@ -46,6 +44,7 @@
         if ($GettingNumberOFCarsByStoresTulos->num_rows > 0) {
             // output data of each row
             while($row = $GettingNumberOFCarsByStoresTulos->fetch_assoc()) {
+                $SID = $row["SID"];
                 $Number_OF_Cars = $row["Number_OF_Cars"];
                 $Store_Name  = $row["Store_Name"];
                 $POAC  = $row["POAC"];
@@ -53,7 +52,7 @@
                 echo "<tr>";
                 echo "<td>$Number_OF_Cars</td>";
                 echo "<td>$POAC</td>";
-                echo "<td>$Store_Name</td>";
+                echo "<td><a href='other_Functionality/view/Admin_StorePage.php?SID=$SID'>$Store_Name</a></td>";
                 echo "</tr>";
                 
             }

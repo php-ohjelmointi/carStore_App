@@ -15,9 +15,10 @@ ORDER BY s.Date_OF_Add DESC";
    $data='';
    while($row = mysqli_fetch_assoc($query))
     {
+        $SID = $row['Store_ID'];
         $data .=  "<tr>
             <td>".$row['BranchName']."</td>
-            <td>".$row['Store_Name']."</td>
+            <td><a href='other_Functionality/view/Admin_StorePage.php?SID=$SID'>".$row['Store_Name']."</a></td>
             <td>".$row['Address']."</td>
             <td>".$row['PostalCode'].", ".$row['Region']."</td>
             <td>".$row['Date_OF_Add']."</td>

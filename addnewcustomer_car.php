@@ -5,11 +5,11 @@
   $sql_Get_Cars_Details = "SELECT C.VIN,C.Number_Plate,concat(B.Name,' ',C.Model) AS Car,S.Store_Name FROM cars AS C
   INNER JOIN brands as B ON C.Brand_ID = B.Brand_ID
   INNER JOIN stores as S ON C.Store_ID = S.Store_ID
-  WHERE NOT EXISTS (SELECT * FROM carsold WHERE C.VIN = carsold.VIN)";
+  /* WHERE NOT EXISTS (SELECT * FROM carsold WHERE C.VIN = carsold.VIN) */";
   $sql_Get_Cars_Details_Result = mysqli_query($conn,$sql_Get_Cars_Details);
 
    //SQL Getting Employees
-   $sql_SellerDetails = "SELECT * FROM employee_with_active_contract";
+   $sql_SellerDetails = "SELECT * FROM employee_with_active_contract WHERE Service_Status = 'Active'";
    $sql_SellerDetails_Result = mysqli_query($conn,$sql_SellerDetails);
 
     //SQL Getting customer
@@ -135,7 +135,7 @@
     </div>
     <br />
     <div class="ROW">
-      <input type="text" class="form-control" id="email" name="O_Price" placeholder="Original Price">
+      <input type="text" class="form-control" id="email" name="O_Price"  placeholder="Original Price">
        &nbsp;&nbsp;
       <input type="text" class="form-control" id="email" name="S_Price" placeholder="Sold Price">
     </div>

@@ -48,11 +48,26 @@ require 'db.php';
           <th>Driving</th>
           <th>Price</th>
           <th>Date OF ADD</th>
-          <th>Actions</th>
           </tr>
         </thead>
         <tbody id="showdata">
           <?php  
+
+              //Getting all cars
+                $GetAllCars_Image = "SELECT cars.VIN,cars.Number_Plate, concat(brands.Name,' ',cars.Model) AS car,cars.color 
+                FROM cars 
+                INNER JOIN brands ON cars.Brand_ID = brands.Brand_ID 
+                WHERE EXISTS 
+                (SELECT * FROM images WHERE cars.VIN = images.VIN)";
+                  $GetAllCars_Image_Result = mysqli_query($conn,$GetAllCars_Image);
+                  while($row = mysqli_fetch_assoc($GetAllCars_Image_Result))
+                  {
+
+                  }
+
+
+
+
                 $sql = "SELECT 
                 c.*,
                 b.Name,
@@ -62,18 +77,18 @@ require 'db.php';
                 ON c.Brand_ID = b.Brand_ID
                 ORDER BY c.Date_OF_Add DESC";
                   $query = mysqli_query($conn,$sql);
-                  while($row = mysqli_fetch_assoc($query))
+                  while($row = mysqli_fetch_assoc($query) )
                     {
                       //Erotellaan tuhannesosat
                       $ErotaTuhannet_Laske_hinta = $row['Price'];
                       $MuokattuTuhannet_ErotaTuhannet_Laske_hinta = number_format($ErotaTuhannet_Laske_hinta , 0, ',', ' '); 
 
-                      /* $gearboxICON = '';
+                      $gearboxICON = '';
                       if($row['Gearbox'] == 'Automatic'){
                         $gearboxICON = '<img src="./images/icons/gearbox_automatic.png" alt="Random image" ,width=50px, height=30px />';
                       }else if($row['Gearbox'] == 'Manual'){
                         $gearboxICON = '<img src="./images/icons/gearbox_manual.png" alt="Random image" ,width=50px, height=30px />';
-                      } */
+                      } 
 
 
                       $Date_OF_Add_Original = $row['Date_OF_Add'];
@@ -83,7 +98,7 @@ require 'db.php';
                       $VIN = $row['VIN'];
 
                       echo"<tr>";
-                      echo"<td>".$VIN."</td>";
+                      echo"<td><a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'>".$VIN."</a></td>";
                       echo"<td>".$row['Number_Plate']."</td>";
                       echo"<td>".$row['Name']." ".$row['Model']."</td>";
                       echo"<td>".$row['Model_Spec']."</td>";
@@ -92,13 +107,8 @@ require 'db.php';
                       echo"<td>".$row['Type_OF_Body']."</td>";
                       echo"<td>".$row['Color']."</td>";
                       echo"<td>".$row['Draw_Method']."</td>";
-                      echo"<td>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta." €</td>";
-                      echo"<td>".$New_DateOFAdd."</td>";
-                      echo"<td>
-                      <a href='other_Functionality/view/ShowCarsProfile.php?VIN=$VIN'><img src='./images/icons/analytics.png'></a>
-                      <a href='other_Functionality/updates/Update_car.php?VIN=$VIN'><img src='./images/icons/user-pen.svg'></a>
-                      <a href='other_Functionality/delete/delete_car.php?VIN=$VIN'><img src='./images/icons/trash-bin.png' ></a>
-                      </td>";
+                      echo"<td style='text-align:right;'>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta."&nbsp;<strong>€</strong></td>";
+                      echo"<td style='text-align:center;'>".$New_DateOFAdd."</td>";
                       echo"</tr>";   
                     }
             ?>

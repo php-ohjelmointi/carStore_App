@@ -29,17 +29,19 @@
     $Number_OF_Doors = mysqli_real_escape_string($conn,$_POST['Number_OF_Doors']);
     $Power = mysqli_real_escape_string($conn,$_POST['Power']);
     $Mass = mysqli_real_escape_string($conn,$_POST['Mass']);
+    $Torque = mysqli_real_escape_string($conn,$_POST['Torque']); //New column
     $TopSpeed = mysqli_real_escape_string($conn,$_POST['TopSpeed']);
     $Engine_Capacity = mysqli_real_escape_string($conn,$_POST['Engine_Capacity']);
-    $store_ID = mysqli_real_escape_string($conn,$_POST['store_ID']);
     $Steering = mysqli_real_escape_string($conn,$_POST['steering']);
+    $Energy_label = mysqli_real_escape_string($conn,$_POST['Energy_label']);
+    $Electric_Range = mysqli_real_escape_string($conn,$_POST['Electric_Range']);
+    $Battery_Capacity = mysqli_real_escape_string($conn,$_POST['Battery_Capacity']);
+    $Acceleration = mysqli_real_escape_string($conn,$_POST['Acceleration']);
     $Height = mysqli_real_escape_string($conn,$_POST['Height']);
     $Width = mysqli_real_escape_string($conn,$_POST['Width']);
     $Length = mysqli_real_escape_string($conn,$_POST['Length']);
-    $Acceleration = mysqli_real_escape_string($conn,$_POST['Acceleration']);
-    $Electric_Range = mysqli_real_escape_string($conn,$_POST['Electric_Range']);
-    $Energy_label = mysqli_real_escape_string($conn,$_POST['Energy_label']);
-    $Battery_Capacity = mysqli_real_escape_string($conn,$_POST['Battery_Capacity']);
+    $First_Registration_Date = mysqli_real_escape_string($conn,$_POST['First_Registration_Date']); //New column
+    $store_ID = mysqli_real_escape_string($conn,$_POST['store_ID']);
 
     if(empty($_POST['Engine_Capacity'])){
       $NewEngine_Capacity = 'NULL';
@@ -61,6 +63,11 @@
     }else{
       $NewTopSpeed = $TopSpeed;
     }
+    if(empty($_POST['Torque'])){
+      $NewTorque = 'NULL';
+    }else{
+      $NewTorque = $Torque;
+    }
 
     $sql_CheckNumberPlate = "SELECT * FROM cars WHERE Number_Plate = '$NumberPlate'";
     $res_CheckNumberPlate = mysqli_query($conn, $sql_CheckNumberPlate);
@@ -69,19 +76,22 @@
     }
     else 
     {
-      $AddNewCar ="INSERT INTO cars (`VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model_Spec`, `Price`, `Year`, `Gearbox`, 
-      `Fuel_Type`, `Mileage`, `Type_OF_Car`, `Type_OF_Body`, `Draw_Method`, `Color`, `Number_Of_Person`, `Number_OF_Doors`, `Power`, 
-      `Mass`, `TopSpeed`, `Engine_Capacity`, `Steering`, `Energy_label`, `Electric_Range`, `Battery_Capacity`, `Acceleration`, `Height`, 
-      `Width`, `Length`, `Store_ID`) VALUES 
+      $New_First_Registration_Date = date("Y-m-d", strtotime($First_Registration_Date)); 
+      echo $NumberPlate;
+      
+     $AddNewCar ="INSERT INTO cars (`VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model_Spec`, `Price`, `Year`, `Gearbox`, 
+      `Fuel_Type`, `Mileage`, `Type_OF_Car`, `Type_OF_Body`, `Draw_Method`, `Color`, `No. of person`, `No. of doors`, `Power`, 
+      `Mass`, `Torque`,`TopSpeed`, `Engine_Capacity`, `Steering`, `Energy_label`, `Electric_Range`, `Battery_Capacity`, `Acceleration`, `Height`, 
+      `Width`, `Length`,`First_Registration_Date`,`Store_ID`) VALUES 
         ( '$VIN2','$NumberPlate','$brand_ID','$Model','$Model_Spec','$Price','$Year','$Gearbox','$Fuel_type',
           '$Mileage','$TypeOFCar','$TypeOFBody','$DrawMethod','$Color','$Number_Of_Person','$Number_OF_Doors','$NewPower','$NewMass',
-          '$NewTopSpeed','$NewEngine_Capacity','$Steering','$Energy_label','$Electric_Range','$Battery_Capacity',
-          '$Acceleration','$Height','$Width','$Length','$store_ID')";
+          '$NewTorque','$NewTopSpeed','$NewEngine_Capacity','$Steering','$Energy_label','$Electric_Range','$Battery_Capacity',
+          '$Acceleration','$Height','$Width','$Length','$New_First_Registration_Date','$store_ID')";
             $AddNewCarKysely = mysqli_query($conn, $AddNewCar) or die (mysqli_error($conn));
               if($AddNewCarKysely == 1)
                 {
                   header('Location:All_cars.php');
-                }
+                } 
     }
 
     
@@ -256,6 +266,8 @@
       <input type="text" class="form-control" id="email" name="Power" placeholder="Power">
        &nbsp;&nbsp;&nbsp;
       <input type="text" class="form-control" id="email" name="Mass" placeholder="Mass">
+       &nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="email" name="Torque" placeholder="Torque">
     </div>
 
     <br />
@@ -309,6 +321,8 @@
           <option value="Left">Left</option>
           <option value="Right">Right</option>
         </select>
+        &nbsp;&nbsp;&nbsp;
+        <input type="date" class="form-control" id="email" name="First_Registration_Date" placeholder="First_Registration_Date">
     </div>
     <br />
     <button type="submit" name="addcar" class="btn btn-success form-control" >Submit</button>

@@ -1,10 +1,16 @@
 <?php 
-     require 'db.php';
+  require 'db.php';
 
+  //SQL query
+  $GettingNumberOFCarsByFuel = "SELECT * FROM percentage_of_cars_by_type_of_fuel";
 
-   //SQL query
-   $GettingNumberOFCarsByFuel = "SELECT * FROM percentage_of_cars_by_type_of_fuel";
-  
+  /* 
+      SELECT SUM(C.Price) AS carValuePrice, S.Store_Name FROM cars AS C 
+      INNER JOIN stores AS S ON C.Store_ID = S.Store_ID
+      GROUP BY S.Store_ID;
+
+      SELECT SUM(Price) AS carValuePrice, Store_ID  FROM cars GROUP BY Store_ID;
+  */
 ?>
 
 <!DOCTYPE html>
