@@ -12,6 +12,16 @@
 <?php
 require 'db.php';
 ?>
+<!-- <script>
+
+  // Your application has indicated there's an error
+  window.setTimeout(function(){
+  // Move to a new location or you can do something else
+  window.location.href = "All_customer.php";
+
+  }, 50);
+</script> -->
+
 <div class="mt-2" style='margin-left:1em;margin-right:1em'>
 <a href="index.php"><button type="button" class="btn btn-info">MAIN PAGE</button></a>
 <a href="addnewcustomer.php"><button type="button" class="btn btn-primary btn-xs">ADD NEW CUSTOMER</button></a>
@@ -31,23 +41,33 @@ require 'db.php';
             <th>Address</th>
             <th>Postalcode</th>
             <th>Date OF ADD</th>
+            <th>Date OF Update</th>
           </tr>
         </thead>
         <tbody id="showdata">
           <?php  
-                $sql = "SELECT C.*, PC.* FROM customers AS C
-                  INNER JOIN  postalCodes as PC ON PC.PostalCode = C.PostalCode ORDER BY C.SSN DESC";
+                $sql = "SELECT C.*, PC.*,CO.Name AS CountryName 
+                  FROM customers AS C
+                  INNER JOIN  postalCodes AS PC ON PC.PostalCode = C.PostalCode
+                  INNER JOIN country AS CO ON CO.Code2 = C.Nationality  
+                  WHERE C.SSN IS NOT NULL
+                  ORDER BY C.Date_OF_Update DESC";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
+
+                    $date_OF_ADD = date("d.m.Y", strtotime($row['Date_OF_Add']));
+                    $date_OF_Update = date("d.m.Y h:m:s", strtotime($row['Date_OF_Update']));
+
                     echo"<tr>";
                     echo"<td>".$row['SSN']."</td>";
-                    echo"<td>".$row['F_Name']." ".$row['L_Name']."</td>";
+                    echo"<td>".$row['F_Name']." <strong>".$row['L_Name']."</strong></td>";
                     echo"<td>".$row['Gender']."</td>";
-                    echo"<td>".$row['Nationality']."</td>";
+                    echo"<td><strong>".$row['Nationality']."</strong> ".$row['CountryName']."</td>";
                     echo"<td>".$row['Address']."</td>";
-                    echo"<td>".$row['PostalCode'].", ".$row['Region']."</td>";
-                    echo"<td>".$row['Date_OF_Add']."</td>";
+                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Region']."</td>";
+                    echo"<td>". $date_OF_ADD."</td>";
+                    echo"<td>".$date_OF_Update."</td>";
                     echo"</tr>";   
                   }
             ?>

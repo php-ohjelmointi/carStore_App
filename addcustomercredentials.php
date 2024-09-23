@@ -5,7 +5,9 @@
 
  //SQL query CustomerID
  $sql_customers = "SELECT * FROM customers
- WHERE  NOT EXISTS (SELECT * FROM credentials WHERE customers.Customer_ID = credentials.Customer_ID);";
+ WHERE  NOT EXISTS 
+ (SELECT * FROM credentials WHERE customers.Customer_ID = credentials.Customer_ID)
+ AND SSN IS NOT NULL;";
  $all_sql_customers = mysqli_query($conn,$sql_customers);
 
 

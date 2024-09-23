@@ -15,3 +15,55 @@ insert into employees (
         '', 
         ''
     );
+
+
+    /* SSN */
+     $days = rand(01,31);
+    $month = rand(01,12);
+    $year = rand(20,99);
+    $ChekNumber = rand(999,99);
+    function gen_uid($l=1){
+        return substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 1, $l);
+     }
+     $Henksu = $days.$month.$year.'-'. $ChekNumber.gen_uid();
+
+
+
+
+
+
+
+
+
+ <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody id="showdata" method="POST">
+          <?php  
+
+                $sql_SSN_NULL = "SELECT * FROM customers WHERE SSN IS NULL";
+                  $query_sql_SSN_NULL = mysqli_query($conn,$sql_SSN_NULL);
+                    while($row = mysqli_fetch_assoc($query_sql_SSN_NULL))
+                    {
+                      
+                    $Customer_ID = $row['Customer_ID'];
+                    $F_Name = $row['F_Name'];   
+                    $L_Name = $row['L_Name'];
+                    $Gender = $row['Gender']; 
+                    echo"<tr>";
+                    echo"<td>".$Customer_ID."</td>";
+
+
+                    echo"<td><a href='Customer_No_SSN.php?CustID=$Customer_ID&CustFName=$F_Name&CustLName=$L_Name'>".$row['F_Name']." <strong>".$row['L_Name']."</strong></a></td>";
+                    echo"<td>".$Gender."</td>";
+                    echo"</tr>";   
+                  }
+            ?>
+        </tbody>
+    </table>
+</div>

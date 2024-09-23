@@ -4,13 +4,15 @@ $customer = $_POST['name'];
 
 $sql = "SELECT C.*, PC.Region FROM customers AS C
     INNER JOIN  postalCodes as PC ON PC.PostalCode = C.PostalCode
-    WHERE C.SSN LIKE '%$customer%' 
+    WHERE C.SSN IS NOT NULL
+    OR C.SSN LIKE '%$customer%' 
     OR C.F_Name LIKE '%$customer%' 
     OR C.L_Name LIKE '%$customer%' 
     OR C.Gender LIKE '%$customer%'
     OR C.Nationality LIKE '%$customer%'
     OR PC.PostalCode LIKE '%$customer%'
     OR PC.Region LIKE '%$customer%'
+    
     ORDER BY C.Date_OF_Add DESC";  
    $query = mysqli_query($conn,$sql);
    $data='';

@@ -28,7 +28,7 @@
     } 
 
     //Counting customers
-   $sql_countcustomers = "SELECT count(Customer_ID ) AS numberOFcustomers FROM customers";
+   $sql_countcustomers = "SELECT count(Customer_ID ) AS numberOFcustomers FROM customers WHERE SSN IS NOT NULL";
    $countCustomer = mysqli_query($conn,$sql_countcustomers);
 
    if ($countCustomer->num_rows > 0) {
@@ -40,14 +40,41 @@
 
     } 
 
+
+    //Counting customers --NO SSN
+   $sql_countcustomers_NOTSSN = "SELECT count(Customer_ID) AS numberOFcustomers_No_SSN FROM customers WHERE SSN IS NULL";
+   $countcustomers_NOTSSN = mysqli_query($conn,$sql_countcustomers_NOTSSN);
+
+   if ($countcustomers_NOTSSN->num_rows > 0) {
+        // output data of each row
+        while($row = $countcustomers_NOTSSN->fetch_assoc()) {
+            $CustomerNumber_NO_SSN = $row["numberOFcustomers_No_SSN"];
+        }
+    } else {
+
+    } 
+
       //Counting employees
-   $sql_countemployees = "SELECT count(Emp_ID) AS numberOFEmployee  FROM employees";
+   $sql_countemployees = "SELECT count(Emp_ID) AS numberOFEmployee FROM employees WHERE SSN IS NOT NULL";
    $countEmployees= mysqli_query($conn,$sql_countemployees);
 
    if ($countEmployees->num_rows > 0) {
         // output data of each row
         while($row = $countEmployees->fetch_assoc()) {
             $EmployeeNumber = $row["numberOFEmployee"];
+        }
+    } else {
+
+    } 
+
+    //Counting employees --NO SSN
+   $sql_countemployees_NOTSSN = "SELECT count(Emp_ID) AS numberOFemployees_No_SSN FROM employees WHERE SSN IS NULL";
+   $countemployees_NOTSSN = mysqli_query($conn,$sql_countemployees_NOTSSN);
+
+   if ($countemployees_NOTSSN->num_rows > 0) {
+        // output data of each row
+        while($row = $countemployees_NOTSSN->fetch_assoc()) {
+            $EmployeeNumber_NO_SSN = $row["numberOFemployees_No_SSN"];
         }
     } else {
 
@@ -67,7 +94,17 @@
 
     } 
 
+    ?>
+      <!--   <script>
+            // Your application has indicated there's an error
+            window.setTimeout(function(){
 
+            // Move to a new location or you can do something else
+            window.location.href = "Customer_No_SSN_ALL.php";
+
+            }, 50);
+        </script> -->
+    <?php  
 
 ?>
 
@@ -194,6 +231,12 @@
             <a href="addnewcustomer_car.php"> <button type="button" class="btn btn-success ">+ Customer cars</button></a>
             <a href="All_own_cust_cars.php"><button type="button" class="btn btn-primary">All own cars</button></a>
         </div>
+
+        <h1 style="border-bottom:1px solid gray;"></h1>
+        <br />      
+        <p>No SSN (TOTAL): <span><a href="Customer_No_SSN_ALL.php"><?php echo $CustomerNumber_NO_SSN; ?></a></span></p>
+
+        
     </div>
 
     <div class="well">
@@ -227,8 +270,13 @@
         
         <div class="imagegrid">
             <a href="All_WorkingPlace.php"><button type="button" class="btn btn-primary">Working places</button></a>
-            
         </div> 
+
+        <h1 style="border-bottom:1px solid gray;"></h1>
+        <br />      
+        <p>No SSN (TOTAL): <span><a href="Customer_No_SSN_ALL.php"><?php echo $EmployeeNumber_NO_SSN; ?></a></span></p>
+        <br />
+     
     </div>
 
     <div class="well">

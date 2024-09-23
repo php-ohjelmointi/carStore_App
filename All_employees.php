@@ -35,7 +35,8 @@ require 'db.php';
         <tbody id="showdata">
           <?php  
                 $sql = "SELECT E.*, PC.* FROM employees AS E
-                  INNER JOIN  postalCodes as PC ON PC.PostalCode = E.PostalCode ORDER BY E.Date_OF_Add DESC";
+                  INNER JOIN  postalCodes as PC ON PC.PostalCode = E.PostalCode ORDER BY E.Date_OF_Add DESC
+                  ";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
