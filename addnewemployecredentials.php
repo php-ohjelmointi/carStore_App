@@ -3,12 +3,15 @@
     
 
   //SQL query employeeID
-  $sql_employees = "SELECT * FROM employees WHERE NOT EXISTS (SELECT * FROM credentials WHERE employees.Emp_ID = credentials.Emp_ID)
-  AND SSN IS NOT NULL";
+  $sql_employees = "SELECT * FROM employees
+ WHERE  NOT EXISTS 
+ (SELECT * FROM credentials WHERE employees.Emp_ID = credentials.Emp_ID)
+ AND SSN IS NOT NULL order by rand() LIMIT 1;";
   $all_sql_employees = mysqli_query($conn,$sql_employees); 
 
 
-  if(isset($_POST['addecredentials'])){
+//Manual Script
+/*  if(isset($_POST['addecredentials'])){
     
     $Employee_ID = mysqli_real_escape_string($conn,$_POST['Employee_ID']); 
     $Username = mysqli_real_escape_string($conn,$_POST['Username']);
@@ -23,7 +26,25 @@
                     {
                         header('Location:All_credentials.php');
                     }
-    }
+    } 
+ */
+
+//Automation script
+    $query_sql_GET_RandomEmployee = mysqli_query($conn,$sql_employees);
+    while($row = mysqli_fetch_assoc($query_sql_GET_RandomEmployee))
+      {
+        $Employee_Random_Emp_ID = $row['Emp_ID'];
+        $Employee_Random_Email = $row['Email'];
+        $Password = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwz/_!@$&)"),1,10);
+    
+    
+            $AddNewCredentials ="INSERT INTO credentials (`Emp_ID`,`Username`,`Password`) VALUES ('$Employee_Random_Emp_ID','$Employee_Random_Email','$Password')";
+            $AddNewCredentialsKysely = mysqli_query($conn, $AddNewCredentials) or die (mysqli_error($conn));
+              if($AddNewCredentialsKysely == 1)
+              {
+                header('Location:employee_credentials.php');
+              } 
+      }  
 ?>
 
 <!DOCTYPE html>

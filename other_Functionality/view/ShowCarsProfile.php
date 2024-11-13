@@ -38,8 +38,8 @@ WHERE c.VIN = '$VIN'";
         $Draw_Method = $row['Draw_Method'];
         
         $Color = $row['Color'];
-        $Number_Of_Person = $row['No. of person'];
-        $Number_OF_Doors = $row['No. of doors'];
+        $Number_Of_Person = $row['No_OF_Person'];
+        $Number_OF_Doors = $row['No_OF_Doors'];
         
         $TopSpeed = $row['TopSpeed'];
         $Engine_Capacity = $row['Engine_Capacity'];

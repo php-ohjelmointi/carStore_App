@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
 </head>
 
 <style>
@@ -48,6 +49,7 @@ require 'db.php';
           <th>Driving</th>
           <th>Price</th>
           <th>Date OF ADD</th>
+          <th>Action</th>
           </tr>
         </thead>
         <tbody id="showdata">
@@ -109,6 +111,10 @@ require 'db.php';
                       echo"<td>".$row['Draw_Method']."</td>";
                       echo"<td style='text-align:right;'>".$MuokattuTuhannet_ErotaTuhannet_Laske_hinta."&nbsp;<strong>€</strong></td>";
                       echo"<td style='text-align:center;'>".$New_DateOFAdd."</td>";
+
+
+                      echo"<td style='text-align:center;'>
+                      <a href='other_Functionality/updates/Update_car.php?VIN=$VIN'>UPDATE</a></td>";
                       echo"</tr>";   
                     }
             ?>

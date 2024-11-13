@@ -1,11 +1,17 @@
 <?php 
     include("../../db.php");
-    $VIN = $_GET['VIN'];
+    
+    if(isset($_GET['VIN'])){
+      $VIN = $_GET['VIN'];
+    }else{
+      $VIN = 'No data';
+    }
 
     $GetSpesificcarsDetail = "SELECT * FROM cars WHERE VIN = '$VIN'";
     $GetSpesificcarsDetail_Result = mysqli_query($conn,$GetSpesificcarsDetail);
     while($Getting_cars_detail = $GetSpesificcarsDetail_Result->fetch_assoc()) {
         $GetSpesificcars_Number_Plate = $Getting_cars_detail['Number_Plate'];
+        $GetSpesificcars_brand_ID = $Getting_cars_detail['Brand_ID'];
         $GetSpesificcars_Model = $Getting_cars_detail['Model'];
         $GetSpesificcars_Model_Spec = $Getting_cars_detail['Model_Spec'];
         $GetSpesificcars_Price  = $Getting_cars_detail['Price'];
@@ -17,8 +23,8 @@
         $GetSpesificcars_Type_OF_Body = $Getting_cars_detail['Type_OF_Body'];
         $GetSpesificcars_Draw_Method = $Getting_cars_detail['Draw_Method'];
         $GetSpesificcars_Color = $Getting_cars_detail['Color'];
-        $GetSpesificcars_Number_Of_Person = $Getting_cars_detail['Number_Of_Person'];
-        $GetSpesificcars_Number_OF_Doors = $Getting_cars_detail['Number_OF_Doors'];
+        $GetSpesificcars_Number_Of_Person = $Getting_cars_detail['No_OF_Person'];
+        $GetSpesificcars_Number_OF_Doors = $Getting_cars_detail['No_OF_Doors'];
         $GetSpesificcars_Power = $Getting_cars_detail['Power'];
         $GetSpesificcars_TopSpeed = $Getting_cars_detail['TopSpeed'];
         $GetSpesificcars_Engine_Capacity = $Getting_cars_detail['Engine_Capacity'];
@@ -31,13 +37,10 @@
         $GetSpesificcars_Width = $Getting_cars_detail['Width'];
         $GetSpesificcars_Length = $Getting_cars_detail['Length'];
         $GetSpesificcars_Mass = $Getting_cars_detail['Mass'];
-       
+        $GetSpesificcars_Torque = $Getting_cars_detail['Torque'];
         $GetSpesificcars_Store_ID = $Getting_cars_detail['Store_ID'];
-        
     }
 
-    
-    
     //SQL query brands
     $sql_brands = "SELECT * FROM brands";
     $all_brand = mysqli_query($conn,$sql_brands);
@@ -45,9 +48,13 @@
     //SQL query stores
     $sql_stores = "SELECT * FROM stores";
     $all_stores = mysqli_query($conn,$sql_stores);
+    
+    //SQL select models by brand
+    $sql_All_ModelsByBrands = "SELECT Distinct(Model) FROM cars where Brand_ID= '$GetSpesificcars_brand_ID' ORDER BY Model";
+    $query_sql_All_ModelsByBrands = mysqli_query($conn,$sql_All_ModelsByBrands);
+
 
   if(isset($_POST['addcar'])){
-    $VIN2 = mysqli_real_escape_string($conn,$_POST['VIN2']);
     $brand_ID = mysqli_real_escape_string($conn,$_POST['brand_ID']);
     $NumberPlate = mysqli_real_escape_string($conn,$_POST['NumberPlate']);
     $Model = mysqli_real_escape_string($conn,$_POST['Model']);
@@ -65,6 +72,7 @@
     $Number_OF_Doors = mysqli_real_escape_string($conn,$_POST['Number_OF_Doors']);
     $Power = mysqli_real_escape_string($conn,$_POST['Power']);
     $Mass = mysqli_real_escape_string($conn,$_POST['Mass']);
+    $Torque = mysqli_real_escape_string($conn,$_POST['Torque']);
     $TopSpeed = mysqli_real_escape_string($conn,$_POST['TopSpeed']);
     $Engine_Capacity = mysqli_real_escape_string($conn,$_POST['Engine_Capacity']);
     $store_ID = mysqli_real_escape_string($conn,$_POST['store_ID']);
@@ -77,51 +85,7 @@
     $Energy_label = mysqli_real_escape_string($conn,$_POST['Energy_label']);
     $Battery_Capacity = mysqli_real_escape_string($conn,$_POST['Battery_Capacity']);
 
-    if(empty($_POST['Engine_Capacity'])){
-      $NewEngine_Capacity = 'NULL';
-    }else{
-      $NewEngine_Capacity = $Engine_Capacity;
-    }
-    if(empty($_POST['Power'])){
-      $NewPower = 'NULL';
-    }else{
-      $NewPower = $Power;
-    }
-    if(empty($_POST['Mass'])){
-      $NewMass = 'NULL';
-    }else{
-      $NewMass = $Mass;
-    }
-    if(empty($_POST['TopSpeed'])){
-      $NewTopSpeed = 'NULL';
-    }else{
-      $NewTopSpeed = $TopSpeed;
-    }
-
-    $sql_CheckNumberPlate = "SELECT * FROM cars WHERE Number_Plate = '$NumberPlate'";
-    $res_CheckNumberPlate = mysqli_query($conn, $sql_CheckNumberPlate);
-    if(mysqli_num_rows($res_CheckNumberPlate) > 0) {
-      echo "<script>alert('NumberPlate already exist..try with new one');</script>";
-    }
-    else 
-    {
-      $AddNewCar ="INSERT INTO cars (`VIN`, `Number_Plate`, `Brand_ID`, `Model`, `Model_Spec`, `Price`, `Year`, `Gearbox`, 
-      `Fuel_Type`, `Mileage`, `Type_OF_Car`, `Type_OF_Body`, `Draw_Method`, `Color`, `Number_Of_Person`, `Number_OF_Doors`, `Power`, 
-      `Mass`, `TopSpeed`, `Engine_Capacity`, `Steering`, `Energy_label`, `Electric_Range`, `Battery_Capacity`, `Acceleration`, `Height`, 
-      `Width`, `Length`, `Store_ID`) VALUES 
-        ( '$VIN2','$NumberPlate','$brand_ID','$Model','$Model_Spec','$Price','$Year','$Gearbox','$Fuel_type',
-          '$Mileage','$TypeOFCar','$TypeOFBody','$DrawMethod','$Color','$Number_Of_Person','$Number_OF_Doors','$NewPower','$NewMass',
-          '$NewTopSpeed','$NewEngine_Capacity','$Steering','$Energy_label','$Electric_Range','$Battery_Capacity',
-          '$Acceleration','$Height','$Width','$Length','$store_ID')";
-            $AddNewCarKysely = mysqli_query($conn, $AddNewCar) or die (mysqli_error($conn));
-              if($AddNewCarKysely == 1)
-                {
-                  header('Location:All_cars.php');
-                }
-    }
-
-    
-    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -165,6 +129,7 @@
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <div class="ROW">
         <div class="form-group">
+        <span>VIN</span>
             <input 
                 type="text" 
                 class="form-control" 
@@ -178,6 +143,7 @@
 
       &nbsp;&nbsp;&nbsp;
       <div class="form-group">
+      <span>Number Plate</span>
         <input  
           type="text" 
           class="form-control" 
@@ -189,8 +155,11 @@
           value=<?php echo $GetSpesificcars_Number_Plate; ?>
         >
       </div>
-
     </div>
+
+
+
+    <span>Brand</span><span style="margin-left:38.5em;">Model</span>
     <div class="ROW">
       <select name="brand_ID" id="email" class="form-control">
         <?php 
@@ -212,25 +181,39 @@
             // While loop must be terminated
         ?>
       </select>
-
       &nbsp;&nbsp;&nbsp;
-      <input 
-        type="text" 
-        class="form-control" 
-        id="email" 
-        name="Model" 
-        placeholder="Model" 
-        value=<?php echo $GetSpesificcars_Model; ?>
-    >
+      <select name="Model" id="email" class="form-control">
+        <?php 
+            // use a while loop to fetch data 
+            // from the $all_categories variable 
+            // and individually display as an option
+            while ($Models = mysqli_fetch_array(
+                    $query_sql_All_ModelsByBrands,MYSQLI_ASSOC)):; 
+        ?>
+            <option value="<?php echo $Models["Model"];
+                // The value we usually set is the primary key
+            ?>">
+                <?php echo $Models["Model"];
+                    // To show the category name to the user
+                ?>
+            </option>
+        <?php 
+            endwhile; 
+            // While loop must be terminated
+        ?>
+      </select>
+
     </div>
     <br />
+    <span>Model_spec</span><span style="margin-left:36em;" >Price</span>
     <div class="ROW">
       <input type="text" class="form-control" id="email" name="Model_spec" placeholder="model_spec" value=<?php echo $GetSpesificcars_Model_Spec; ?>>
-       &nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp; 
       <input type="text" class="form-control" id="email" name="Price" placeholder="Price" value=<?php echo $GetSpesificcars_Price; ?>>
     </div>
 
     <br />
+    <span>Fuel_type</span><span style="margin-left:37em;" >Mileage</span>
     <div class="ROW">
       <select name="Fuel_type" id="email" class="form-control" >
         <option value="#"><?php echo $GetSpesificcars_Fuel_Type; ?></option>
@@ -251,6 +234,7 @@
         >
     </div>
     <br />
+    <span>TypeOFCar</span><span style="margin-left:37em;" >TypeOFBody</span>
     <div class="ROW">
     <select name="TypeOFCar" id="email" class="form-control">
         <option value="#" style="font-weight:bold;"><?php echo $GetSpesificcars_Type_OF_Car; ?></option>
@@ -275,6 +259,7 @@
     </div>
 
     <br />
+    <span>DrawMethod</span><span style="margin-left:30em;" >Color</span><span style="margin-left:30em;" >Gearbox</span>
     <div class="ROW">
       <select name="DrawMethod" id="email" class="form-control">
         <option value="#"><?php echo $GetSpesificcars_Draw_Method; ?></option>
@@ -301,6 +286,7 @@
     </div>
 
     <br />
+    <span>Number_Of_Person</span><span style="margin-left:37em;" >Number_OF_Doors</span>
     <div class="ROW">
         <input 
             type="text" 
@@ -322,13 +308,18 @@
     </div>
 
     <br />
+    <span>Power</span><span style="margin-left:30em;" >Mass</span><span style="margin-left:30em;" >Torque</span>
     <div class="ROW">
       <input type="text" class="form-control" id="email" name="Power" placeholder="Power"  value=<?php echo $GetSpesificcars_Power; ?>>
        &nbsp;&nbsp;&nbsp;
       <input type="text" class="form-control" id="email" name="Mass" placeholder="Mass"  value=<?php echo $GetSpesificcars_Mass; ?>>
+      &nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="email" name="Torque" placeholder="Torque"  value=<?php echo $GetSpesificcars_Torque; ?>>
     </div>
+  
 
     <br />
+    <span>TopSpeed</span><span style="margin-left:27em;" >Engine_Capacity</span><span style="margin-left:27em;" >Battery_Capacity</span>
     <div class="ROW">
       <input type="text" class="form-control" id="email" name="TopSpeed" placeholder="TopSpeed" value=<?php echo $GetSpesificcars_TopSpeed; ?>>
        &nbsp;&nbsp;&nbsp;
@@ -338,6 +329,7 @@
     </div>
 
     <br />
+    <span>Energy_label</span><span style="margin-left:27em;" >Electric_Range</span><span style="margin-left:27em;" >Acceleration</span>
     <div class="ROW">
       <input type="text" class="form-control" id="email" name="Energy_label" placeholder="Energy label" value=<?php echo $GetSpesificcars_Energy_label; ?> >
        &nbsp;&nbsp;&nbsp;
@@ -347,6 +339,7 @@
     </div>
 
     <br />
+    <span>Width</span><span style="margin-left:27em;" >Height</span><span style="margin-left:27em;" >Length</span>
     <div class="ROW">
         <input type="text" class="form-control" id="email" name="Width" placeholder="Width (mm)" value=<?php echo $GetSpesificcars_Width; ?> >
         &nbsp;&nbsp;&nbsp;
@@ -368,6 +361,7 @@
     </div>
 
     <br />
+    <span>Year</span><span style="margin-left:26em;" >store_ID</span><span style="margin-left:25em;" >Steering</span>
     <div class="ROW">
         <input 
             type="text" 

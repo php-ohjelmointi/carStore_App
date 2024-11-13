@@ -2,7 +2,7 @@
   require 'db.php';
   
    //Counting cours
-   $sql_countCars = "SELECT count(Row_ID) AS numberOFCars FROM cars";
+   $sql_countCars = "SELECT count(Row_ID) AS numberOFCars FROM cars WHERE Number_Plate IS NOT NULL";
    $countCars = mysqli_query($conn,$sql_countCars);
 
    if ($countCars->num_rows > 0) {
@@ -94,24 +94,60 @@
 
     } 
 
+
+    //GET latest Customer
+   $sql_GET_latest_Customer= "SELECT Customer_ID,SSN,concat(F_Name,' ',L_Name) AS CustomerName, Date_OF_Update FROM customers ORDER BY Date_OF_Update DESC LIMIT 1;";
+   $Query_sql_GET_latest_Customer= mysqli_query($conn,$sql_GET_latest_Customer);
+
+   if ($Query_sql_GET_latest_Customer->num_rows > 0) {
+        // output data of each row
+        while($row = $Query_sql_GET_latest_Customer->fetch_assoc()) {
+            $Customer_ID_LastUpdate = $row["Customer_ID"];
+            $SSN_LastUpdate = $row["SSN"];
+            $Name_LastUpdate = $row["CustomerName"];
+        }
+    } else {
+
+    } 
+
+
+    
+    //Counting cars --NO NumberPlate
+   $sql_countCars_NO_NumberPlate = "SELECT count(VIN) AS numberOFCars_No_NumberPlate FROM cars WHERE Number_Plate IS NULL";
+   $countCars_NO_NumberPlate = mysqli_query($conn,$sql_countCars_NO_NumberPlate);
+
+   if ($countCars_NO_NumberPlate->num_rows > 0) {
+        // output data of each row
+        while($row = $countCars_NO_NumberPlate->fetch_assoc()) {
+            $NumberOFCars_No_NumberPlate = $row["numberOFCars_No_NumberPlate"];
+        }
+    } else {
+
+    } 
+
+
     ?>
-      <!--   <script>
-            // Your application has indicated there's an error
+
+ <script>
+            
+           /* // Your application has indicated there's an error
             window.setTimeout(function(){
-
             // Move to a new location or you can do something else
-            window.location.href = "Customer_No_SSN_ALL.php";
+            location.href = "Customer_No_SSN_ALL.php";
+            },300);  */
 
-            }, 50);
-        </script> -->
-    <?php  
+            /* // Your application has indicated there's an error
+            window.setTimeout(function(){
+            // Move to a new location or you can do something else
+            location.href = "Cars_No_NumberPlate.php";
+            },300);         */  
 
-?>
+    </script> 
 
 <!DOCTYPE html>
 <html lang="fi-FI">
 <head>
-  <title>ALL CARS</title>
+  <title>Main Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -194,6 +230,9 @@
     <div class="imagegrid">
         <a href="NumbersOFcarsImage.php"><button type="button" class="btn btn-primary"># of cars image</button></a>
     </div> 
+
+    <h1 style="border-bottom:1px solid gray;"></h1>
+    <p>No NumberPlate (TOTAL): <span><?php echo $NumberOFCars_No_NumberPlate; ?></span></p>
     </div>
 
     <div class="well">
@@ -234,8 +273,8 @@
 
         <h1 style="border-bottom:1px solid gray;"></h1>
         <br />      
-        <p>No SSN (TOTAL): <span><a href="Customer_No_SSN_ALL.php"><?php echo $CustomerNumber_NO_SSN; ?></a></span></p>
-
+        <p>No SSN (TOTAL):<span><?php echo $CustomerNumber_NO_SSN; ?></a></span></p>
+        <p style="font-size:20px;"><?php echo $Customer_ID_LastUpdate."<br>".$SSN_LastUpdate."<br>".$Name_LastUpdate; ?></p>
         
     </div>
 
@@ -274,7 +313,7 @@
 
         <h1 style="border-bottom:1px solid gray;"></h1>
         <br />      
-        <p>No SSN (TOTAL): <span><a href="Customer_No_SSN_ALL.php"><?php echo $EmployeeNumber_NO_SSN; ?></a></span></p>
+        <p>No SSN (TOTAL): <span><?php echo $EmployeeNumber_NO_SSN; ?></span></p>
         <br />
      
     </div>
@@ -282,10 +321,15 @@
     <div class="well">
         <h1 style="border-bottom:1px solid gray;">Credentials</h1>
         <p>Credentials (TOTAL): <span><?php echo $CredentialsNumber; ?></span></p><br />
-        <a href="All_credentials.php"><button type="button" class="btn btn-primary">All Credentials</button></a>
-        <a href="All_credentialslogs.php"><button type="button" class="btn btn-primary">Credentials logs</button></a>
+        <a href="employee_credentials.php"><button type="button" class="btn btn-primary">Emp. Credentials</button></a>
+        <a href="customer_credentials.php"><button type="button" class="btn btn-primary">Cust. Credentials</button></a>
         <br /><br />
 
+        <div class="imagegrid">
+            <a href="employee_credentials_LOG.php"> <button type="button" class="btn btn-primary">EMP cred LOG.</button></a>
+            <a href="customer_credentials_LOG.php"> <button type="button" class="btn btn-primary">Cust cred LOG.</button></a>
+        </div>
+        <br /><br />
         <div class="imagegrid">
             <a href="addnewemployecredentials.php"> <button type="button" class="btn btn-success ">+ Employee cred.</button></a>
             <a href="addcustomercredentials.php"> <button type="button" class="btn btn-success">+ Customer cred.</button></a>

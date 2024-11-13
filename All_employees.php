@@ -24,29 +24,43 @@ require 'db.php';
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>SSN</th>
+          <th>SSN</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Gender</th>
+            <th>Nationality</th>
             <th>Address</th>
             <th>Postalcode</th>
             <th>Date OF ADD</th>
+            <th>Date OF Update</th>
           </tr>
         </thead>
         <tbody id="showdata">
           <?php  
-                $sql = "SELECT E.*, PC.* FROM employees AS E
-                  INNER JOIN  postalCodes as PC ON PC.PostalCode = E.PostalCode ORDER BY E.Date_OF_Add DESC
+                $sql = "SELECT E.*, PC.*,CO.Name AS CountryName FROM employees AS E
+                  INNER JOIN  postalCodes as PC ON PC.PostalCode = E.PostalCode 
+                  INNER JOIN country AS CO ON CO.Code2 = E.Nationality  
+                  ORDER BY E.Date_OF_Add DESC
                   ";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
+
+                    $date_OF_ADD = date("d.m.Y", strtotime($row['Date_OF_Add']));
+                    $date_OF_Update = date("d.m.Y h:m:s", strtotime($row['Date_OF_Update']));
+
+
                     echo"<tr>";
                     echo"<td>".$row['SSN']."</td>";
-                    echo"<td>".$row['F_Name'].", ".$row['L_Name']."</td>";
+                    echo"<td>".$row['F_Name'].", <strong>".$row['L_Name']."</strong></td>";
+                    echo"<td>".$row['Email']."</td>";
                     echo"<td>".$row['Gender']."</td>";
+                    echo"<td><strong>".$row['Nationality']."</strong> ".$row['CountryName']."</td>";
                     echo"<td>".$row['Address']."</td>";
-                    echo"<td>".$row['PostalCode'].", ".$row['Region']."</td>";
-                    echo"<td>".$row['Date_OF_Add']."</td>";
+                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Region']."</td>";
+                    echo"<td>".$date_OF_ADD."</td>";
+                    echo"<td>".$date_OF_Update."</td>";
+                    
                     echo"</tr>";   
                   }
             ?>

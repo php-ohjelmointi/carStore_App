@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,20 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
 <?php
 require 'db.php';
+
 ?>
-<!-- <script>
 
-  // Your application has indicated there's an error
-  window.setTimeout(function(){
-  // Move to a new location or you can do something else
-  window.location.href = "All_customer.php";
+<style>
+  tbody {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
 
-  }, 50);
-</script> -->
+  }
+</style>
 
 <div class="mt-2" style='margin-left:1em;margin-right:1em'>
 <a href="index.php"><button type="button" class="btn btn-info">MAIN PAGE</button></a>
@@ -36,6 +38,7 @@ require 'db.php';
           <tr>
             <th>SSN</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Gender</th>
             <th>Nationality</th>
             <th>Address</th>
@@ -50,8 +53,7 @@ require 'db.php';
                   FROM customers AS C
                   INNER JOIN  postalCodes AS PC ON PC.PostalCode = C.PostalCode
                   INNER JOIN country AS CO ON CO.Code2 = C.Nationality  
-                  WHERE C.SSN IS NOT NULL
-                  ORDER BY C.Date_OF_Update DESC";
+                  WHERE C.SSN IS NOT NULL ORDER BY C.SSN DESC";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
@@ -62,6 +64,7 @@ require 'db.php';
                     echo"<tr>";
                     echo"<td>".$row['SSN']."</td>";
                     echo"<td>".$row['F_Name']." <strong>".$row['L_Name']."</strong></td>";
+                    echo"<td>".$row['Email']."</td>";
                     echo"<td>".$row['Gender']."</td>";
                     echo"<td><strong>".$row['Nationality']."</strong> ".$row['CountryName']."</td>";
                     echo"<td>".$row['Address']."</td>";

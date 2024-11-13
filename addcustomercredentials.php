@@ -7,13 +7,12 @@
  $sql_customers = "SELECT * FROM customers
  WHERE  NOT EXISTS 
  (SELECT * FROM credentials WHERE customers.Customer_ID = credentials.Customer_ID)
- AND SSN IS NOT NULL;";
+ AND SSN IS NOT NULL LIMIT 1";
  $all_sql_customers = mysqli_query($conn,$sql_customers);
 
 
-  if(isset($_POST['addecredentials'])){
+ /*  if(isset($_POST['addecredentials'])){
     $Customer_ID = mysqli_real_escape_string($conn,$_POST['Customer_ID']);
-    /* $Employee_ID = mysqli_real_escape_string($conn,$_POST['Employee_ID']); */
     $Username = mysqli_real_escape_string($conn,$_POST['Username']);
     $Password = mysqli_real_escape_string($conn,$_POST['Password']);
 
@@ -27,7 +26,30 @@
                     {
                         header('Location:All_credentials.php');
                     }
-    }
+    } */
+
+
+    $query_sql_GET_RandomCustomer = mysqli_query($conn,$sql_customers);
+    while($row = mysqli_fetch_assoc($query_sql_GET_RandomCustomer))
+      {
+        $Customer_Random_Customer_ID = $row['Customer_ID'];
+        $Customer_Random_Email = $row['Email'];
+        $Password = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwz/_!@$&)"),1,10);
+    
+            $AddNewCredentials ="INSERT INTO credentials (`Customer_ID`,`Username`,`Password`) VALUES ('$Customer_Random_Customer_ID','$Customer_Random_Email','$Password')";
+            $AddNewCredentialsKysely = mysqli_query($conn, $AddNewCredentials) or die (mysqli_error($conn));
+              if($AddNewCredentialsKysely == 1)
+              {
+                header('Location:customer_credentials.php');
+              }
+              else{
+                echo "All customer been added!";
+              }
+      }
+
+    
+
+
 ?>
 
 <!DOCTYPE html>
@@ -91,8 +113,7 @@
       <input type="text" class="form-control" id="Password" name="Password" placeholder="Password">
     </div>
     <br />
-
-
+ 
     <button type="submit" name="addecredentials" class="btn btn-success form-control" >Submit</button>
     <br/><br/>
     <a href="index.php"><button type="button" class="btn btn-default form-control">GO BACK</button></a>

@@ -1,6 +1,6 @@
 <?php 
   require 'db.php';
-  
+  error_reporting(0);  
   $sql_postalcodes = "SELECT * FROM postalcodes ORDER BY rand() LIMIT 1";
   $all_sql_postalcodes = mysqli_query($conn,$sql_postalcodes);
     while($row = mysqli_fetch_assoc($all_sql_postalcodes))
@@ -10,7 +10,7 @@
       }
 
 
-  $sql_GET_RandomCustomer= "SELECT * FROM customers WHERE SSN IS NULL ORDER BY rand() LIMIT 1";
+  $sql_GET_RandomCustomer= "SELECT * FROM customers WHERE SSN IS NULL LIMIT 1";
   $query_sql_GET_RandomCustomer = mysqli_query($conn,$sql_GET_RandomCustomer);
     while($row = mysqli_fetch_assoc($query_sql_GET_RandomCustomer))
       {
@@ -21,6 +21,7 @@
   $days = rand(01,31);
   if($days < 10){
     $nd = "0".$days;
+    
   }
   else{
     $nd = $days;
@@ -36,15 +37,22 @@ $month = rand(01, 12);
 $year = rand(20,99);
 $ChekNumber = rand(999,99);
 $Strting = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),1,1);
-$Henksu = $nd.$nm.$year.'-'. $ChekNumber.$Strting;
+$Normi_Henksu = $nd.$nm.$year.'-'.$ChekNumber.$Strting;
 
-$UpdateCustomer ="UPDATE customers SET `SSN` = '$Henksu', `PostalCode` = '$PostalCode' WHERE Customer_ID = '$Customer_ID'";
+if($nd % 3){
+  $Strting_2 = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),1,1);
+  $SekaHenksu = $nd.$nm.$year.$Strting_2.$ChekNumber.$Strting;
+}else{
+  $SekaHenksu = $Normi_Henksu;
+}
+
+$UpdateCustomer ="UPDATE customers SET `SSN` = '$SekaHenksu', `PostalCode` = '$PostalCode' WHERE Customer_ID = '$Customer_ID'";
 $UpdateCustomerKysely = mysqli_query($conn, $UpdateCustomer) or die (mysqli_error($conn));
   if($UpdateCustomerKysely == 1)
   {
-    header('Location:index.php');
+    header("Location:index.php");   
   }
-
+  
    
 ?>
 
