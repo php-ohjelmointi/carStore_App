@@ -20,8 +20,14 @@ require 'db.php';
     font-optical-sizing: auto;
     font-weight: <weight>;
     font-style: normal;
-
   }
+
+  .regionUppercase{
+    text-transform: uppercase;
+    font-weight: 550;
+  }
+
+
 </style>
 
 <div class="mt-2" style='margin-left:1em;margin-right:1em'>
@@ -53,7 +59,7 @@ require 'db.php';
                   FROM customers AS C
                   INNER JOIN  postalCodes AS PC ON PC.PostalCode = C.PostalCode
                   INNER JOIN country AS CO ON CO.Code2 = C.Nationality  
-                  WHERE C.SSN IS NOT NULL ORDER BY C.SSN DESC";
+                  WHERE C.SSN IS NOT NULL ORDER BY C.SSN DESC LIMIT 50";
                   $query = mysqli_query($conn,$sql);
                   while($row = mysqli_fetch_assoc($query))
                   {
@@ -68,7 +74,7 @@ require 'db.php';
                     echo"<td>".$row['Gender']."</td>";
                     echo"<td><strong>".$row['Nationality']."</strong> ".$row['CountryName']."</td>";
                     echo"<td>".$row['Address']."</td>";
-                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Region']."</td>";
+                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Area']." <span class='regionUppercase'>".$row['Region']."</span></td>";
                     echo"<td>". $date_OF_ADD."</td>";
                     echo"<td>".$date_OF_Update."</td>";
                     echo"</tr>";   

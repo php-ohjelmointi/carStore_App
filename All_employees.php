@@ -57,7 +57,7 @@ require 'db.php';
                     echo"<td>".$row['Gender']."</td>";
                     echo"<td><strong>".$row['Nationality']."</strong> ".$row['CountryName']."</td>";
                     echo"<td>".$row['Address']."</td>";
-                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Region']."</td>";
+                    echo"<td><strong>".$row['PostalCode']."</strong>, ".$row['Area']." ".$row['Region']."</td>";
                     echo"<td>".$date_OF_ADD."</td>";
                     echo"<td>".$date_OF_Update."</td>";
                     
